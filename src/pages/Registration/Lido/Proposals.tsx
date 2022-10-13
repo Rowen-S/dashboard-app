@@ -79,7 +79,7 @@ const MoreOptionsButton = styled.div`
   }
 `
 
-const menuStatusItems = ['All', 'Active', 'Pending', 'Close', 'Core']
+const menuStatusItems = ['All', 'Active', 'Pending', 'Closed']
 
 export default function Proposals() {
   const toggle = useToggleModal(ApplicationModal.PROPOSALS_STATUS)
