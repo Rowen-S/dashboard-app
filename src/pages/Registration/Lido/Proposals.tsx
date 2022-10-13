@@ -1,24 +1,20 @@
-import { KeyboardEvent, RefObject, useCallback, useEffect, useRef, useState } from 'react'
+import { KeyboardEvent, RefObject, useCallback, useRef, useState } from 'react'
 import styled from 'styled-components/macro'
-import { darken } from 'polished'
 import { Line, TYPE } from 'theme'
 
-import { useGetProposalsQuery } from 'graphql/services/snapshot'
 import useDebounce from 'hooks/useDebounce'
 
 import { FixedSizeList } from 'react-window'
-import { ArrowLeft, ArrowRight, ChevronDown } from 'react-feather'
+import { ChevronDown } from 'react-feather'
 import { useToggleModal } from 'state/application/hooks'
 import { ApplicationModal } from 'state/application/reducer'
 
-import { Button } from 'rebass/styled-components'
 import { AutoColumn } from 'components/Column'
 import { SearchInput } from 'components/Input/styled'
-import Row, { RowBetween, RowFixed, RowFlat } from 'components/Row'
+import { RowBetween } from 'components/Row'
 
 import { FlyoutAlignment, SelectMenu } from 'components/Menu'
-import Identicon from 'components/Identicon'
-import { LoadingRows } from 'components/Loader/styled'
+import PropsalList from './PropsalList'
 
 const PropsalsWrapper = styled(AutoColumn)`
   width: 100%;
@@ -83,126 +79,8 @@ const MoreOptionsButton = styled.div`
   }
 `
 
-const Proposal = styled(Button)`
-  padding: 1rem 1.5rem;
-  width: 100%;
-  margin-top: 1rem;
-  border-radius: 6px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
-  outline: none;
-  cursor: pointer;
-  color: ${({ theme }) => theme.text1};
-  text-decoration: none;
-  background-color: ${({ theme }) => theme.bg0};
-
-  border-style: solid;
-  border: 1px solid ${({ theme }) => theme.bg3};
-
-  &:focus {
-    background-color: ${({ theme }) => darken(0.05, theme.bg1)};
-  }
-  &:hover {
-    background-color: ${({ theme }) => theme.bg2};
-    text-decoration: none;
-  }
-`
-
-const IdenticonWrapper = styled.div`
-  padding: 10px;
-  border-radius: 5px;
-  margin-right: 16px;
-  background-color: ${({ theme }) => theme.bg1}; ;
-`
-
-const PageButton = styled(Button)`
-  padding: unset;
-  outline: none;
-  cursor: pointer;
-  background-color: ${({ theme }) => theme.primary1};
-  &:hover {
-    background-color: ${({ theme }) => darken(0.05, theme.primary1)};
-    border: 1px solid ${({ theme }) => theme.bg3};
-  }
-  &:disabled {
-    opacity: 50%;
-    cursor: auto;
-  }
-`
-
 const menuStatusItems = ['All', 'Active', 'Pending', 'Close', 'Core']
 
-function ProposalsList({ status = 'all' }: { status: string }) {
-  const [skipNumber, setSkipNumber] = useState(0)
-  const {
-    data: proposalList,
-    isLoading,
-    isFetching,
-  } = useGetProposalsQuery({ spacein: ['lido-snapshot.eth'], skipNumber, status: status.toLocaleLowerCase() })
-
-  const previousPage = useCallback(() => {
-    let a = skipNumber
-    setSkipNumber((a -= 10))
-  }, [setSkipNumber, skipNumber])
-
-  const nextPage = useCallback(() => {
-    let a = skipNumber
-    setSkipNumber((a += 10))
-  }, [setSkipNumber, skipNumber])
-
-  console.log('skipNumber', skipNumber)
-
-  useEffect(() => {
-    return () => {
-      setSkipNumber(0)
-    }
-  }, [])
-
-  return (
-    <div>
-      {isLoading && (
-        <LoadingRows>
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-        </LoadingRows>
-      )}
-      {proposalList?.proposals.map((p) => (
-        <Proposal key={p.id} onClick={() => window.open(`//snapshot.org/#/lido-snapshot.eth/proposal/${p.id}`)}>
-          <RowFixed>
-            <IdenticonWrapper>
-              <Identicon account={p.author} size={20} />
-            </IdenticonWrapper>
-            <AutoColumn gap="8px">
-              <TYPE.body>{p.title}</TYPE.body>
-              <TYPE.subHeader
-                color={'text3'}
-                dangerouslySetInnerHTML={{
-                  __html: p.body && `${p.body.substring(0, 100)}...`,
-                }}
-              />
-            </AutoColumn>
-          </RowFixed>
-        </Proposal>
-      ))}
-
-      <Row marginTop={'30px'} justify={'flex-end'}>
-        <RowFlat>
-          <PageButton width={40} height={40} onClick={previousPage} disabled={skipNumber < 10}>
-            <ArrowLeft size={24} strokeWidth={3} />
-          </PageButton>
-          <PageButton marginLeft={15} width={40} height={40} onClick={nextPage}>
-            <ArrowRight size={24} strokeWidth={3} />
-          </PageButton>
-        </RowFlat>
-      </Row>
-    </div>
-  )
-}
 export default function Proposals() {
   const toggle = useToggleModal(ApplicationModal.PROPOSALS_STATUS)
 
@@ -275,7 +153,7 @@ export default function Proposals() {
       <AutoColumn gap="16px">
         <TYPE.largeHeader>Proposal</TYPE.largeHeader>
         <Line />
-        <ProposalsList status={status} />
+        <PropsalList status={status} />
       </AutoColumn>
     </PropsalsWrapper>
   )

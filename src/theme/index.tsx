@@ -84,6 +84,9 @@ function colors(darkMode: boolean): Colors {
     red2: darkMode ? '#F82D3A' : '#DF1F38',
     red3: '#D60000',
     green1: darkMode ? '#27AE60' : '#007D35',
+
+    green2: darkMode ? '#00C600' : '#00C600',
+
     yellow1: '#E3A507',
     yellow2: '#FF8F00',
     yellow3: '#F3B71E',
