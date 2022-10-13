@@ -130,13 +130,13 @@ function replaceStatus(status: string) {
   }
 }
 
-export default function PropsalList({ status = 'all' }: { status: string }) {
+export default function PropsalList({ title = '', status = 'all' }: { title: string; status: string }) {
   const [skipNumber, setSkipNumber] = useState(0)
   const {
     data: proposalList,
     isLoading,
     isFetching,
-  } = useGetProposalsQuery({ spacein: ['lido-snapshot.eth'], skipNumber, status: status.toLocaleLowerCase() })
+  } = useGetProposalsQuery({ spacein: ['lido-snapshot.eth'], skipNumber, title, status: status.toLocaleLowerCase() })
 
   const previousPage = useCallback(() => {
     let a = skipNumber
@@ -149,11 +149,15 @@ export default function PropsalList({ status = 'all' }: { status: string }) {
   }, [setSkipNumber, skipNumber])
 
   useEffect(() => {
+    setSkipNumber(0)
     return () => {
       setSkipNumber(0)
     }
-  }, [])
+  }, [title])
 
+  if (!proposalList?.proposals.length) {
+    return <div>No posts :(</div>
+  }
   return (
     <div>
       {isLoading && (

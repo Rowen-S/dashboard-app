@@ -2,7 +2,7 @@ import { AutoColumn } from 'components/Column'
 import { SearchInput } from 'components/Input/styled'
 import Row from 'components/Row'
 import useDebounce from 'hooks/useDebounce'
-import { KeyboardEvent, useCallback, useState, useRef, RefObject } from 'react'
+import { KeyboardEvent, useCallback, useState, useRef, RefObject, useMemo } from 'react'
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components/macro'
 import { Line, TYPE } from 'theme'
@@ -93,7 +93,7 @@ const iframeList = [
 
 export default function PublicOpinion() {
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const debouncedQuery = useDebounce(searchQuery, 200)
+  const debouncedQuery = useDebounce(searchQuery, 800)
 
   // refs for fixed size lists
   const fixedList = useRef<FixedSizeList>()
@@ -116,6 +116,24 @@ export default function PublicOpinion() {
     [debouncedQuery]
   )
 
+  const fuzzyQuery = useCallback((list: { title: string; author: string; url: string }[], keyWord: string) => {
+    const arr = []
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].title.indexOf(keyWord) >= 0) {
+        arr.push(list[i])
+      }
+    }
+    return arr
+  }, [])
+
+  const filterList = useMemo(() => {
+    if (debouncedQuery) {
+      return fuzzyQuery(iframeList, debouncedQuery)
+    } else {
+      return iframeList
+    }
+  }, [debouncedQuery, fuzzyQuery])
+
   return (
     <PublicOpininoWrapper gap="24px">
       <TYPE.body>All data and charts on this page are from members of HashKey Dao.</TYPE.body>
@@ -124,7 +142,7 @@ export default function PublicOpinion() {
         <PublicOpininoSearchInput
           type="text"
           id="token-search-input"
-          placeholder={`Search by proposal key word, governace`}
+          placeholder={`Search by Opinino key word`}
           autoComplete="off"
           value={searchQuery}
           ref={inputRef as RefObject<HTMLInputElement>}
@@ -134,7 +152,7 @@ export default function PublicOpinion() {
       </Row>
       <Line />
       <OpinionWrapper>
-        {iframeList.map((ifr, index) => (
+        {filterList.map((ifr, index) => (
           <AutoColumn key={ifr.author + index} gap="14px">
             <TYPE.mediumHeader>{ifr.title}</TYPE.mediumHeader>
             <TYPE.subHeader>@{ifr.author}</TYPE.subHeader>

@@ -88,8 +88,9 @@ export default function Proposals() {
   const fixedList = useRef<FixedSizeList>()
 
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const debouncedQuery = useDebounce(searchQuery, 200)
+  const debouncedQuery = useDebounce(searchQuery, 800)
   const [status, setStatus] = useState(menuStatusItems[0])
+  const [title, setTitle] = useState<string>('')
 
   // manage focus on modal show
   const inputRef = useRef<HTMLInputElement>()
@@ -104,6 +105,9 @@ export default function Proposals() {
       if (e.key === 'Enter') {
         const s = debouncedQuery.toLowerCase().trim()
         console.log('handleEnter', s)
+        setTitle(s)
+      } else {
+        setTitle(debouncedQuery.toLowerCase().trim())
       }
     },
     [debouncedQuery]
@@ -153,7 +157,7 @@ export default function Proposals() {
       <AutoColumn gap="16px">
         <TYPE.largeHeader>Proposal</TYPE.largeHeader>
         <Line />
-        <PropsalList status={status} />
+        <PropsalList status={status} title={title} />
       </AutoColumn>
     </PropsalsWrapper>
   )

@@ -37,7 +37,7 @@ interface TabsProps {
 
 export default function DataTabs({ data }: TabsProps) {
   return (
-    <Tabs defaultIndex={2}>
+    <Tabs>
       <TabListComponents>
         {data.map((tab, index) => (
           <TabComponents key={index}>{tab.label}</TabComponents>

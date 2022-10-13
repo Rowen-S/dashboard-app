@@ -21,14 +21,17 @@ export const proposalsApi = createApi({
     url: 'https://hub.snapshot.org/graphql',
   }),
   endpoints: (builder) => ({
-    getProposals: builder.query<GetProposalsResponse, { spacein: string[]; skipNumber: number; status?: string }>({
-      query: ({ spacein, skipNumber, status }) => ({
+    getProposals: builder.query<
+      GetProposalsResponse,
+      { spacein: string[]; skipNumber: number; title?: string; status?: string }
+    >({
+      query: ({ spacein, skipNumber, title, status }) => ({
         document: gql`
-          query Proposals($spacein: [String!], $skipNumber: Int! = 0, $status: String = "all") {
+          query Proposals($spacein: [String!], $skipNumber: Int! = 0, $title: String, $status: String = "all") {
             proposals(
               first: 10
               skip: $skipNumber
-              where: { space_in: $spacein, state: $status }
+              where: { space_in: $spacein, state: $status, title_contains: $title }
               orderBy: "created"
               orderDirection: desc
             ) {
@@ -51,6 +54,7 @@ export const proposalsApi = createApi({
         variables: {
           spacein,
           skipNumber,
+          title,
           status,
         },
       }),

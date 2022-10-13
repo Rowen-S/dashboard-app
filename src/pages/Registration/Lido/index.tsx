@@ -8,6 +8,11 @@ import Metrics from './Metrics'
 import Proposals from './Proposals'
 import PublicOpinion from './PublicOpinion'
 
+import LidoSvg from 'assets/svg/lido.svg'
+import Twitter from 'assets/svg/twitter.svg'
+import Discord from 'assets/svg/discord.svg'
+import Raddit from 'assets/svg/raddit.svg'
+
 const ProjectWrapper = styled(AutoColumn)`
   max-width: 1200px;
   width: 100%;
@@ -16,7 +21,9 @@ const Logo = styled.img`
   flex: none;
   width: 180px;
   height: 180px;
-  background: ${({ theme }) => theme.bg2}; ;
+  padding: 24px;
+  border-radius: 6px;
+  background: ${({ theme }) => theme.bg2};
 `
 const ProjectDetailWrapper = styled(AutoColumn)`
   margin-left: 55px;
@@ -28,6 +35,14 @@ const ProjectIntroduce = styled.div`
     :hover {
       text-decoration: underline;
     }
+  }
+`
+
+const SocialLogo = styled.img`
+  width: 28px;
+  height: 28px;
+  :hover {
+    opacity: 80%;
   }
 `
 
@@ -67,7 +82,7 @@ export default function Lido() {
   return (
     <ProjectWrapper gap="65px">
       <Row>
-        <Logo src="https://lh4.googleusercontent.com/VIGJi3ZmeNMLUA7bQkNTIvbMC0h0qiBU2pO1omdZpP7bq5k8DabYTWzaw0dZZYXNh9aaY7Eak4HO4k_F6rLikvWIjflz_ChF_IuiJNPrS8ngCBGADW2EKHubj1CPObdNlg=w1280" />
+        <Logo src={LidoSvg} />
         <ProjectDetailWrapper gap="25px">
           <ProjectIntroduce
             dangerouslySetInnerHTML={{
@@ -81,9 +96,15 @@ export default function Lido() {
             <AutoColumn gap="12px">
               <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
               <ProjectSocial>
-                <ExternalLink href={'//twitter.com/lidofinance'}>Twitter</ExternalLink>
-                <ExternalLink href={'//discord.com/invite/lido'}>Discord</ExternalLink>
-                <ExternalLink href={'//www.reddit.com/r/LidoFinance'}>Reddit</ExternalLink>
+                <ExternalLink href={'//twitter.com/lidofinance'}>
+                  <SocialLogo src={Twitter} alt="twitter" />
+                </ExternalLink>
+                <ExternalLink href={'//discord.com/invite/lido'}>
+                  <SocialLogo src={Discord} alt="discord" />
+                </ExternalLink>
+                <ExternalLink href={'//www.reddit.com/r/LidoFinance'}>
+                  <SocialLogo src={Raddit} alt="raddit" />
+                </ExternalLink>
               </ProjectSocial>
             </AutoColumn>
 
