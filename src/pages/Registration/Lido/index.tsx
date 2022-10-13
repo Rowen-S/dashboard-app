@@ -6,12 +6,13 @@ import { ExternalLink, TYPE } from 'theme'
 
 import Metrics from './Metrics'
 import Proposals from './Proposals'
+import PublicOpinion from './PublicOpinion'
 
 const ProjectWrapper = styled(AutoColumn)`
   max-width: 1200px;
   width: 100%;
 `
-const Logo = styled.div`
+const Logo = styled.img`
   flex: none;
   width: 180px;
   height: 180px;
@@ -59,30 +60,30 @@ export default function Lido() {
     },
     {
       label: 'Public opinion',
-      content: 'Perhaps the greatest dish ever invented but bigger and with rice.',
+      content: <PublicOpinion />,
     },
   ]
 
   return (
     <ProjectWrapper gap="65px">
       <Row>
-        <Logo />
+        <Logo src="https://lh4.googleusercontent.com/VIGJi3ZmeNMLUA7bQkNTIvbMC0h0qiBU2pO1omdZpP7bq5k8DabYTWzaw0dZZYXNh9aaY7Eak4HO4k_F6rLikvWIjflz_ChF_IuiJNPrS8ngCBGADW2EKHubj1CPObdNlg=w1280" />
         <ProjectDetailWrapper gap="25px">
           <ProjectIntroduce
             dangerouslySetInnerHTML={{
               __html: `Lido is a liquid staking solution for Ethereum and other proof of stake chains. This allows users to stake
             their tokens without having to lock assets or maintain staking infrastructure. Users who stake via Lido
             receive daily rewards in the form of staking derivative tokens which are pegged 1:1 to the underlying staked
-            assets. <a href=''>Website</a>`,
+            assets. <a href='//lido.fi/'>Website</a>`,
             }}
           />
-          <RowBetween>
+          <RowBetween width={'90%'}>
             <AutoColumn gap="12px">
               <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
               <ProjectSocial>
-                <ExternalLink href={''}>Twitter</ExternalLink>
-                <ExternalLink href={''}>Discord</ExternalLink>
-                <ExternalLink href={''}>Reddit</ExternalLink>
+                <ExternalLink href={'//twitter.com/lidofinance'}>Twitter</ExternalLink>
+                <ExternalLink href={'//discord.com/invite/lido'}>Discord</ExternalLink>
+                <ExternalLink href={'//www.reddit.com/r/LidoFinance'}>Reddit</ExternalLink>
               </ProjectSocial>
             </AutoColumn>
 

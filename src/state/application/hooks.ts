@@ -20,7 +20,7 @@ export function useOpenModal(modal: ApplicationModal): () => void {
   return useCallback(() => dispatch(setOpenModal(modal)), [dispatch, modal])
 }
 
-export function useCloseModal(_modal: ApplicationModal): () => void {
+export function useCloseModal(): () => void {
   const dispatch = useAppDispatch()
   return useCallback(() => dispatch(setOpenModal(null)), [dispatch])
 }
