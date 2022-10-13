@@ -48,6 +48,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Deploying to Vercel
 
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=)
+[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https://github.com/Rowen-S/dashboard-app)
 
 Reference article: ["Automatic Deployment of Personal Websites Using Vercel"] (https://blog.esunr.xyz/2022/07/0cce6064286a.html)
