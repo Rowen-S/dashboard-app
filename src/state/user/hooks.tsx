@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useAppDispatch, useRootSelector } from 'state/hook'
+import { useAppDispatch, useRootSelector } from 'state/hooks'
 import { shallowEqual } from 'react-redux'
 import { updateUserDarkMode } from './reducer'
 

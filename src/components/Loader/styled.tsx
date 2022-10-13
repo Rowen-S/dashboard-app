@@ -25,6 +25,7 @@ export const LoadingRows = styled.div`
     border-radius: 12px;
     height: 2.4em;
     will-change: background-position;
+    margin-bottom: 1em;
   }
 `
 

@@ -1,3 +1,5 @@
+import '@reach/tabs/styles.css'
+
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './pages/App'

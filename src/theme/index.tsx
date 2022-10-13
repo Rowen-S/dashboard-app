@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { Text, TextProps as TextPropsOriginal } from 'rebass'
+import { Box, Text, TextProps as TextPropsOriginal } from 'rebass'
 import styled, {
   createGlobalStyle,
   css,
@@ -46,7 +46,7 @@ function colors(darkMode: boolean): Colors {
     text2: darkMode ? '#C3C5CB' : '#565A69',
     text3: darkMode ? '#8F96AC' : '#6E727D',
     text4: darkMode ? '#B2B9D2' : '#C3C5CB',
-    text5: darkMode ? '#2C2F36' : '#EDEEF2',
+    text5: darkMode ? '#2C2F36' : '#E4E9ED',
 
     // backgrounds / greys
     bg0: darkMode ? '#191B1F' : '#FFF',
@@ -57,13 +57,16 @@ function colors(darkMode: boolean): Colors {
     bg5: darkMode ? '#6C7284' : '#888D9B',
     bg6: darkMode ? '#1A2028' : '#6C7284',
 
+    // backgrounds / yellow
+    bg7: darkMode ? '#FFEFE5' : '#FFEFE5',
+
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: darkMode ? '#2172E5' : '#E8006F',
-    primary2: darkMode ? '#3680E7' : '#FF8CC3',
+    primary1: darkMode ? '#2172E5' : '#FF5C00',
+    primary2: darkMode ? '#3680E7' : '#FFEFE5',
     primary3: darkMode ? '#4D8FEA' : '#FF99C9',
     primary4: darkMode ? '#376bad70' : '#F6DDE8',
     primary5: darkMode ? '#153d6f70' : '#FDEAF1',
@@ -136,6 +139,12 @@ const TextWrapper = styled(Text)<{ color: keyof Colors }>`
   color: ${({ color, theme }) => (theme as any)[color]};
 `
 
+export const Line = styled(Box)`
+  width: 100%;
+  height: 1px;
+  background-color: ${({ theme }) => theme.text5}; ;
+`
+
 export const TYPE = {
   main(props: TextProps) {
     return <TextWrapper fontWeight={500} color={'text2'} {...props} />
@@ -190,7 +199,7 @@ export const TYPE = {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: ${({ theme }) => theme.text1};
-  background-color: ${({ theme }) => theme.bg1} !important;
+  background-color: ${({ theme }) => theme.bg0} !important;
 }
 
 a {

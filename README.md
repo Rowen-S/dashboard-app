@@ -44,3 +44,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## Deploying to Vercel
+
+[![](https://vercel.com/button)](https://vercel.com/new/clone?s=)
+
+Reference article: ["Automatic Deployment of Personal Websites Using Vercel"] (https://blog.esunr.xyz/2022/07/0cce6064286a.html)

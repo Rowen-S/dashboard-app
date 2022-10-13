@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { useLocation } from 'react-router-dom'
 import { parse } from 'qs'
-import { useAppDispatch } from 'state/hook'
+import { useAppDispatch } from 'state/hooks'
 import { updateUserDarkMode } from 'state/user/reducer'
 
 export default function DarkModeQueryParamReader(): null {

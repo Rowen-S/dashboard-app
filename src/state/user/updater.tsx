@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useAppDispatch } from 'state/hook'
+import { useAppDispatch } from 'state/hooks'
 
 import { updateMatchesDarkMode } from './reducer'
 
