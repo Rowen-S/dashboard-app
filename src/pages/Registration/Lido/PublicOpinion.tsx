@@ -7,11 +7,11 @@ import { FixedSizeList } from 'react-window'
 import styled from 'styled-components/macro'
 import { Line, TYPE } from 'theme'
 
-const PublicOpininoWrapper = styled(AutoColumn)`
+const PublicOpinionWrapper = styled(AutoColumn)`
   width: 100%;
 `
 
-const PublicOpininoSearchInput = styled(SearchInput)`
+const PublicOpinionSearchInput = styled(SearchInput)`
   max-width: 368px;
   padding: 8px 16px 8px 40px;
   border-radius: 12px;
@@ -135,14 +135,14 @@ export default function PublicOpinion() {
   }, [debouncedQuery, fuzzyQuery])
 
   return (
-    <PublicOpininoWrapper gap="24px">
+    <PublicOpinionWrapper gap="24px">
       <TYPE.body>All data and charts on this page are from members of HashKey Dao.</TYPE.body>
       <Row>
-        <TYPE.mediumHeader>Opinino:</TYPE.mediumHeader>
-        <PublicOpininoSearchInput
+        <TYPE.mediumHeader>Opinion:</TYPE.mediumHeader>
+        <PublicOpinionSearchInput
           type="text"
           id="token-search-input"
-          placeholder={`Search by Opinino key word`}
+          placeholder={`Search by Opinion key word`}
           autoComplete="off"
           value={searchQuery}
           ref={inputRef as RefObject<HTMLInputElement>}
@@ -160,6 +160,6 @@ export default function PublicOpinion() {
           </AutoColumn>
         ))}
       </OpinionWrapper>
-    </PublicOpininoWrapper>
+    </PublicOpinionWrapper>
   )
 }
