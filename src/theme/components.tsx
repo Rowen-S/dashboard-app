@@ -1,9 +1,15 @@
-import React, { HTMLProps } from 'react'
-import { ArrowLeft, ExternalLink as LinkIconFeather, Trash, X } from 'react-feather'
+import useCopyClipboard from 'hooks/useCopyClipboard'
+import React, { forwardRef, HTMLProps, ReactNode, useCallback, useImperativeHandle, useState } from 'react'
+import { ArrowLeft, CheckCircle, Copy, ExternalLink as LinkIconFeather, Trash, X } from 'react-feather'
 import ReactGA from 'react-ga'
 import { Link } from 'react-router-dom'
 import styled, { css, keyframes } from 'styled-components/macro'
+import { Z_INDEX } from 'theme/zIndex'
+
 import { anonymizeLink } from '../utils/anonymizeLink'
+import { ReactComponent as TooltipTriangle } from '../assets/svg/tooltip_triangle.svg'
+
+import { Color } from './styled'
 
 export const ButtonText = styled.button`
   outline: none;
@@ -70,6 +76,19 @@ export const LinkStyledButton = styled.button<{ disabled?: boolean }>`
   }
 `
 
+export const ClickableStyle = css`
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 125ms;
+
+  :hover {
+    opacity: 0.6;
+  }
+  :active {
+    opacity: 0.4;
+  }
+`
+
 // An internal link from the react-router-dom library that is correctly styled
 export const StyledInternalLink = styled(Link)`
   text-decoration: none;
@@ -89,6 +108,12 @@ export const StyledInternalLink = styled(Link)`
   :active {
     text-decoration: none;
   }
+`
+
+export const LinkStyle = css`
+  color: ${({ theme }) => theme.primary1};
+  stroke: ${({ theme }) => theme.primary1};
+  font-weight: 500;
 `
 
 const StyledLink = styled.a`
@@ -133,11 +158,24 @@ const LinkIconWrapper = styled.a`
   }
 `
 
+const IconStyle = css`
+  height: 16px;
+  width: 18px;
+  margin-left: 10px;
+`
+
 const LinkIcon = styled(LinkIconFeather)`
   height: 16px;
   width: 18px;
   margin-left: 10px;
   stroke: ${({ theme }) => theme.blue1};
+`
+
+const CopyIcon = styled(Copy)`
+  ${IconStyle}
+  ${ClickableStyle}
+  ${LinkStyle}
+  stroke: ${({ theme }) => theme.primary1};
 `
 
 export const TrashIcon = styled(Trash)`
@@ -293,3 +331,198 @@ export const Dots = styled.span`
     }
   }
 `
+
+const TOOLTIP_WIDTH = 60
+
+const ToolTipWrapper = styled.div<{ isCopyContractTooltip?: boolean; tooltipX?: number }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: ${({ isCopyContractTooltip, tooltipX }) =>
+    isCopyContractTooltip && (tooltipX ? `${tooltipX - TOOLTIP_WIDTH / 2}px` : '50%')};
+  transform: translate(5px, 32px);
+  z-index: ${Z_INDEX.tooltip};
+`
+
+const StyledTooltipTriangle = styled(TooltipTriangle)`
+  path {
+    fill: ${({ theme }) => theme.black};
+  }
+`
+
+const CopiedTooltip = styled.div<{ isCopyContractTooltip?: boolean }>`
+  background-color: ${({ theme }) => theme.black};
+  text-align: center;
+  justify-content: center;
+  width: ${({ isCopyContractTooltip }) => !isCopyContractTooltip && `${TOOLTIP_WIDTH}px`};
+  height: ${({ isCopyContractTooltip }) => !isCopyContractTooltip && '32px'};
+  line-height: ${({ isCopyContractTooltip }) => !isCopyContractTooltip && '32px'};
+
+  padding: ${({ isCopyContractTooltip }) => isCopyContractTooltip && '8px'};
+  border-radius: 8px;
+
+  color: ${({ theme }) => theme.white};
+  font-size: 12;
+`
+function Tooltip({ isCopyContractTooltip, tooltipX }: { isCopyContractTooltip: boolean; tooltipX?: number }) {
+  return (
+    <ToolTipWrapper isCopyContractTooltip={isCopyContractTooltip} tooltipX={tooltipX}>
+      <StyledTooltipTriangle />
+      <CopiedTooltip isCopyContractTooltip={isCopyContractTooltip}>Copied!</CopiedTooltip>
+    </ToolTipWrapper>
+  )
+}
+
+const CopyIconWrapper = styled.div`
+  text-decoration: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`
+
+export function CopyLinkIcon({ toCopy }: { toCopy: string }) {
+  const [isCopied, setCopied] = useCopyClipboard()
+  const copy = useCallback(() => {
+    setCopied(toCopy)
+  }, [toCopy, setCopied])
+  return (
+    <CopyIconWrapper onClick={copy}>
+      <CopyIcon />
+      {isCopied && <Tooltip isCopyContractTooltip={false} />}
+    </CopyIconWrapper>
+  )
+}
+
+const FullAddress = styled.span`
+  @media only screen and (max-width: '420px') {
+    display: none;
+  }
+`
+const TruncatedAddress = styled.span`
+  display: none;
+  @media only screen and (max-width: '420px') {
+    display: flex;
+  }
+`
+
+const CopyAddressRow = styled.div<{ isClicked: boolean }>`
+  ${ClickableStyle}
+  color: inherit;
+  stroke: inherit;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 6px;
+  ${({ isClicked }) => isClicked && `opacity: 0.3 !important`}
+`
+
+const CopyContractAddressWrapper = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`
+
+export function CopyContractAddress({ address }: { address: string }) {
+  const [isCopied, setCopied] = useCopyClipboard()
+  const [tooltipX, setTooltipX] = useState<number | undefined>()
+  const copy = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      setTooltipX(e.clientX)
+      setCopied(address)
+    },
+    [address, setCopied]
+  )
+
+  const truncated = `${address.slice(0, 4)}...${address.slice(-3)}`
+  return (
+    <CopyContractAddressWrapper onClick={copy}>
+      <CopyAddressRow isClicked={isCopied}>
+        <FullAddress>{address}</FullAddress>
+        <TruncatedAddress>{truncated}</TruncatedAddress>
+        <Copy size={14} />
+      </CopyAddressRow>
+      {isCopied && <Tooltip isCopyContractTooltip tooltipX={tooltipX} />}
+    </CopyContractAddressWrapper>
+  )
+}
+
+const CopyHelperContainer = styled(LinkStyledButton)<{ clicked: boolean }>`
+  ${({ clicked }) => !clicked && ClickableStyle};
+  color: ${({ color, theme }) => color || theme.primary1};
+  padding: 0;
+  flex-shrink: 0;
+  display: flex;
+  text-decoration: none;
+  :hover,
+  :active,
+  :focus {
+    text-decoration: none;
+    color: ${({ color, theme }) => color || theme.primary1};
+  }
+`
+const CopyHelperText = styled.span<{ fontSize: number }>`
+  ${({ theme }) => theme.flexRowNoWrap};
+  font-size: ${({ fontSize }) => fontSize + 'px'};
+  font-weight: 400;
+  align-items: center;
+`
+const CopiedIcon = styled(CheckCircle)`
+  color: ${({ theme }) => theme.success};
+  stroke-width: 1.5px;
+`
+interface CopyHelperProps {
+  link?: boolean
+  toCopy: string
+  color?: Color
+  fontSize?: number
+  iconSize?: number
+  gap?: number
+  iconPosition?: 'left' | 'right'
+  iconColor?: Color
+  children?: ReactNode
+}
+
+export type CopyHelperRefType = { forceCopy: () => void }
+export const CopyHelper = forwardRef<CopyHelperRefType, CopyHelperProps>(
+  (
+    {
+      link,
+      toCopy,
+      color,
+      fontSize = 16,
+      iconSize = 20,
+      gap = 12,
+      iconPosition = 'left',
+      iconColor,
+      children,
+    }: CopyHelperProps,
+    ref
+  ) => {
+    const [isCopied, setCopied] = useCopyClipboard()
+    const copy = useCallback(() => {
+      setCopied(toCopy)
+    }, [toCopy, setCopied])
+
+    useImperativeHandle(ref, () => ({
+      forceCopy() {
+        copy()
+      },
+    }))
+
+    const BaseIcon = isCopied ? CopiedIcon : link ? LinkIconFeather : Copy
+
+    return (
+      <CopyHelperContainer onClick={copy} color={color} clicked={isCopied}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap }}>
+          {iconPosition === 'left' && <BaseIcon size={iconSize} strokeWidth={1.5} color={iconColor} />}
+          <CopyHelperText fontSize={fontSize}>{isCopied ? <>Copied!</> : children}</CopyHelperText>
+          {iconPosition === 'right' && <BaseIcon size={iconSize} strokeWidth={1.5} color={iconColor} />}
+        </div>
+      </CopyHelperContainer>
+    )
+  }
+)
+CopyHelper.displayName = 'CopyHelper'

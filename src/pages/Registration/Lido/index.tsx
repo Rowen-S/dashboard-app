@@ -2,7 +2,7 @@ import { AutoColumn } from 'components/Column'
 import Row, { RowBetween } from 'components/Row'
 import DataTabs from 'components/Tabs'
 import styled from 'styled-components/macro'
-import { ExternalLink, TYPE } from 'theme'
+import { CopyContractAddress, CopyHelper, ExternalLink, TYPE } from 'theme'
 
 import Metrics from './Metrics'
 import Proposals from './Proposals'
@@ -110,7 +110,9 @@ export default function Lido() {
 
             <AutoColumn gap="12px">
               <TYPE.largeHeader fontSize={18}>Contracts</TYPE.largeHeader>
-              <TYPE.body>0x5a98fcbea516cf06857215779fd812ca3bef1b32</TYPE.body>
+              <TYPE.body>
+                <CopyContractAddress address={'0x5a98fcbea516cf06857215779fd812ca3bef1b32'} />
+              </TYPE.body>
             </AutoColumn>
           </RowBetween>
           <TYPE.body style={{ wordBreak: 'break-all' }}></TYPE.body>
