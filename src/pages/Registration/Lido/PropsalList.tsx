@@ -106,7 +106,7 @@ const StyledProposalContainer = styled.div<{ status: ProposalState }>`
   color: ${({ theme }) => theme.white};
   width: fit-content;
   justify-self: flex-end;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 `
 
 function ProposalStatus({ status }: { status: ProposalState }) {
