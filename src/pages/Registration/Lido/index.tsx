@@ -89,7 +89,7 @@ export default function Lido() {
               __html: `Lido is a liquid staking solution for Ethereum and other proof of stake chains. This allows users to stake
             their tokens without having to lock assets or maintain staking infrastructure. Users who stake via Lido
             receive daily rewards in the form of staking derivative tokens which are pegged 1:1 to the underlying staked
-            assets. <a href='//lido.fi/'>Website</a>`,
+            assets. <a href='//lido.fi/' target="_blank">Website</a>`,
             }}
           />
           <RowBetween width={'90%'}>

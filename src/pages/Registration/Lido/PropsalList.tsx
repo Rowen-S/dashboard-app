@@ -20,7 +20,7 @@ export enum ProposalState {
 }
 
 const Proposal = styled(Button)`
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   width: 100%;
   border-radius: unset;
   display: flex;
@@ -205,7 +205,7 @@ export default function PropsalList({ title = '', status = 'all' }: { title: str
                 />
               </AutoColumn>
             </Proposal>
-            <Line marginY={'5px'} />
+            <Line />
           </div>
         ))
       )}
