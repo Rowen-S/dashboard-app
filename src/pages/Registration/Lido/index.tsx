@@ -2,7 +2,7 @@ import { AutoColumn } from 'components/Column'
 import Row, { RowBetween } from 'components/Row'
 import DataTabs from 'components/Tabs'
 import styled from 'styled-components/macro'
-import { CopyContractAddress, CopyHelper, ExternalLink, TYPE } from 'theme'
+import { CopyContractAddress, ExternalLink, TYPE } from 'theme'
 
 import Metrics from './Metrics'
 import Proposals from './Proposals'
