@@ -6,3 +6,10 @@ export function shortenAddress(address: string, chars = 4): string {
   }
   return `${parsed.substring(0, chars + 2)}...${parsed.substring(42 - chars)}`
 }
+
+export function percentage(num: number, sum: number) {
+  if (num > sum) {
+    throw Error(`Invalid 'sum' parameter '${sum}'.`)
+  }
+  return Math.floor((num / sum) * 10000) / 100
+}

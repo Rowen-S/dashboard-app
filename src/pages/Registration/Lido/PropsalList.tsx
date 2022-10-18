@@ -1,16 +1,18 @@
-import { darken } from 'polished'
+import { lighten, darken } from 'polished'
 import { useCallback, useEffect, useState } from 'react'
 import styled, { DefaultTheme } from 'styled-components/macro'
 import { useGetProposalsQuery } from 'graphql/services/snapshot'
 
 import Identicon from 'components/Identicon'
 import { LoadingRows } from 'components/Loader/styled'
-import { shortenAddress } from 'utils'
+import { percentage, shortenAddress } from 'utils'
 import { Button } from 'rebass/styled-components'
 import { AutoColumn } from 'components/Column'
 import { Line, TYPE } from 'theme'
-import Row, { RowFlat } from 'components/Row'
-import { ArrowLeft, ArrowRight } from 'react-feather'
+import Row, { RowBetween, RowFlat } from 'components/Row'
+import { ArrowLeft, ArrowRight, CheckCircle } from 'react-feather'
+import { Z_INDEX } from 'theme/zIndex'
+import useTheme from 'hooks/useTheme'
 
 export enum ProposalState {
   PENDING = 'pending',
@@ -130,6 +132,59 @@ function replaceStatus(status: string) {
   }
 }
 
+const ChoicesWrapper = styled(AutoColumn)`
+  max-width: 400px;
+`
+
+const ChoicesItemWrapper = styled(RowBetween)`
+  z-index: 10;
+  z-index: ${Z_INDEX.dropdown};
+`
+const ChoicesItemBgWrapper = styled.div<{ width?: number }>`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -${Z_INDEX.deprecated_content};
+  width: ${({ width }) => width ?? 0}%;
+  background-color: ${({ theme }) => lighten(0.55, theme.green2)};
+`
+
+const ChoicesPercentWrapper = styled.div`
+  width: 300px;
+  position: relative;
+`
+
+function ChoicesResult({ choices, scores }: { choices: string[]; scores: number[] }) {
+  const theme = useTheme()
+
+  const sum = scores.reduce((prev, current, index, arr) => {
+    return prev + current
+  })
+
+  return (
+    <ChoicesWrapper gap="8px">
+      {choices.map((c, i) => (
+        <ChoicesItemWrapper key={c}>
+          <RowBetween>
+            <ChoicesPercentWrapper>
+              <Row padding={'8px'}>
+                {i == 0 && <CheckCircle size={16} color={theme.green2} />}
+
+                <TYPE.subHeader fontWeight={500} paddingX={'8px'}>
+                  {c}
+                </TYPE.subHeader>
+              </Row>
+              <ChoicesItemBgWrapper width={percentage(scores[i], sum)} />
+            </ChoicesPercentWrapper>
+
+            <TYPE.subHeader fontWeight={500}>{percentage(scores[i], sum)} %</TYPE.subHeader>
+          </RowBetween>
+        </ChoicesItemWrapper>
+      ))}
+    </ChoicesWrapper>
+  )
+}
+
 export default function PropsalList({ title = '', status = 'all' }: { title: string; status: string }) {
   const [skipNumber, setSkipNumber] = useState(0)
   const {
@@ -203,6 +258,7 @@ export default function PropsalList({ title = '', status = 'all' }: { title: str
                     __html: p.body && `${p.body.substring(0, 100)}...`,
                   }}
                 />
+                {p.state == ProposalState.CLOSED && <ChoicesResult choices={p.choices} scores={p.scores} />}
               </AutoColumn>
             </Proposal>
             <Line />
