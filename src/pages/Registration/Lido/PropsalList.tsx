@@ -156,8 +156,13 @@ const ChoicesPercentWrapper = styled.div`
 
 function ChoicesResult({ choices, scores }: { choices: string[]; scores: number[] }) {
   const theme = useTheme()
-
-  const sum = scores.reduce((prev, current, index, arr) => {
+  /**
+   * prev
+   * current
+   * index
+   * arr
+   */
+  const sum = scores.reduce((prev, current) => {
     return prev + current
   })
 
