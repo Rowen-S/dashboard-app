@@ -152,13 +152,14 @@ export const ButtonSecondary = styled(Base)`
 export const ButtonOutlined = styled(Base)`
   border: 1px solid ${({ theme }) => theme.bg2};
   background-color: transparent;
-  color: ${({ theme }) => theme.text1};
+  color: ${({ theme }) => theme.text3};
 
   &:focus {
     box-shadow: 0 0 0 1px ${({ theme }) => theme.bg4};
   }
   &:hover {
     box-shadow: 0 0 0 1px ${({ theme }) => theme.bg4};
+    color: ${({ theme }) => theme.text1};
   }
   &:active {
     box-shadow: 0 0 0 1px ${({ theme }) => theme.bg4};

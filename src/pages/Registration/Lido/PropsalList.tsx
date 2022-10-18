@@ -100,7 +100,7 @@ function StatusText({ status }: { status: ProposalState }) {
 const StyledProposalContainer = styled.div<{ status: ProposalState }>`
   font-size: 0.825rem;
   font-weight: 600;
-  padding: 0.5rem;
+  padding: 0.3125rem 0.75rem;
   border-radius: 14px;
   background-color: ${({ status, theme }) => handleColorType(status, theme)};
   color: ${({ theme }) => theme.white};

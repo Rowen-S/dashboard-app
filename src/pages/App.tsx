@@ -14,6 +14,8 @@ import Header from 'components/Header'
 import { SpinnerSVG } from 'theme/components'
 
 const Lido = lazy(() => import('./Registration/Lido'))
+const LidoInfo = lazy(() => import('./Registration/Lido/Detail'))
+
 const Aptos = lazy(() => import('./Registration/Aptos'))
 
 const AppWrapper = styled.div`
@@ -83,7 +85,7 @@ function App() {
             <Routes>
               <Route path="home" element={<Home />} />
               <Route
-                path="lido/*"
+                path="lido"
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
                     <Lido />
@@ -91,7 +93,15 @@ function App() {
                 }
               />
               <Route
-                path="aptos/*"
+                path="lido/info"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <LidoInfo />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="aptos"
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
                     <Aptos />

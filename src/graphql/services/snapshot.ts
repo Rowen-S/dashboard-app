@@ -10,6 +10,8 @@ export interface Proposals {
   body: string
   state: string
   author: string
+  scores: number[]
+  choices: string[]
 }
 
 export interface GetProposalsResponse {
@@ -39,6 +41,7 @@ export const proposalsApi = createApi({
               title
               body
               choices
+              scores
               start
               end
               snapshot
