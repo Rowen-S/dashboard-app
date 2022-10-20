@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { FileText, Linkedin } from 'react-feather'
 import { OutlineCard } from 'components/Card'
 import AppBody from 'pages/AppBody'
+import AvatarExample from 'components/Avatar'
 
 const ButtonWrapper = styled.div`
   width: fit-content;
@@ -44,12 +45,6 @@ const TeamWrapper = styled.div`
 const TeamItem = styled(AutoColumn)`
   text-align: center;
 `
-const TeamItemAvatar = styled.img`
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  margin: 0px auto;
-`
 const TeamLink = styled(ExternalLink)`
   display: flex;
   justify-content: center;
@@ -71,31 +66,26 @@ export default function Lido() {
     {
       name: 'Brad Garlinghouse',
       position: 'CEO',
-      avatar: 'https://img.seadn.io/files/b19b049f48777090ddc0cfb7ffc09d9f.png?fit=max&w=1000',
       linkedIn: '',
     },
     {
       name: 'David Schwartz',
       position: 'CTO',
-      avatar: 'https://img.seadn.io/files/3242bb15ba3565f4cd0b9c70c882b327.png?fit=max&w=1000',
       linkedIn: '',
     },
     {
       name: 'Brynly Llyr',
       position: 'Legal Adviser',
-      avatar: 'https://img.seadn.io/files/78cb84e59e55f725cfc3e6f0acbb5bda.png?fit=max&w=1000',
       linkedIn: '',
     },
     {
       name: 'Brad Garlinghouse',
       position: 'CFO',
-      avatar: 'https://img.seadn.io/files/9031eddc0df8b669d653b83242eefe66.png?fit=max&w=2000',
       linkedIn: '',
     },
     {
       name: 'David Schwartz',
       position: 'COO',
-      avatar: 'https://img.seadn.io/files/6f20e8b6c3b6c608f9593dff3f32aa16.png?fit=max&w=2000',
       linkedIn: '',
     },
   ]
@@ -159,7 +149,7 @@ export default function Lido() {
         <AutoColumn gap="16px" style={{ marginTop: 20 }}>
           <TYPE.largeHeader fontSize={28}>Optimism Token</TYPE.largeHeader>
           <Line />
-          <AutoColumn gap="16px" style={{ width: '75%' }}>
+          <AutoColumn gap="16px" style={{ width: '78%' }}>
             <TYPE.mediumHeader>Overview</TYPE.mediumHeader>
             <TYPE.body>
               Optimism is a layer two protocol and smart contract platform that aims to enable low-cost and
@@ -211,7 +201,7 @@ export default function Lido() {
             <TableInformation>
               <tr>
                 <td>Token Symbol</td>
-                <td>SMC</td>
+                <td>LDO</td>
               </tr>
               <tr>
                 <td>Token Protocol</td>
@@ -232,18 +222,35 @@ export default function Lido() {
             </TableInformation>
 
             <TYPE.mediumHeader marginTop={'24px'}>Token Rights</TYPE.mediumHeader>
-            <TYPE.body>
-              Tokenized LP Interest Transparent Portfolio 100% of net exit revenues distributed to token holders
-            </TYPE.body>
+            <TYPE.body
+              dangerouslySetInnerHTML={{
+                __html: `At time of writing, founding members of the Lido DAO possess 64% of LDO tokens. These are locked for 1
+              year, after which they will be vested over 1 year. At the time of writing, the only unlocked LDO in
+              existence are 0.4% airdrop distributed to early stakers and DAO treasury tokens. Anyone can make a
+              proposal on how they can be used via  <a href="//research.lido.fi" target="_blank">research.lido.fi</a>.`,
+              }}
+            />
 
             <TYPE.mediumHeader marginTop={'24px'}>Use of Funds</TYPE.mediumHeader>
+            <TYPE.body>
+              The allocation of these tokens is as follows:
+              <ul>
+                <li>DAO treasury - 36.32%</li>
+                <li>Investors - 22.18%</li>
+                <li>Validators and signature holders - 6.5%</li>
+                <li>Initial Lido developers - 20%</li>
+                <li>Founders and future employees - 15%</li>
+              </ul>
+            </TYPE.body>
 
             <TYPE.mediumHeader marginTop={'24px'}>Team</TYPE.mediumHeader>
             <TeamWrapper>
               {teamList.map((t, i) => (
                 <OutlineCard padding={'24px 16px'} key={t.name + i}>
                   <TeamItem gap="16px">
-                    <TeamItemAvatar src={t.avatar} alt={t.name} />
+                    <Row justify={'center'}>
+                      <AvatarExample name={t.name} size={64} />
+                    </Row>
                     <AutoColumn gap="8px">
                       <TYPE.subHeader fontWeight={500}>{t.name}</TYPE.subHeader>
                       <TYPE.subHeader>{t.position}</TYPE.subHeader>

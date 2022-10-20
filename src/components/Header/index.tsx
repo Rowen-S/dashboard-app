@@ -6,17 +6,9 @@ import styled, { useTheme } from 'styled-components/macro'
 
 import { ReactComponent as Logo } from '../../assets/svg/logo.svg'
 
-const HeaderFrame = styled.nav<{ showBackground: boolean }>`
-  display: grid;
-  grid-template-columns: 120px 1fr 120px;
-  align-items: center;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+const HeaderFrame = styled.div<{ showBackground: boolean }>`
   width: 100%;
   top: 0;
-  position: relative;
-  padding: 0.75rem 1.25rem;
   z-index: 21;
   position: relative;
 
@@ -26,6 +18,19 @@ const HeaderFrame = styled.nav<{ showBackground: boolean }>`
   background-size: 100% 200%;
   box-shadow: 0px 0px 0px 1px ${({ theme, showBackground }) => (showBackground ? theme.bg2 : 'transparent;')};
   transition: background-position 0.1s, box-shadow 0.1s;
+`
+const HeaderNav = styled.nav`
+  padding: 1rem;
+
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 120px 1fr 120px;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  margin: 0px auto;
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
     padding:  1rem;
@@ -36,7 +41,6 @@ const HeaderFrame = styled.nav<{ showBackground: boolean }>`
     padding: 1rem;
   `}
 `
-
 const HeaderControls = styled.div`
   display: flex;
   flex-direction: row;
@@ -127,20 +131,22 @@ export default function Header() {
 
   return (
     <HeaderFrame showBackground={scrollY > 45}>
-      <Title href=".">
-        <DashBoardIcon>
-          <Logo fill={darkMode ? white : black} width="44px" height="100%" title="logo" />
-        </DashBoardIcon>
-      </Title>
-      <div />
-      {/* <SearchBar /> */}
-      <HeaderControls>
-        <HeaderElementWrap>
-          <StyledMenuButton onClick={() => toggleDarkMode()}>
-            {darkMode ? <Moon size={20} /> : <Sun size={20} />}
-          </StyledMenuButton>
-        </HeaderElementWrap>
-      </HeaderControls>
+      <HeaderNav>
+        <Title href=".">
+          <DashBoardIcon>
+            <Logo fill={darkMode ? white : black} width="44px" height="100%" title="logo" />
+          </DashBoardIcon>
+        </Title>
+        <div />
+        {/* <SearchBar /> */}
+        <HeaderControls>
+          <HeaderElementWrap>
+            <StyledMenuButton onClick={() => toggleDarkMode()}>
+              {darkMode ? <Moon size={20} /> : <Sun size={20} />}
+            </StyledMenuButton>
+          </HeaderElementWrap>
+        </HeaderControls>
+      </HeaderNav>
     </HeaderFrame>
   )
 }

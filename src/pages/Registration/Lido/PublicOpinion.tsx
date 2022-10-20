@@ -1,3 +1,4 @@
+import AvatarExample from 'components/Avatar'
 import { AutoColumn } from 'components/Column'
 import { SearchInput } from 'components/Input/styled'
 import Row from 'components/Row'
@@ -155,7 +156,10 @@ export default function PublicOpinion() {
         {filterList.map((ifr, index) => (
           <AutoColumn key={ifr.author + index} gap="14px">
             <TYPE.mediumHeader>{ifr.title}</TYPE.mediumHeader>
-            <TYPE.subHeader>@{ifr.author}</TYPE.subHeader>
+            <Row>
+              <AvatarExample name={ifr.author} size={30} />
+              <TYPE.subHeader marginLeft={10}>@{ifr.author}</TYPE.subHeader>
+            </Row>
             <iframe src={ifr.url} width="100%" height="250px" frameBorder={0} />
           </AutoColumn>
         ))}

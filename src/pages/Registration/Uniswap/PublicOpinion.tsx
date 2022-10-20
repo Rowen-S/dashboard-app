@@ -1,3 +1,4 @@
+import AvatarExample from 'components/Avatar'
 import { AutoColumn } from 'components/Column'
 import { SearchInput } from 'components/Input/styled'
 import Row from 'components/Row'
@@ -30,64 +31,44 @@ const OpinionWrapper = styled.div`
 
 const iframeList = [
   {
-    title: 'Should Lido on Ethereum be limited to some fixed % of stake?',
-    url: 'https://dune.com/embeds/95814/191711/3bd61e40-249c-4191-b841-16bb640c5473',
-    author: 'vsh',
+    title: 'We can learn a lot from SUSHI',
+    url: 'https://dune.com/embeds/18920/38466/25396d15-b940-4fef-9581-f10ea991ebe1',
+    author: 'Satoshi',
   },
   {
-    title: 'The Road to Trustless Ethereum Staking [Discussion]',
-    url: 'https://dune.com/embeds/96263/192761/27c7c36c-8ef5-4de5-8273-b5b22c848482',
-    author: 'kethfinex',
+    title: 'Uniswap Liquidity Mining Report',
+    url: 'https://dune.com/embeds/44618/87313/382cfc0e-ef47-4ebe-93de-b1e68b402d2a',
+    author: 'Integral',
   },
   {
-    title: 'Lido teams’ objectives and key results for 2022',
-    url: 'https://dune.com/embeds/837989/1465115/33a79c18-84ea-4788-af50-6b5a8eafecc2',
-    author: 'vsh',
+    title: '10 questions for every uniswap trader to build a better ecosystem',
+    url: 'https://dune.com/embeds/9798/19495/b2e60f71-40e3-4877-aee7-f356a50a0b78',
+    author: 'sasha_codes',
   },
   {
-    title: 'An update on reWARDS v2',
-    url: 'https://dune.com/embeds/570874/1464690/809d87b0-5cb9-424e-915e-196bafa8701d',
-    author: 'carvas',
+    title: 'New DeFi aggregator with integrations like Uniswap, dYdX, 1inch, etc.',
+    url: 'https://dune.com/embeds/1274979/2193032/2fd5c312-d9f4-4be8-a315-d31ad0ac1966',
+    author: 'Joebrauk',
   },
   {
-    title: 'Lido Referral Program',
-    url: 'https://dune.com/embeds/95980/192057/41a35ee9-4787-491b-b907-a56082de041f',
-    author: 'kethfinex',
+    title: `What's Your Preferred Decentralized Exchange (DEX)?`,
+    url: 'https://dune.com/embeds/4323/8547/1ccf0146-3c38-47bf-aa87-cf84222cb996',
+    author: 'KryptoSC',
   },
   {
-    title: 'Proposal to fund the depositor bot in Ethereum',
-    url: 'https://dune.com/embeds/96707/193813/fe05b87f-f193-4620-a3b8-288b8d300bff',
-    author: 'raman',
+    title: 'Can you share your front-running/MEV stories with us?',
+    url: 'https://dune.com/embeds/233623/438791/3b1a0e57-5d50-44cc-a1d1-351247791858',
+    author: 'stardustwealth',
   },
   {
-    title: 'LDO+stETH dual governance',
-    url: 'https://dune.com/embeds/374112/712351/5ec5c6d3-138d-4549-9eda-4e5652ccb872',
-    author: 'skozin',
+    title: 'Top 10 Crypto Exchanges Of All Time!',
+    url: 'https://dune.com/embeds/4319/22558/c84800e8-d575-41e9-933e-7feaf87fa8c6',
+    author: 'Tariiiixx',
   },
   {
-    title: 'Issues supplying stEth on Curve/Yearn',
-    url: 'https://dune.com/embeds/100870/203571/9fe4d388-302c-4eae-bac6-7139379460ce',
-    author: 'cpryptoKnight',
-  },
-  {
-    title: 'Lido for Aave - Proposal by Delphi Digital',
-    url: 'https://dune.com/embeds/459431/1470937/1aba89a3-e7fb-41c0-88ec-274b91cf154b',
-    author: 'lukedelphi',
-  },
-  {
-    title: 'How does Lido want to approach wstETH going forward?',
-    url: 'https://dune.com/embeds/226069/1470998/bd5e2f10-89c4-40da-928d-6e649915af32',
-    author: 'frontalpha',
-  },
-  {
-    title: 'How does Lido want to approach wstETH going forward?',
-    url: 'https://dune.com/embeds/784387/1471050/9871a9f5-aa3f-45f5-bf93-14066714fdd3',
-    author: 'frontalpha',
-  },
-  {
-    title: 'How can we improve the stETH ETH peg?',
-    url: 'https://dune.com/embeds/374112/1546340/3c919a3e-4df4-45de-80a8-0b08b0041c46',
-    author: 'alkaid',
+    title: '“Fee Switch” Design Space & Next Steps',
+    url: 'https://dune.com/embeds/56126/113379/fda627bf-ae0b-4519-8fe7-83572484c3b3',
+    author: 'Leighton',
   },
 ]
 
@@ -155,7 +136,11 @@ export default function PublicOpinion() {
         {filterList.map((ifr, index) => (
           <AutoColumn key={ifr.author + index} gap="14px">
             <TYPE.mediumHeader>{ifr.title}</TYPE.mediumHeader>
-            <TYPE.subHeader>@{ifr.author}</TYPE.subHeader>
+            <Row>
+              <AvatarExample name={ifr.author} size={30} />
+              <TYPE.subHeader marginLeft={10}>@{ifr.author}</TYPE.subHeader>
+            </Row>
+
             <iframe src={ifr.url} width="100%" height="250px" frameBorder={0} />
           </AutoColumn>
         ))}

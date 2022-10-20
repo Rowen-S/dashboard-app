@@ -16,12 +16,12 @@ const IfrarmeItem = styled.iframe`
 `
 export default function Metrics() {
   const iframeList = [
-    'https://dune.com/embeds/95745/191718/4b15be54-d01c-4fff-a486-b92201de6167',
-    'https://dune.com/embeds/95745/191507/947135ad-fca8-4163-8efa-1c904a26b1ab',
-    'https://dune.com/embeds/122276/243996/1e3afb74-ed22-4a99-b95f-f3d41075c100',
-    'https://dune.com/embeds/95826/191739/e997445e-c813-4934-926e-7b90b392f212',
-    'https://dune.com/embeds/570874/1068504/1c1282d4-298a-4ad6-910b-66f452163d98',
-    'https://dune.com/embeds/837989/1465116/f5f28faf-e652-4104-8cca-527416375f69',
+    'https://dune.com/embeds/44614/87302/cabb8f6e-f190-4f9e-a3fd-d2bee8a8f41e',
+    'https://dune.com/embeds/44614/89483/ba73161c-4b40-4723-bd6e-d9c0e1d9d96b',
+    'https://dune.com/embeds/65461/130842/03eea5f2-ef76-4d8d-bc76-a01b1e1df132',
+    'https://dune.com/embeds/494385/936397/4ad722d7-381a-4bbc-89bb-cf04715c8e75',
+    'https://dune.com/embeds/494404/936495/d18b5f88-f088-40b5-92de-df5043d24162',
+    'https://dune.com/embeds/1279288/2192179/0b11e3b0-0ff6-4774-a5df-a6e83718dfb6',
   ]
   return (
     <MetricsWrapper gap="40px">
@@ -34,7 +34,7 @@ export default function Metrics() {
         <TYPE.largeHeader>Revenue</TYPE.largeHeader>
         <Line />
         <iframe
-          src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/revenue_share'}
+          src={'https://tokenterminal.com/terminal/projects/uniswap/embed/revenue_share'}
           width="100%"
           height="1350px"
           frameBorder={0}
@@ -44,7 +44,7 @@ export default function Metrics() {
         <TYPE.largeHeader>Metrics</TYPE.largeHeader>
         <Line />
         <iframe
-          src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/key_metrics'}
+          src={'https://tokenterminal.com/terminal/projects/uniswap/embed/key_metrics'}
           width="100%"
           height="1350px"
           frameBorder={0}
