@@ -200,7 +200,7 @@ export default function PropsalList({ title = '', status = 'all' }: { title: str
     data: proposalList,
     isLoading,
     isFetching,
-  } = useGetProposalsQuery({ spacein: ['lido-snapshot.eth'], skipNumber, title, status: status.toLocaleLowerCase() })
+  } = useGetProposalsQuery({ spacein: ['uniswap'], skipNumber, title, status: status.toLocaleLowerCase() })
 
   const previousPage = useCallback(() => {
     let a = skipNumber

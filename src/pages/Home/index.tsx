@@ -9,6 +9,9 @@ import { ButtonOutlined } from 'components/Button'
 
 import LidoBg from 'assets/images/lido-bg.jpeg'
 
+import UniswapLogo from 'assets/svg/uniswap_logo.svg'
+// import UniswapPinkLogo from 'assets/svg/uniswap_logo_pink.svg'
+
 const HomeWrapper = styled(AutoColumn)`
   width: 100%;
 `
@@ -142,7 +145,7 @@ export default function Home() {
         </VideoWrapper>
       </BannerWrapper>
 
-      <HomeContent gap="56px">
+      <HomeContent gap="33px">
         <TYPE.label fontSize={32}>Registration List</TYPE.label>
         <RegistrationWrapper>
           <RegistrationCard as={Link} to={'/lido'}>
@@ -179,6 +182,51 @@ export default function Home() {
                     onClick={(event) => {
                       event.preventDefault()
                       navigate('/lido/info')
+                    }}
+                  >
+                    <svg width="11" height="17" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M17.3366 11.2375L10.113 0L2.9761 11.2375L10.113 15.4135L17.3366 11.2375ZM10.113 2.89999L5.15765 10.701L10.113 13.601L15.0684 10.6865L10.113 2.89999ZM1.82033 13.05L10.113 17.893L18.4057 13.05L18.6368 13.398C19.6127 14.9321 20.1597 16.7013 20.2203 18.5204C20.2811 20.3395 19.8533 22.1415 18.9817 23.7377C18.1103 25.3339 16.8272 26.6655 15.2669 27.5931C13.7066 28.5207 11.9265 29.0101 10.113 29.0101C8.29955 29.0101 6.5194 28.5207 4.9591 27.5931C3.3988 26.6655 2.11571 25.3339 1.24425 23.7377C0.372764 22.1415 -0.0550319 20.3395 0.00566759 18.5204C0.0663365 16.7013 0.613273 14.9321 1.58919 13.398L1.82033 13.05Z"
+                        fill="#666666"
+                      />
+                    </svg>
+                    <TYPE.subHeader marginLeft={'8px'}>Lido</TYPE.subHeader>
+                  </ButtonOutlined>
+                </ButtonOttions>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          {/* uniswap */}
+          <RegistrationCard as={Link} to={'/uniswap'}>
+            <RegistrationBg url={LidoBg} />
+
+            <RegistrationInfo>
+              <LogoWrapper>
+                <img src={UniswapLogo} width="35" alt="uniswap" />
+              </LogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>Uniswap</TYPE.largeHeader>
+                <Row>
+                  <TYPE.body color={'text3'}>Founded on:&nbsp;</TYPE.body>
+                  <TYPE.body>2022/02/22</TYPE.body>
+                </Row>
+                <Row>
+                  <TYPE.body color={'text3'}>stETH on Curve:&nbsp;</TYPE.body>
+                  <TYPE.body>8</TYPE.body>
+                </Row>
+                <Row>
+                  <TYPE.body color={'text3'}>Number of employees:&nbsp;</TYPE.body>
+                  <TYPE.body>12</TYPE.body>
+                </Row>
+                <ButtonOttions>
+                  <ButtonOutlined
+                    padding={'9px 24px'}
+                    onClick={(event) => {
+                      event.preventDefault()
+                      navigate('/uniswap/info')
                     }}
                   >
                     <svg width="11" height="17" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">

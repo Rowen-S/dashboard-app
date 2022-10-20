@@ -1,9 +1,12 @@
 import useScrollPosition from '@react-hook/window-scroll'
 import { Moon, Sun } from 'react-feather'
 import { useDarkModeManager } from 'state/user/hooks'
-import styled from 'styled-components/macro'
+import styled, { useTheme } from 'styled-components/macro'
+// import SearchBar from './SearchBar'
 
-const HeaderFrame = styled.div<{ showBackground: boolean }>`
+import { ReactComponent as Logo } from '../../assets/svg/logo.svg'
+
+const HeaderFrame = styled.nav<{ showBackground: boolean }>`
   display: grid;
   grid-template-columns: 120px 1fr 120px;
   align-items: center;
@@ -13,7 +16,7 @@ const HeaderFrame = styled.div<{ showBackground: boolean }>`
   width: 100%;
   top: 0;
   position: relative;
-  padding: 1rem;
+  padding: 0.75rem 1.25rem;
   z-index: 21;
   position: relative;
 
@@ -92,16 +95,45 @@ const StyledMenuButton = styled.button`
   }
 `
 
+const Title = styled.a`
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  justify-self: flex-start;
+  margin-right: 12px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    justify-self: center;
+  `};
+  :hover {
+    cursor: pointer;
+  }
+`
+
+const DashBoardIcon = styled.div`
+  transition: transform 0.3s ease;
+  :hover {
+    transform: rotate(-5deg);
+  }
+
+  position: relative;
+`
+
 export default function Header() {
-  // const [isDark] = useDarkModeManager()
   const [darkMode, toggleDarkMode] = useDarkModeManager()
 
   const scrollY = useScrollPosition()
 
+  const { white, black } = useTheme()
+
   return (
     <HeaderFrame showBackground={scrollY > 45}>
+      <Title href=".">
+        <DashBoardIcon>
+          <Logo fill={darkMode ? white : black} width="44px" height="100%" title="logo" />
+        </DashBoardIcon>
+      </Title>
       <div />
-      <div />
+      {/* <SearchBar /> */}
       <HeaderControls>
         <HeaderElementWrap>
           <StyledMenuButton onClick={() => toggleDarkMode()}>
