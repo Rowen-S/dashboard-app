@@ -5,7 +5,7 @@ import { ExternalLink, Line, TYPE } from 'theme'
 
 import { ButtonOutlined } from 'components/Button'
 import { useNavigate } from 'react-router-dom'
-import { FileText, Linkedin } from 'react-feather'
+import { Linkedin } from 'react-feather'
 import { OutlineCard } from 'components/Card'
 import AppBody from 'pages/AppBody'
 import AvatarExample from 'components/Avatar'
@@ -20,21 +20,6 @@ const ButtonWrapper = styled.div`
 const Iframe = styled.iframe`
   padding: 0px 20px;
   border: 1px solid ${({ theme }) => theme.bg2}; ;
-`
-
-const TableInformation = styled.table`
-  border: 1px solid ${({ theme }) => theme.bg2};
-  border-collapse: collapse;
-  font-size: 13px;
-  color: ${({ theme }) => theme.text1};
-  & > tr > td {
-    padding: 12px 16px;
-    border: 1px solid ${({ theme }) => theme.bg2};
-    :first-child {
-      width: 222px;
-      font-weight: 600;
-    }
-  }
 `
 
 const TeamWrapper = styled.div`
@@ -56,6 +41,14 @@ const TeamLink = styled(ExternalLink)`
   background-color: ${({ theme }) => theme.bg5};
   & > svg {
     stroke: ${({ theme }) => theme.bg0};
+  }
+`
+
+const AboutWrapper = styled.div`
+  width: 100%;
+  max-width: 940px;
+  * > img {
+    width: 100%;
   }
 `
 
@@ -92,7 +85,7 @@ export default function Lido() {
   return (
     <AppBody>
       <AutoColumn gap="24px">
-        <TYPE.largeHeader fontSize={28}>Optimism</TYPE.largeHeader>
+        <TYPE.largeHeader fontSize={28}>Lido Dao</TYPE.largeHeader>
         <AutoColumn gap="12px">
           <TYPE.largeHeader>Base Information</TYPE.largeHeader>
           <Line />
@@ -147,101 +140,48 @@ export default function Lido() {
           frameBorder={1}
         />
         <AutoColumn gap="16px" style={{ marginTop: 20 }}>
-          <TYPE.largeHeader fontSize={28}>Optimism Token</TYPE.largeHeader>
+          <TYPE.largeHeader fontSize={28}>About LDO</TYPE.largeHeader>
           <Line />
           <AutoColumn gap="16px" style={{ width: '78%' }}>
-            <TYPE.mediumHeader>Overview</TYPE.mediumHeader>
-            <TYPE.body>
-              Optimism is a layer two protocol and smart contract platform that aims to enable low-cost and
-              near-instantaneous Ethereum transactions. The OP cryptocurrency powers the Token House, which will be a
-              division of the Optimism Collective alongside the Citizens&apos; House. The Collective governs network
-              parameters, treasury disbursements, and protocol upgrades.
-            </TYPE.body>
-            <ExternalLink href={''}>
-              <FileText width={12} height={12} /> Whitepaper
-            </ExternalLink>
-
-            <TYPE.mediumHeader marginTop={'24px'}>Fundraise Information</TYPE.mediumHeader>
-            <TableInformation>
-              <tr>
-                <td>Total Raise</td>
-                <td>$100,000,000 USD</td>
-              </tr>
-              <tr>
-                <td>Soft Cap</td>
-                <td>$50,000,000 USD</td>
-              </tr>
-              <tr>
-                <td>Raise Status</td>
-                <td>Open</td>
-              </tr>
-              <tr>
-                <td>Minimum Investment</td>
-                <td>$134,000,000 USD</td>
-              </tr>
-              <tr>
-                <td>Accepted Investors</td>
-                <td>International Accredited</td>
-              </tr>
-              <tr>
-                <td>Security Type</td>
-                <td>Lp Fund Interest</td>
-              </tr>
-              <tr>
-                <td>Exemptions</td>
-                <td>Regulation D 506(c) - General Solicitation, Regulation S (International)</td>
-              </tr>
-              <tr>
-                <td>Instrument</td>
-                <td>NA</td>
-              </tr>
-            </TableInformation>
-
-            <TYPE.mediumHeader marginTop={'24px'}>Token Information</TYPE.mediumHeader>
-            <TableInformation>
-              <tr>
-                <td>Token Symbol</td>
-                <td>LDO</td>
-              </tr>
-              <tr>
-                <td>Token Protocol</td>
-                <td>ERC20</td>
-              </tr>
-              <tr>
-                <td>Price Per (SMC)</td>
-                <td>$ 2.00</td>
-              </tr>
-              <tr>
-                <td>Payment Options</td>
-                <td>USDC</td>
-              </tr>
-              <tr>
-                <td>Token Issuance Info</td>
-                <td>6 months</td>
-              </tr>
-            </TableInformation>
-
-            <TYPE.mediumHeader marginTop={'24px'}>Token Rights</TYPE.mediumHeader>
-            <TYPE.body
+            <AboutWrapper
               dangerouslySetInnerHTML={{
-                __html: `At time of writing, founding members of the Lido DAO possess 64% of LDO tokens. These are locked for 1
-              year, after which they will be vested over 1 year. At the time of writing, the only unlocked LDO in
-              existence are 0.4% airdrop distributed to early stakers and DAO treasury tokens. Anyone can make a
-              proposal on how they can be used via  <a href="//research.lido.fi" target="_blank">research.lido.fi</a>.`,
+                __html: `
+                  <h2>Lido Ecosystem &amp; DAO overview</h2>
+                  <p>Lido is a DAO community which builds a liquid staking service for Ethereum. Inspired by the growth of the Ethereum ecosystem, Lido lets users stake their ETH tokens in a secure, non-custodial and transparent manner to contribute to the stability of the Ethereum ecosystem as a whole. </p>
+                  <p>Lido’s Ethereum staking protocol has been built as a DAO to preserve Lido’s upgradability and stability whilst maintaining decentralised infrastructure. The Lido DAO governs a set of liquid staking protocols, deciding on Lido’s key parameters whilst spearheading Lido network upgrades. Members of the Lido DAO have the responsibility to govern Lido to maintain its ongoing efficiency and contribute to the overall growth of the Lido community.</p>
+                  <p>There exist a number of reasons for why a DAO is the most optimal structure for Lido. Lido as a service is highly dependent on the development of the Ethereum beacon chain and its staking protocol. With a number of uncertainties surrounding the roll-out of Eth2.0, Lido is required to be upgradable. When faced with these uncertainties, the DAO-based governance approach will allow for Lido to remain flexible and adjust its staking service as necessary.</p>
+                  <p>In addition to this, Lido’s design as a DAO will allow for the accumulation of service fees which can be managed and distributed transparently to cover development and insurance costs in a manner aligned with community interests.</p>
+                  <p>With the mission to make staking simple, liquid, secure and decentralized for the end user, the Lido DAO has the following responsibilities: </p>
+                  <ul><li>Launching Lido:</li><li>Deploy protocol smart contracts;</li><li>Set fees and other protocol parameters;</li><li>Select the threshold signature scheme participants among reputable individuals or organizations willing to provide the service;</li><li>Facilitate the multi-party computation ceremony to create the threshold signature account for staking rewards;</li><li>Assign initial DAO-vetted node operators.</li><li>Propose and update Lido’s parameters;</li><li>Approve incentives for parties that contribute towards DAO’s goals (e.g., stETH liquidity providers);</li><li>Propose and update Lido’s implementation for incoming Ethereum 2.0 features using DAO treasury funds;</li><li>Assign oracles to deliver reward/slashing rate feed to help establish stETH token balances;</li><li>Scout and qualify new node operators and penalize the existing ones slashed by Ethereum 2.0’s rules;</li><li>Manage the Lido DAO’s insurance and development funds;</li><li>Manage unbonding and withdrawals once available in Ethereum 2.0; </li></ul>
+
+                  `,
               }}
             />
 
-            <TYPE.mediumHeader marginTop={'24px'}>Use of Funds</TYPE.mediumHeader>
-            <TYPE.body>
-              The allocation of these tokens is as follows:
-              <ul>
-                <li>DAO treasury - 36.32%</li>
-                <li>Investors - 22.18%</li>
-                <li>Validators and signature holders - 6.5%</li>
-                <li>Initial Lido developers - 20%</li>
-                <li>Founders and future employees - 15%</li>
-              </ul>
-            </TYPE.body>
+            <TYPE.mediumHeader>Lido Ecosystem & DAO overview</TYPE.mediumHeader>
+
+            <TYPE.body
+              dangerouslySetInnerHTML={{
+                __html: `
+                  <p>Lido is a DAO community which builds a liquid staking service for Ethereum. Inspired by the growth of the Ethereum ecosystem, Lido lets users stake their ETH tokens in a secure, non-custodial and transparent manner to contribute to the stability of the Ethereum ecosystem as a whole.</p>
+                  <p>Lido’s Ethereum staking protocol has been built as a DAO to preserve Lido’s upgradability and stability whilst maintaining decentralised infrastructure. The Lido DAO governs a set of liquid staking protocols, deciding on Lido’s key parameters whilst spearheading Lido network upgrades. Members of the Lido DAO have the responsibility to govern Lido to maintain its ongoing efficiency and contribute to the overall growth of the Lido community.</p>
+                  <p>There exist a number of reasons for why a DAO is the most optimal structure for Lido. Lido as a service is highly dependent on the development of the Ethereum beacon chain and its staking protocol. With a number of uncertainties surrounding the roll-out of Eth2.0, Lido is required to be upgradable. When faced with these uncertainties, the DAO-based governance approach will allow for Lido to remain flexible and adjust its staking service as necessary.</p>
+                  <p>In addition to this, Lido’s design as a DAO will allow for the accumulation of service fees which can be managed and distributed transparently to cover development and insurance costs in a manner aligned with community interests. </p>
+                  <p>With the mission to make staking simple, liquid, secure and decentralized for the end user, the Lido DAO has the following responsibilities:</p>
+                  <ul><li>Launching Lido:</li><li>Deploy protocol smart contracts;</li><li>Set fees and other protocol parameters;</li><li>Select the threshold signature scheme participants among reputable individuals or organizations willing to provide the service;</li><li>Facilitate the multi-party computation ceremony to create the threshold signature account for staking rewards;</li><li>Assign initial DAO-vetted node operators.</li><li>Propose and update Lido’s parameters;</li><li>Approve incentives for parties that contribute towards DAO’s goals (e.g., stETH liquidity providers);</li><li>Propose and update Lido’s implementation for incoming Ethereum 2.0 features using DAO treasury funds;</li><li>Assign oracles to deliver reward/slashing rate feed to help establish stETH token balances;</li><li>Scout and qualify new node operators and penalize the existing ones slashed by Ethereum 2.0’s rules;</li><li>Manage the Lido DAO’s insurance and development funds;</li><li>Manage unbonding and withdrawals once available in Ethereum 2.0; </li></ul>
+                  <h2>The LDO token</h2>
+                  <p>Our mission with the Lido DAO is to distribute all decision-making to create a trustless staking service built around community-growth and self-sustainability. This is achieved through the LDO governance token. The launch of LDO is a significant step towards achieving this goal, driving decentralised ownership and facilitating development of a distributed, independent governance structure to lead the Lido DAO. </p>
+                  <p>To have a vote in the Lido DAO, and to contribute to the determination of any of the topics outlined above, one must hold the LDO governance token. Holding LDO gives DAO members a vote in the future of Lido, allowing each DAO member to have a personal say in the community. </p>
+                  <p>LDO voting weight is proportional to the amount of LDO a voter stakes in the voting contract. The more LDO in a user’s voting contract, the greater the decision-making power the voter gets. The exact mechanism of LDO voting can be upgraded just like the other DAO applications.</p>
+                  <p>The LDO token will be used across all current and future DAO <a href="http://mainnet.lido.fi">votes</a>, giving every token holder a say in the direction and growth of the Lido DAO. </p>
+                  <h2>LDO Token Allocation</h2>
+                  <p>Upon the launch of the Lido DAO, 1 billion LDO tokens were minted. </p>
+                  <p>At time of writing, founding members of the Lido DAO possess 64% of LDO tokens. These are locked for 1 year, after which they will be vested over 1 year. At the time of writing, the only unlocked LDO in existence are 0.4% airdrop distributed to early stakers and DAO treasury tokens. Anyone can make a proposal on how they can be used via <a href="http://research.lido.fi/" rel="noopener noreferrer">research.lido.fi</a>.</p>
+                  <p>The allocation of these tokens is as follows:</p>
+                  <ul><li>DAO treasury - 36.32%</li><li>Investors - 22.18%</li><li>Validators and signature holders - 6.5%</li><li>Initial Lido developers - 20%</li><li>Founders and future employees - 15%</li></ul>
+                  `,
+              }}
+            />
 
             <TYPE.mediumHeader marginTop={'24px'}>Team</TYPE.mediumHeader>
             <TeamWrapper>

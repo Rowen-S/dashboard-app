@@ -5,7 +5,7 @@ import { ExternalLink, Line, TYPE } from 'theme'
 
 import { ButtonOutlined } from 'components/Button'
 import { useNavigate } from 'react-router-dom'
-import { FileText, Linkedin } from 'react-feather'
+import { Linkedin } from 'react-feather'
 import { OutlineCard } from 'components/Card'
 import AppBody from 'pages/AppBody'
 
@@ -24,20 +24,20 @@ const Iframe = styled.iframe`
   border: 1px solid ${({ theme }) => theme.bg2}; ;
 `
 
-const TableInformation = styled.table`
-  border: 1px solid ${({ theme }) => theme.bg2};
-  border-collapse: collapse;
-  font-size: 13px;
-  color: ${({ theme }) => theme.text1};
-  & > tr > td {
-    padding: 12px 16px;
-    border: 1px solid ${({ theme }) => theme.bg2};
-    :first-child {
-      width: 222px;
-      font-weight: 600;
-    }
-  }
-`
+// const TableInformation = styled.table`
+//   border: 1px solid ${({ theme }) => theme.bg2};
+//   border-collapse: collapse;
+//   font-size: 13px;
+//   color: ${({ theme }) => theme.text1};
+//   & > tr > td {
+//     padding: 12px 16px;
+//     border: 1px solid ${({ theme }) => theme.bg2};
+//     :first-child {
+//       width: 222px;
+//       font-weight: 600;
+//     }
+//   }
+// `
 
 const TeamWrapper = styled.div`
   display: grid;
@@ -60,6 +60,13 @@ const TeamLink = styled(ExternalLink)`
   background-color: ${({ theme }) => theme.bg5};
   & > svg {
     stroke: ${({ theme }) => theme.bg0};
+  }
+`
+
+const AboutWrapper = styled.div`
+  width: 100%;
+  * > img {
+    width: 100%;
   }
 `
 
@@ -96,7 +103,7 @@ export default function Uniswap() {
   return (
     <AppBody>
       <AutoColumn gap="24px">
-        <TYPE.largeHeader fontSize={28}>Optimism</TYPE.largeHeader>
+        <TYPE.largeHeader fontSize={28}>Uniswap Labs</TYPE.largeHeader>
         <AutoColumn gap="12px">
           <TYPE.largeHeader>Base Information</TYPE.largeHeader>
           <Line />
@@ -144,91 +151,21 @@ export default function Uniswap() {
           frameBorder={1}
         />
         <AutoColumn gap="16px" style={{ marginTop: 20 }}>
-          <TYPE.largeHeader fontSize={28}>Optimism Token</TYPE.largeHeader>
+          <TYPE.largeHeader fontSize={28}>About UNI</TYPE.largeHeader>
           <Line />
           <AutoColumn gap="16px" style={{ width: '78%' }}>
-            <TYPE.mediumHeader>Overview</TYPE.mediumHeader>
-            <TYPE.body>
-              Optimism is a layer two protocol and smart contract platform that aims to enable low-cost and
-              near-instantaneous Ethereum transactions. The OP cryptocurrency powers the Token House, which will be a
-              division of the Optimism Collective alongside the Citizens&apos; House. The Collective governs network
-              parameters, treasury disbursements, and protocol upgrades.
-            </TYPE.body>
-            <ExternalLink href={''}>
-              <FileText width={12} height={12} /> Whitepaper
-            </ExternalLink>
-
-            <TYPE.mediumHeader marginTop={'24px'}>Fundraise Information</TYPE.mediumHeader>
-            <TableInformation>
-              <tr>
-                <td>Total Raise</td>
-                <td>$100,000,000 USD</td>
-              </tr>
-              <tr>
-                <td>Soft Cap</td>
-                <td>$50,000,000 USD</td>
-              </tr>
-              <tr>
-                <td>Raise Status</td>
-                <td>Open</td>
-              </tr>
-              <tr>
-                <td>Minimum Investment</td>
-                <td>$134,000,000 USD</td>
-              </tr>
-              <tr>
-                <td>Accepted Investors</td>
-                <td>International Accredited</td>
-              </tr>
-              <tr>
-                <td>Security Type</td>
-                <td>Lp Fund Interest</td>
-              </tr>
-              <tr>
-                <td>Exemptions</td>
-                <td>Regulation D 506(c) - General Solicitation, Regulation S (International)</td>
-              </tr>
-              <tr>
-                <td>Instrument</td>
-                <td>NA</td>
-              </tr>
-            </TableInformation>
-
-            <TYPE.mediumHeader marginTop={'24px'}>Token Information</TYPE.mediumHeader>
-            <TableInformation>
-              <tr>
-                <td>Token Symbol</td>
-                <td>SMC</td>
-              </tr>
-              <tr>
-                <td>Token Protocol</td>
-                <td>ERC20</td>
-              </tr>
-              <tr>
-                <td>Price Per (SMC)</td>
-                <td>$ 2.00</td>
-              </tr>
-              <tr>
-                <td>Payment Options</td>
-                <td>USDC</td>
-              </tr>
-              <tr>
-                <td>Token Issuance Info</td>
-                <td>6 months</td>
-              </tr>
-            </TableInformation>
-
-            <TYPE.mediumHeader marginTop={'24px'}>Token Rights</TYPE.mediumHeader>
-            <TYPE.body>
-              Tokenized LP Interest Transparent Portfolio 100% of net exit revenues distributed to token holders
-            </TYPE.body>
-
-            <TYPE.mediumHeader marginTop={'24px'}>Use of Funds</TYPE.mediumHeader>
-            <iframe
-              src="https://dune.com/embeds/490251/929384/cf79d64f-4ee0-4ab5-b2f4-603e1837e0c2"
-              width={'100%'}
-              height={'300px'}
-              frameBorder="0"
+            <AboutWrapper
+              dangerouslySetInnerHTML={{
+                __html: `
+                <ul><li><p>UNI, the Uniswap Protocol token, is live!</p></li><li><p>UNI contract address: <a href="https://etherscan.io/token/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984">0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984</a></p></li><li><p>60% of the UNI genesis supply is allocated to Uniswap community members, a quarter of which (15% of total supply) has already been distributed to past users</p></li><li><p>To start, UNI is available through four liquidity mining pools: UNI holders may vote to add more pools after an initial 30-day governance grace period</p></li></ul>
+                <p><strong>UNI Allocation</strong></p>
+                <p>1 billion UNI have been minted at genesis and will become accessible over the course of 4 years. The initial four year allocation is as follows:</p>
+                <ul><li><p>60.00% to Uniswap community members <code>600,000,000 UNI</code></p></li><li><p>21.266% to team members and future employees with 4-year vesting <code>212,660,000 UNI</code></p></li><li><p>18.044% to investors with 4-year vesting <code>180,440,000 UNI</code></p></li><li><p>0.69% to advisors with 4-year vesting <code>6,900,000 UNI</code></p></li></ul>
+                <p>A <strong>perpetual inflation rate of 2% per year will start after 4 years</strong>, ensuring continued participation and contribution to Uniswap at the expense of passive UNI holders.</p>
+                <p><img src="https://uniswap.org/images/posts/uni/Genesis.png"></p>
+                <p><img src="https://uniswap.org//images/posts/uni/Inflation.png"></p>
+                `,
+              }}
             />
 
             <TYPE.mediumHeader marginTop={'24px'}>Team</TYPE.mediumHeader>

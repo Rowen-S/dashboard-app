@@ -11,6 +11,7 @@ import LidoBg from 'assets/images/lido-bg.jpeg'
 import { ReactComponent as UniswapLogoPink } from 'assets/svg/uniswap_logo_pink.svg'
 
 import UniswapLogo from 'assets/svg/uniswap_logo.svg'
+import SearchBar from './SearchBar'
 // import UniswapPinkLogo from 'assets/svg/uniswap_logo_pink.svg'
 
 const HomeWrapper = styled(AutoColumn)`
@@ -147,6 +148,7 @@ export default function Home() {
       </BannerWrapper>
 
       <HomeContent gap="33px">
+        <SearchBar />
         <TYPE.label fontSize={32}>Registration List</TYPE.label>
         <RegistrationWrapper>
           <RegistrationCard as={Link} to={'/lido'}>

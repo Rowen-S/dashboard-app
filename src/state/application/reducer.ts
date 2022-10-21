@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export enum ApplicationModal {
+  HOME_SEARCH,
   MENU,
   PROPOSALS_STATUS,
 }
