@@ -59,7 +59,12 @@ export default function SearchBar() {
         value={searchQuery}
         ref={inputRef as RefObject<HTMLInputElement>}
         onChange={handleInput}
-        onClick={toggle}
+        onFocus={() => {
+          if (!open) {
+            toggle()
+          }
+          return
+        }}
       />
       {open && (
         <SearchFlyout>
