@@ -16,6 +16,9 @@ const SearchBarWraper = styled(Row)`
   width: 55%;
   justify-self: center;
   position: relative;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    width: 100%;
+  `}
 `
 const HomeSearch = styled(SearchInput)`
   border-radius: 30px;

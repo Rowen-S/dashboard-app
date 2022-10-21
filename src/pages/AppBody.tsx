@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 
 export const BodyWrapper = styled.main<{ margin?: string; maxWidth?: string }>`
+  width: 100%;
   margin-top: ${({ margin }) => margin ?? '0px'};
   max-width: ${({ maxWidth }) => maxWidth ?? '1200px'};
 

@@ -1,5 +1,5 @@
 import { AutoColumn } from 'components/Column'
-import Row, { RowBetween } from 'components/Row'
+import Row from 'components/Row'
 import styled from 'styled-components/macro'
 import { ExternalLink, Line, TYPE } from 'theme'
 
@@ -10,6 +10,21 @@ import { OutlineCard } from 'components/Card'
 import AppBody from 'pages/AppBody'
 import AvatarExample from 'components/Avatar'
 
+const BaseWrapper = styled.div`
+  width: 55%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  & > div {
+    display: flex;
+    justify-content: center;
+  }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    width: 100%;
+    & > div {
+      flex-direction: column;
+    }
+  `};
+`
 const ButtonWrapper = styled.div`
   width: fit-content;
   display: grid;
@@ -19,13 +34,20 @@ const ButtonWrapper = styled.div`
 
 const Iframe = styled.iframe`
   padding: 0px 20px;
-  border: 1px solid ${({ theme }) => theme.bg2}; ;
+  border: 1px solid ${({ theme }) => theme.bg2};
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    height: 1500px;
+  `}
 `
 
 const TeamWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 24px;
+  grid-gap: 24px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    grid-template-columns: repeat(2, 1fr);
+  `}
 `
 const TeamItem = styled(AutoColumn)`
   text-align: center;
@@ -43,13 +65,21 @@ const TeamLink = styled(ExternalLink)`
     stroke: ${({ theme }) => theme.bg0};
   }
 `
-
-const AboutWrapper = styled.div`
-  width: 100%;
-  max-width: 940px;
+const AboutWrapper = styled(AutoColumn)`
+  width: 78%;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    width: 100%;
+  `};
+`
+const AboutHTMLWrapper = styled.div`
+  width: 78%;
   * > img {
     width: 100%;
   }
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    width: 100%;
+  `};
 `
 
 export default function Lido() {
@@ -90,20 +120,21 @@ export default function Lido() {
           <TYPE.largeHeader>Base Information</TYPE.largeHeader>
           <Line />
         </AutoColumn>
-        <RowBetween width={'55%'}>
-          <Row justify="center" width={'auto'}>
+        <BaseWrapper>
+          <div>
             <TYPE.body>Founded on:&nbsp;</TYPE.body>
             <TYPE.black>2022/02/22</TYPE.black>
-          </Row>
-          <Row justify="center" width={'auto'}>
+          </div>
+          <div>
             <TYPE.body>Protocols:&nbsp;</TYPE.body>
             <TYPE.black>8</TYPE.black>
-          </Row>
-          <Row justify="center" width={'auto'}>
+          </div>
+          <div>
             <TYPE.body>Protocols:&nbsp;</TYPE.body>
             <TYPE.black>12</TYPE.black>
-          </Row>
-        </RowBetween>
+          </div>
+        </BaseWrapper>
+
         <ButtonWrapper>
           <ButtonOutlined padding={'9px 24px'} onClick={() => navigate('/lido/info')}>
             <svg width="11" height="17" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -142,8 +173,8 @@ export default function Lido() {
         <AutoColumn gap="16px" style={{ marginTop: 20 }}>
           <TYPE.largeHeader fontSize={28}>About LDO</TYPE.largeHeader>
           <Line />
-          <AutoColumn gap="16px" style={{ width: '78%' }}>
-            <AboutWrapper
+          <AboutWrapper gap="16px">
+            <AboutHTMLWrapper
               dangerouslySetInnerHTML={{
                 __html: `
                   <h2>Lido Ecosystem &amp; DAO overview</h2>
@@ -152,22 +183,6 @@ export default function Lido() {
                   <p>There exist a number of reasons for why a DAO is the most optimal structure for Lido. Lido as a service is highly dependent on the development of the Ethereum beacon chain and its staking protocol. With a number of uncertainties surrounding the roll-out of Eth2.0, Lido is required to be upgradable. When faced with these uncertainties, the DAO-based governance approach will allow for Lido to remain flexible and adjust its staking service as necessary.</p>
                   <p>In addition to this, Lido’s design as a DAO will allow for the accumulation of service fees which can be managed and distributed transparently to cover development and insurance costs in a manner aligned with community interests.</p>
                   <p>With the mission to make staking simple, liquid, secure and decentralized for the end user, the Lido DAO has the following responsibilities: </p>
-                  <ul><li>Launching Lido:</li><li>Deploy protocol smart contracts;</li><li>Set fees and other protocol parameters;</li><li>Select the threshold signature scheme participants among reputable individuals or organizations willing to provide the service;</li><li>Facilitate the multi-party computation ceremony to create the threshold signature account for staking rewards;</li><li>Assign initial DAO-vetted node operators.</li><li>Propose and update Lido’s parameters;</li><li>Approve incentives for parties that contribute towards DAO’s goals (e.g., stETH liquidity providers);</li><li>Propose and update Lido’s implementation for incoming Ethereum 2.0 features using DAO treasury funds;</li><li>Assign oracles to deliver reward/slashing rate feed to help establish stETH token balances;</li><li>Scout and qualify new node operators and penalize the existing ones slashed by Ethereum 2.0’s rules;</li><li>Manage the Lido DAO’s insurance and development funds;</li><li>Manage unbonding and withdrawals once available in Ethereum 2.0; </li></ul>
-
-                  `,
-              }}
-            />
-
-            <TYPE.mediumHeader>Lido Ecosystem & DAO overview</TYPE.mediumHeader>
-
-            <TYPE.body
-              dangerouslySetInnerHTML={{
-                __html: `
-                  <p>Lido is a DAO community which builds a liquid staking service for Ethereum. Inspired by the growth of the Ethereum ecosystem, Lido lets users stake their ETH tokens in a secure, non-custodial and transparent manner to contribute to the stability of the Ethereum ecosystem as a whole.</p>
-                  <p>Lido’s Ethereum staking protocol has been built as a DAO to preserve Lido’s upgradability and stability whilst maintaining decentralised infrastructure. The Lido DAO governs a set of liquid staking protocols, deciding on Lido’s key parameters whilst spearheading Lido network upgrades. Members of the Lido DAO have the responsibility to govern Lido to maintain its ongoing efficiency and contribute to the overall growth of the Lido community.</p>
-                  <p>There exist a number of reasons for why a DAO is the most optimal structure for Lido. Lido as a service is highly dependent on the development of the Ethereum beacon chain and its staking protocol. With a number of uncertainties surrounding the roll-out of Eth2.0, Lido is required to be upgradable. When faced with these uncertainties, the DAO-based governance approach will allow for Lido to remain flexible and adjust its staking service as necessary.</p>
-                  <p>In addition to this, Lido’s design as a DAO will allow for the accumulation of service fees which can be managed and distributed transparently to cover development and insurance costs in a manner aligned with community interests. </p>
-                  <p>With the mission to make staking simple, liquid, secure and decentralized for the end user, the Lido DAO has the following responsibilities:</p>
                   <ul><li>Launching Lido:</li><li>Deploy protocol smart contracts;</li><li>Set fees and other protocol parameters;</li><li>Select the threshold signature scheme participants among reputable individuals or organizations willing to provide the service;</li><li>Facilitate the multi-party computation ceremony to create the threshold signature account for staking rewards;</li><li>Assign initial DAO-vetted node operators.</li><li>Propose and update Lido’s parameters;</li><li>Approve incentives for parties that contribute towards DAO’s goals (e.g., stETH liquidity providers);</li><li>Propose and update Lido’s implementation for incoming Ethereum 2.0 features using DAO treasury funds;</li><li>Assign oracles to deliver reward/slashing rate feed to help establish stETH token balances;</li><li>Scout and qualify new node operators and penalize the existing ones slashed by Ethereum 2.0’s rules;</li><li>Manage the Lido DAO’s insurance and development funds;</li><li>Manage unbonding and withdrawals once available in Ethereum 2.0; </li></ul>
                   <h2>The LDO token</h2>
                   <p>Our mission with the Lido DAO is to distribute all decision-making to create a trustless staking service built around community-growth and self-sustainability. This is achieved through the LDO governance token. The launch of LDO is a significant step towards achieving this goal, driving decentralised ownership and facilitating development of a distributed, independent governance structure to lead the Lido DAO. </p>
@@ -202,7 +217,7 @@ export default function Lido() {
                 </OutlineCard>
               ))}
             </TeamWrapper>
-          </AutoColumn>
+          </AboutWrapper>
         </AutoColumn>
       </AutoColumn>
     </AppBody>

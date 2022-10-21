@@ -1,5 +1,5 @@
 import { AutoColumn } from 'components/Column'
-import Row, { RowBetween } from 'components/Row'
+import Row from 'components/Row'
 import styled from 'styled-components/macro'
 import { ExternalLink, Line, TYPE } from 'theme'
 
@@ -11,17 +11,29 @@ import AppBody from 'pages/AppBody'
 
 import { ReactComponent as UniswapLogoPink } from 'assets/svg/uniswap_logo_pink.svg'
 import AvatarExample from 'components/Avatar'
+import { shortenAddress } from 'utils'
+
+const BaseWrapper = styled.div`
+  width: 55%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  & > div {
+    display: flex;
+    justify-content: center;
+  }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    width: 100%;
+    & > div {
+      flex-direction: column;
+    }
+  `};
+`
 
 const ButtonWrapper = styled.div`
   width: fit-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 15px;
-`
-
-const Iframe = styled.iframe`
-  padding: 0px 20px;
-  border: 1px solid ${({ theme }) => theme.bg2}; ;
 `
 
 // const TableInformation = styled.table`
@@ -39,12 +51,23 @@ const Iframe = styled.iframe`
 //   }
 // `
 
+const Iframe = styled.iframe`
+  padding: 0px 20px;
+  border: 1px solid ${({ theme }) => theme.bg2};
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    height: 1500px;
+  `}
+`
+
 const TeamWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 24px;
+  grid-gap: 24px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    grid-template-columns: repeat(2, 1fr);
+  `}
 `
-
 const TeamItem = styled(AutoColumn)`
   text-align: center;
 `
@@ -63,11 +86,21 @@ const TeamLink = styled(ExternalLink)`
   }
 `
 
-const AboutWrapper = styled.div`
-  width: 100%;
+const AboutWrapper = styled(AutoColumn)`
+  width: 78%;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    width: 100%;
+  `};
+`
+const AboutHTMLWrapper = styled.div`
+  width: 78%;
   * > img {
     width: 100%;
   }
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    width: 100%;
+  `};
 `
 
 export default function Uniswap() {
@@ -108,20 +141,20 @@ export default function Uniswap() {
           <TYPE.largeHeader>Base Information</TYPE.largeHeader>
           <Line />
         </AutoColumn>
-        <RowBetween width={'55%'}>
-          <Row justify="center" width={'auto'}>
+        <BaseWrapper>
+          <div>
             <TYPE.body>Founded on:&nbsp;</TYPE.body>
             <TYPE.black>2022/02/22</TYPE.black>
-          </Row>
-          <Row justify="center" width={'auto'}>
+          </div>
+          <div>
             <TYPE.body>Protocols:&nbsp;</TYPE.body>
             <TYPE.black>8</TYPE.black>
-          </Row>
-          <Row justify="center" width={'auto'}>
+          </div>
+          <div>
             <TYPE.body>Protocols:&nbsp;</TYPE.body>
             <TYPE.black>12</TYPE.black>
-          </Row>
-        </RowBetween>
+          </div>
+        </BaseWrapper>
         <ButtonWrapper>
           <ButtonOutlined padding={'9px 24px'} onClick={() => navigate('/uniswap/info')}>
             <UniswapLogoPink fill="#666666" width="17px" />
@@ -153,11 +186,13 @@ export default function Uniswap() {
         <AutoColumn gap="16px" style={{ marginTop: 20 }}>
           <TYPE.largeHeader fontSize={28}>About UNI</TYPE.largeHeader>
           <Line />
-          <AutoColumn gap="16px" style={{ width: '78%' }}>
-            <AboutWrapper
+          <AboutWrapper gap="16px">
+            <AboutHTMLWrapper
               dangerouslySetInnerHTML={{
                 __html: `
-                <ul><li><p>UNI, the Uniswap Protocol token, is live!</p></li><li><p>UNI contract address: <a href="https://etherscan.io/token/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984">0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984</a></p></li><li><p>60% of the UNI genesis supply is allocated to Uniswap community members, a quarter of which (15% of total supply) has already been distributed to past users</p></li><li><p>To start, UNI is available through four liquidity mining pools: UNI holders may vote to add more pools after an initial 30-day governance grace period</p></li></ul>
+                <ul><li><p>UNI, the Uniswap Protocol token, is live!</p></li><li><p>UNI contract address: <a href="https://etherscan.io/token/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984">${shortenAddress(
+                  '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984'
+                )}</a></p></li><li><p>60% of the UNI genesis supply is allocated to Uniswap community members, a quarter of which (15% of total supply) has already been distributed to past users</p></li><li><p>To start, UNI is available through four liquidity mining pools: UNI holders may vote to add more pools after an initial 30-day governance grace period</p></li></ul>
                 <p><strong>UNI Allocation</strong></p>
                 <p>1 billion UNI have been minted at genesis and will become accessible over the course of 4 years. The initial four year allocation is as follows:</p>
                 <ul><li><p>60.00% to Uniswap community members <code>600,000,000 UNI</code></p></li><li><p>21.266% to team members and future employees with 4-year vesting <code>212,660,000 UNI</code></p></li><li><p>18.044% to investors with 4-year vesting <code>180,440,000 UNI</code></p></li><li><p>0.69% to advisors with 4-year vesting <code>6,900,000 UNI</code></p></li></ul>
@@ -187,7 +222,7 @@ export default function Uniswap() {
                 </OutlineCard>
               ))}
             </TeamWrapper>
-          </AutoColumn>
+          </AboutWrapper>
         </AutoColumn>
       </AutoColumn>
     </AppBody>

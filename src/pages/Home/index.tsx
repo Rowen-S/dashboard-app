@@ -61,12 +61,21 @@ const HomeContent = styled(AutoColumn)`
   max-width: 1200px;
   width: 100%;
   margin: 0px auto;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding: 1rem;
+  `};
 `
 const RegistrationWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 54px;
   grid-row-gap: 41px;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+      grid-template-columns: repeat(1, 1fr);
+
+  `};
 `
 
 const RegistrationCard = styled(DarkCard)`
@@ -110,12 +119,20 @@ const RegistrationInfo = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 27px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding: 15px;
+  `}
 `
 
 const ButtonOttions = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 16px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    & > button {
+      padding: 5px 6px;
+    }
+  `}
 `
 
 export default function Home() {
