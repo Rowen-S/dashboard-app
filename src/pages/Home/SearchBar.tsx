@@ -50,7 +50,7 @@ export default function SearchBar() {
   }, [])
 
   return (
-    <SearchBarWraper>
+    <SearchBarWraper ref={node as any}>
       <HomeSearch
         type="text"
         id="token-search-input"
@@ -59,7 +59,7 @@ export default function SearchBar() {
         value={searchQuery}
         ref={inputRef as RefObject<HTMLInputElement>}
         onChange={handleInput}
-        onFocus={toggle}
+        onClick={toggle}
       />
       {open && (
         <SearchFlyout>
