@@ -156,7 +156,7 @@ export default function Lido() {
           <TYPE.black>Total revenue 30d</TYPE.black>
         </AutoColumn>
         <Iframe
-          src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/key_metrics'}
+          src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/revenue_share'}
           width="100%"
           height="1350px"
           frameBorder={1}
