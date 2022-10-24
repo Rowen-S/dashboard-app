@@ -144,15 +144,15 @@ export default function Uniswap() {
         <BaseWrapper>
           <div>
             <TYPE.body>Founded on:&nbsp;</TYPE.body>
-            <TYPE.black>2022/02/22</TYPE.black>
+            <TYPE.black>2018</TYPE.black>
           </div>
           <div>
             <TYPE.body>Protocols:&nbsp;</TYPE.body>
-            <TYPE.black>8</TYPE.black>
+            <TYPE.black>3</TYPE.black>
           </div>
           <div>
             <TYPE.body>Protocols:&nbsp;</TYPE.body>
-            <TYPE.black>12</TYPE.black>
+            <TYPE.black>85</TYPE.black>
           </div>
         </BaseWrapper>
         <ButtonWrapper>

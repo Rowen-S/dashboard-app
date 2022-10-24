@@ -123,15 +123,15 @@ export default function Lido() {
         <BaseWrapper>
           <div>
             <TYPE.body>Founded on:&nbsp;</TYPE.body>
-            <TYPE.black>2022/02/22</TYPE.black>
+            <TYPE.black>2020</TYPE.black>
           </div>
           <div>
             <TYPE.body>Protocols:&nbsp;</TYPE.body>
-            <TYPE.black>8</TYPE.black>
+            <TYPE.black>1</TYPE.black>
           </div>
           <div>
             <TYPE.body>Protocols:&nbsp;</TYPE.body>
-            <TYPE.black>12</TYPE.black>
+            <TYPE.black>50-200</TYPE.black>
           </div>
         </BaseWrapper>
 
