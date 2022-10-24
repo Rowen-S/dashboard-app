@@ -186,15 +186,15 @@ export default function Home() {
                 <TYPE.largeHeader>Lido</TYPE.largeHeader>
                 <Row>
                   <TYPE.body color={'text3'}>Founded on:&nbsp;</TYPE.body>
-                  <TYPE.body>2022/02/22</TYPE.body>
+                  <TYPE.body>2020</TYPE.body>
                 </Row>
                 <Row>
                   <TYPE.body color={'text3'}>stETH on Curve:&nbsp;</TYPE.body>
-                  <TYPE.body>8</TYPE.body>
+                  <TYPE.body>1</TYPE.body>
                 </Row>
                 <Row>
                   <TYPE.body color={'text3'}>Number of employees:&nbsp;</TYPE.body>
-                  <TYPE.body>12</TYPE.body>
+                  <TYPE.body>50-200</TYPE.body>
                 </Row>
                 <ButtonOttions>
                   <ButtonOutlined
@@ -231,15 +231,15 @@ export default function Home() {
                 <TYPE.largeHeader>Uniswap</TYPE.largeHeader>
                 <Row>
                   <TYPE.body color={'text3'}>Founded on:&nbsp;</TYPE.body>
-                  <TYPE.body>2022/02/22</TYPE.body>
+                  <TYPE.body>2018</TYPE.body>
                 </Row>
                 <Row>
                   <TYPE.body color={'text3'}>stETH on Curve:&nbsp;</TYPE.body>
-                  <TYPE.body>8</TYPE.body>
+                  <TYPE.body>3</TYPE.body>
                 </Row>
                 <Row>
                   <TYPE.body color={'text3'}>Number of employees:&nbsp;</TYPE.body>
-                  <TYPE.body>12</TYPE.body>
+                  <TYPE.body>85</TYPE.body>
                 </Row>
                 <ButtonOttions>
                   <ButtonOutlined
