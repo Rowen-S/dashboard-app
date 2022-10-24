@@ -134,7 +134,7 @@ export default function Header() {
       <HeaderNav>
         <Title href=".">
           <DashBoardIcon>
-            <Logo fill={darkMode ? white : black} width="100%" height="40px" title="logo" />
+            <Logo fill={darkMode ? white : black} width="100%" height="44px" title="logo" />
           </DashBoardIcon>
         </Title>
         <div />
