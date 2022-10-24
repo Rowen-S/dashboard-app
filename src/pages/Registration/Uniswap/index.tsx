@@ -151,7 +151,7 @@ export default function Uniswap() {
             <TYPE.black>3</TYPE.black>
           </div>
           <div>
-            <TYPE.body>Protocols:&nbsp;</TYPE.body>
+            <TYPE.body>Members:&nbsp;</TYPE.body>
             <TYPE.black>85</TYPE.black>
           </div>
         </BaseWrapper>
