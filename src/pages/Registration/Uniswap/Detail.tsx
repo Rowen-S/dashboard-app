@@ -74,7 +74,7 @@ export default function UniswapDetail() {
   ]
 
   return (
-    <AppBody>
+    <AppBody {...{ maxWidth: '1440px' }}>
       <AutoColumn gap="65px">
         <Row>
           <Logo src={UniswapSvg} />
