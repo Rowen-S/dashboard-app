@@ -1,10 +1,10 @@
 {
   "background_color": "#ffffff",
   "display": "standalone",
-  "homepage_url": "https://",
+  "homepage_url": "https://dashboard-azure-two.vercel.app",
   "providedBy": {
-    "name": "",
-    "url": "https://"
+    "name": "React App",
+    "url": "https://dashboard-azure-two.vercel.app"
   },
   "icons": [
     {
@@ -19,8 +19,8 @@
     }
   ],
   "orientation": "portrait",
-  "name": "",
-  "description": "",
+  "name": "React App",
+  "description": "Web site created using create-react-app",
   "iconPath": "./images/256x256_App_Icon_Pink.svg",
   "short_name": "dashboard",
   "start_url": ".",
