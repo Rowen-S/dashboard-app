@@ -6,7 +6,8 @@ import application from './application/reducer'
 import user from './user/reducer'
 import { updateVersion } from './global/actions'
 
-import { proposalsApi } from 'graphql/services/snapshot'
+import { proposalsApi } from 'services/graphql/snapshot'
+import { ethereumApi } from 'services/ethereum'
 
 const PERSISTED_KEYS: string[] = ['user']
 
@@ -15,10 +16,12 @@ export const store = configureStore({
     application,
     user,
     [proposalsApi.reducerPath]: proposalsApi.reducer,
+    [ethereumApi.reducerPath]: ethereumApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ thunk: true })
       .concat(proposalsApi.middleware)
+      .concat(ethereumApi.middleware)
       .concat(save({ states: PERSISTED_KEYS, debounce: 1000 })),
   preloadedState: load({ states: PERSISTED_KEYS, disableWarnings: isTestEnv() }),
 })

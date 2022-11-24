@@ -1,7 +1,7 @@
 import { lighten, darken } from 'polished'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import styled, { DefaultTheme } from 'styled-components/macro'
-import { useGetProposalsQuery } from 'graphql/services/snapshot'
+import { useGetProposalsQuery } from 'services/graphql/snapshot'
 
 import Identicon from 'components/Identicon'
 import { LoadingRows } from 'components/Loader/styled'
@@ -217,7 +217,7 @@ export default function PropsalList({ title = '', status = 'all' }: { title: str
     return () => {
       setSkipNumber(0)
     }
-  }, [title])
+  }, [title, status])
 
   if (!proposalList?.proposals.length) {
     return <div>No posts :(</div>
