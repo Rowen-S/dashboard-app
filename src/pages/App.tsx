@@ -19,6 +19,8 @@ const LidoInfo = lazy(() => import('./Registration/Lido/Detail'))
 const Uniswap = lazy(() => import('./Registration/Uniswap'))
 const UniswapInfo = lazy(() => import('./Registration/Uniswap/Detail'))
 
+const Ethereum = lazy(() => import('./BlockChain/Ethereum'))
+
 const AppWrapper = styled.div`
   display: flex;
   flex-flow: column;
@@ -123,6 +125,15 @@ function App() {
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
                     <UniswapInfo />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="ethereum"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Ethereum />
                   </Suspense>
                 }
               />

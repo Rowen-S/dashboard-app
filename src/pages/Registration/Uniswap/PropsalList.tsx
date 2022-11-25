@@ -39,7 +39,7 @@ const Proposal = styled(Button)`
     background-color: ${({ theme }) => darken(0.05, theme.bg1)};
   }
   &:hover {
-    background-color: ${({ theme }) => theme.bg2};
+    background-color: ${({ theme }) => darken(0.05, theme.bg0)};
     text-decoration: none;
   }
 `
@@ -58,7 +58,7 @@ const PageButton = styled(Button)`
   cursor: pointer;
   background-color: ${({ theme }) => theme.primary1};
   &:hover {
-    background-color: ${({ theme }) => darken(0.05, theme.primary1)};
+    background-color: ${({ theme }) => darken(0.06, theme.primary1)};
     border: 1px solid ${({ theme }) => theme.bg3};
   }
   &:disabled {

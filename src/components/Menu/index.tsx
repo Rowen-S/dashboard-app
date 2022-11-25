@@ -3,7 +3,7 @@ import { FunctionComponent, PropsWithChildren, ReactNode, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components/macro'
 
-import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
+import { ReactComponent as MenuIcon } from '../../assets/svg/menu.svg'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import { useModalIsOpen, useToggleModal } from '../../state/application/hooks'
 import { ApplicationModal } from '../../state/application/reducer'

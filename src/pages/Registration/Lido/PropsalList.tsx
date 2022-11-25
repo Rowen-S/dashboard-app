@@ -39,7 +39,7 @@ const Proposal = styled(Button)`
     background-color: ${({ theme }) => darken(0.05, theme.bg1)};
   }
   &:hover {
-    background-color: ${({ theme }) => theme.bg2};
+    background-color: ${({ theme }) => darken(0.05, theme.bg0)};
     text-decoration: none;
   }
 `
