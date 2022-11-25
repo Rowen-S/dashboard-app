@@ -158,6 +158,45 @@ export default function Ethereum() {
                 </AutoColumn>
               </DuneCard>
             </BlockBasicWrapper> */}
+
+            {/* Token */}
+            <>
+              <TYPE.largeHeader>Token</TYPE.largeHeader>
+              <BlockBasicWrapper>
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1096522/1891389/984498df-80c5-4306-b507-8f25c9b54733"
+                  width="100%"
+                  height="230px"
+                  frameBorder={0}
+                />
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1109099/1894548/f7875512-bc90-4e00-94c3-7316b2276afb"
+                  width="100%"
+                  height="230px"
+                  frameBorder={0}
+                />
+                <DuneCard>
+                  <AutoColumn gap="16px">
+                    <TYPE.subHeader fontWeight="600">Total Supply</TYPE.subHeader>
+                    <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
+                      {totalSupply?.result
+                        ? Number((Number(totalSupply.result) / Math.pow(10, 18)).toFixed()).toLocaleString()
+                        : '-'}{' '}
+                    </TYPE.largeHeader>
+                  </AutoColumn>
+                </DuneCard>
+              </BlockBasicWrapper>
+              <AutoColumn gap="16px">
+                <TYPE.label>ETH Price</TYPE.label>
+                <Line />
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1098165/1894199/831e969f-628b-4022-9fc0-69dcaa328fa6"
+                  width="100%"
+                  height="480px"
+                  frameBorder={0}
+                />
+              </AutoColumn>
+            </>
             {/* Account */}
             <>
               <TYPE.largeHeader>Account</TYPE.largeHeader>
@@ -186,18 +225,7 @@ export default function Ethereum() {
                   height="230px"
                   frameBorder={0}
                 />
-              </BlockBasicWrapper>
-              <AutoColumn gap="16px">
-                <TYPE.label>Activate Users</TYPE.label>
-                <Line />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1097143/1875623/77594d22-5858-4e34-af6c-6b62add6996e"
-                  width="100%"
-                  height="480px"
-                  frameBorder={0}
-                />
-              </AutoColumn>
-              <BlockBasicWrapper>
+
                 <IfrarmeItem
                   src="https://dune.com/embeds/1107210/1890861/bf22fa52-15f8-4b5a-883e-cb138dd35caf"
                   width="100%"
@@ -218,16 +246,22 @@ export default function Ethereum() {
                 />
               </BlockBasicWrapper>
 
-              <AutoColumn gap="16px">
-                <TYPE.label>New Users</TYPE.label>
-                <Line />
+              <BlockNetworkWrapper>
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1097143/1875623/77594d22-5858-4e34-af6c-6b62add6996e"
+                  width="100%"
+                  height="230px"
+                  frameBorder={0}
+                />
+
                 <IfrarmeItem
                   src="https://dune.com/embeds/1103912/1884830/aee31897-b6dc-46c0-9922-f3e7a4e88d11"
                   width="100%"
-                  height="480px"
+                  height="230px"
                   frameBorder={0}
                 />
-              </AutoColumn>
+              </BlockNetworkWrapper>
+
               <BlockBasicWrapper>
                 <IfrarmeItem
                   src="https://dune.com/embeds/1128714/1927433/02c36343-bc3f-4dc6-89ae-2d0845cdb1c2"
@@ -292,85 +326,29 @@ export default function Ethereum() {
                   frameBorder={0}
                 />
               </AutoColumn>
-              <AutoColumn gap="16px">
-                <TYPE.label>24 Top 100 Gas Spender</TYPE.label>
-                <Line />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1126409/1922958/4c6c580a-7c24-49d6-94d0-9ab5644c482c"
-                  width="100%"
-                  height="480px"
-                  frameBorder={0}
-                />
-              </AutoColumn>
-              <AutoColumn gap="16px">
-                <TYPE.label>24 Top 100 Gas Consumer</TYPE.label>
-                <Line />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1126053/1922444/bce90430-6451-4082-ae58-1b27278b3774"
-                  width="100%"
-                  height="480px"
-                  frameBorder={0}
-                />
-              </AutoColumn>
-            </>
-            {/* Token */}
-            <>
-              <TYPE.largeHeader>Token</TYPE.largeHeader>
-              <BlockBasicWrapper>
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1096522/1891389/984498df-80c5-4306-b507-8f25c9b54733"
-                  width="100%"
-                  height="230px"
-                  frameBorder={0}
-                />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1109099/1894548/f7875512-bc90-4e00-94c3-7316b2276afb"
-                  width="100%"
-                  height="230px"
-                  frameBorder={0}
-                />
-                <DuneCard>
-                  <AutoColumn gap="16px">
-                    <TYPE.subHeader fontWeight="600">Total Supply</TYPE.subHeader>
-                    <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                      {totalSupply?.result
-                        ? Number((Number(totalSupply.result) / Math.pow(10, 18)).toFixed()).toLocaleString()
-                        : '-'}{' '}
-                      Billion
-                    </TYPE.largeHeader>
-                  </AutoColumn>
-                </DuneCard>
-              </BlockBasicWrapper>
-              <AutoColumn gap="16px">
-                <TYPE.label>ETH Price</TYPE.label>
-                <Line />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1098165/1894199/831e969f-628b-4022-9fc0-69dcaa328fa6"
-                  width="100%"
-                  height="480px"
-                  frameBorder={0}
-                />
-              </AutoColumn>
-              <BlockBasicWrapper>
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1128328/1926682/cc804049-2a9e-407c-861d-1eec0df61cff"
-                  width="100%"
-                  height="230px"
-                  frameBorder={0}
-                />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1128328/1926692/0f85dfec-87e6-4dbb-8602-2f8484b7312d"
-                  width="100%"
-                  height="230px"
-                  frameBorder={0}
-                />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/610396/1139837/eda9a5b9-9e1a-45d2-918a-02f4f303f766"
-                  width="100%"
-                  height="230px"
-                  frameBorder={0}
-                />
-              </BlockBasicWrapper>
+              <BlockNetworkWrapper>
+                <AutoColumn gap="16px">
+                  <TYPE.label>24 Top 100 Gas Spender</TYPE.label>
+                  <Line />
+                  <IfrarmeItem
+                    src="https://dune.com/embeds/1126409/1922958/4c6c580a-7c24-49d6-94d0-9ab5644c482c"
+                    width="100%"
+                    height="480px"
+                    frameBorder={0}
+                  />
+                </AutoColumn>
+
+                <AutoColumn gap="16px">
+                  <TYPE.label>24 Top 100 Gas Consumer</TYPE.label>
+                  <Line />
+                  <IfrarmeItem
+                    src="https://dune.com/embeds/1126053/1922444/bce90430-6451-4082-ae58-1b27278b3774"
+                    width="100%"
+                    height="480px"
+                    frameBorder={0}
+                  />
+                </AutoColumn>
+              </BlockNetworkWrapper>
             </>
 
             {/* Network */}
@@ -395,6 +373,26 @@ export default function Ethereum() {
                   frameBorder={0}
                 />
               </BlockNetworkWrapper>
+              <BlockBasicWrapper>
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1128328/1926682/cc804049-2a9e-407c-861d-1eec0df61cff"
+                  width="100%"
+                  height="230px"
+                  frameBorder={0}
+                />
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1128328/1926692/0f85dfec-87e6-4dbb-8602-2f8484b7312d"
+                  width="100%"
+                  height="230px"
+                  frameBorder={0}
+                />
+                <IfrarmeItem
+                  src="https://dune.com/embeds/610396/1139837/eda9a5b9-9e1a-45d2-918a-02f4f303f766"
+                  width="100%"
+                  height="230px"
+                  frameBorder={0}
+                />
+              </BlockBasicWrapper>
               <AutoColumn gap="16px">
                 <TYPE.label>Total Burned</TYPE.label>
                 <Line />
@@ -415,26 +413,29 @@ export default function Ethereum() {
                   frameBorder={0}
                 />
               </AutoColumn>
-              <AutoColumn gap="16px">
-                <TYPE.label>Block Count</TYPE.label>
-                <Line />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/661189/1228271/a8eb091e-2acb-472d-a97c-e53c96808d11"
-                  width="100%"
-                  height="480px"
-                  frameBorder={0}
-                />
-              </AutoColumn>
-              <AutoColumn gap="16px">
-                <TYPE.label>Avg Block Time</TYPE.label>
-                <Line />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1109760/1895778/501211d7-ca11-4b29-ad48-06bd7f1efe77"
-                  width="100%"
-                  height="480px"
-                  frameBorder={0}
-                />
-              </AutoColumn>
+
+              <BlockNetworkWrapper>
+                <AutoColumn gap="16px">
+                  <TYPE.label>Avg Block Time</TYPE.label>
+                  <Line />
+                  <IfrarmeItem
+                    src="https://dune.com/embeds/1109760/1895778/501211d7-ca11-4b29-ad48-06bd7f1efe77"
+                    width="100%"
+                    height="480px"
+                    frameBorder={0}
+                  />
+                </AutoColumn>
+                <AutoColumn gap="16px">
+                  <TYPE.label>Block Count</TYPE.label>
+                  <Line />
+                  <IfrarmeItem
+                    src="https://dune.com/embeds/661189/1228271/a8eb091e-2acb-472d-a97c-e53c96808d11"
+                    width="100%"
+                    height="480px"
+                    frameBorder={0}
+                  />
+                </AutoColumn>
+              </BlockNetworkWrapper>
             </>
           </AutoColumn>
         </BlockChainWrapper>
