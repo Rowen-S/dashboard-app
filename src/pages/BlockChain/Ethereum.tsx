@@ -390,14 +390,6 @@ Ethereum’s own purported goal is to become a global platform for decentralized
                 frameBorder={0}
               />
 
-              {/* Daily Burned */}
-              <IfrarmeItem
-                src="https://dune.com/embeds/1118249/1911930/37a7a4f4-e472-4f56-9c67-c26e76d93e47"
-                width="100%"
-                height="480px"
-                frameBorder={0}
-              />
-
               <BlockNetworkWrapper>
                 {/* Avg Block Time */}
                 <IfrarmeItem
