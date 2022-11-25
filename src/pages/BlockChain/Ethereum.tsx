@@ -16,8 +16,10 @@ const Logo = styled.img`
   flex: none;
   width: 180px;
   height: 180px;
+
   padding: 24px;
   border-radius: 6px;
+  background: #f8f8f8;
   display: flex;
   align-self: flex-start;
 `
