@@ -250,14 +250,14 @@ Ethereum’s own purported goal is to become a global platform for decentralized
                 <IfrarmeItem
                   src="https://dune.com/embeds/1097143/1875623/77594d22-5858-4e34-af6c-6b62add6996e"
                   width="100%"
-                  height="230px"
+                  height="350px"
                   frameBorder={0}
                 />
 
                 <IfrarmeItem
                   src="https://dune.com/embeds/1103912/1884830/aee31897-b6dc-46c0-9922-f3e7a4e88d11"
                   width="100%"
-                  height="230px"
+                  height="350px"
                   frameBorder={0}
                 />
               </BlockNetworkWrapper>
@@ -326,14 +326,14 @@ Ethereum’s own purported goal is to become a global platform for decentralized
                 <IfrarmeItem
                   src="https://dune.com/embeds/1126409/1922958/4c6c580a-7c24-49d6-94d0-9ab5644c482c"
                   width="100%"
-                  height="230px"
+                  height="350px"
                   frameBorder={0}
                 />
                 {/* 24 Top 100 Gas Consumer */}
                 <IfrarmeItem
                   src="https://dune.com/embeds/1126053/1922444/bce90430-6451-4082-ae58-1b27278b3774"
                   width="100%"
-                  height="230px"
+                  height="350px"
                   frameBorder={0}
                 />
               </BlockNetworkWrapper>
@@ -403,14 +403,14 @@ Ethereum’s own purported goal is to become a global platform for decentralized
                 <IfrarmeItem
                   src="https://dune.com/embeds/1109760/1895778/501211d7-ca11-4b29-ad48-06bd7f1efe77"
                   width="100%"
-                  height="230px"
+                  height="350px"
                   frameBorder={0}
                 />
                 {/* Block Count */}
                 <IfrarmeItem
                   src="https://dune.com/embeds/661189/1228271/a8eb091e-2acb-472d-a97c-e53c96808d11"
                   width="100%"
-                  height="230px"
+                  height="350px"
                   frameBorder={0}
                 />
               </BlockNetworkWrapper>
