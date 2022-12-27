@@ -20,6 +20,12 @@ const Uniswap = lazy(() => import('./Registration/Uniswap'))
 const UniswapInfo = lazy(() => import('./Registration/Uniswap/Detail'))
 
 const Ethereum = lazy(() => import('./BlockChain/Ethereum'))
+const Solana = lazy(() => import('./BlockChain/Solana'))
+const Doge = lazy(() => import('./BlockChain/Doge'))
+const Litecoin = lazy(() => import('./BlockChain/Ltc'))
+const Dot = lazy(() => import('./BlockChain/Dot'))
+
+const Avalanche = lazy(() => import('./BlockChain/Avalanche'))
 
 const AppWrapper = styled.div`
   display: flex;
@@ -134,6 +140,50 @@ function App() {
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
                     <Ethereum />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="solana"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Solana />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="avalanche"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Avalanche />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="doge"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Doge />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="litecoin"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Litecoin />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="dot"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Dot />
                   </Suspense>
                 }
               />

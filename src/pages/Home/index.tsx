@@ -16,7 +16,23 @@ import LidoLogo from 'components/Logo'
 
 import EthBg from 'assets/images/eth-bg.png'
 import EthLogo from 'assets/images/eth.png'
-// import UniswapPinkLogo from 'assets/svg/uniswap_logo_pink.svg'
+
+import SolBg from 'assets/images/sol-bg.png'
+import SolLogo from 'assets/images/sol.png'
+
+import AvaxBg from 'assets/images/avax-bg.png'
+import AvaxLogo from 'assets/images/avax.png'
+
+import DogeBg from 'assets/images/doge-bg.png'
+import DogeLogo from 'assets/images/doge.png'
+
+import LtcBg from 'assets/images/ltc-bg.png'
+import LtcLogo from 'assets/images/ltc.png'
+
+import DotBg from 'assets/images/dot-bg.png'
+import DotLogo from 'assets/images/dot.png'
+
+// import EthLogo from 'assets/images/eth.png'
 
 const HomeWrapper = styled(AutoColumn)`
   width: 100%;
@@ -111,11 +127,31 @@ const LogoWrapper = styled.div`
     width: 46px;
     height: 46px;
   }
+  /* & > img {
+    width: 100%;
+    height: 100%;
+  } */
+`
+
+const MetricsLogoWrapper = styled.div`
+  border-radius: 50%;
+  opacity: 0.96;
+  background-color: ${({ theme }) => theme.white};
+  width: 96px;
+  height: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 const RegistrationBg = styled.div<{ url: string }>`
   background: ${({ url }) => (url ? `url(${url}) no-repeat 100% 100%` : 'unset')};
   min-height: 160px;
+  background-size: cover;
 `
 
 const RegistrationInfo = styled.div`
@@ -258,15 +294,98 @@ export default function Home() {
           <RegistrationCard as={Link} to={'/ethereum'}>
             <RegistrationBg url={EthBg} />
             <RegistrationInfo>
-              <LogoWrapper>
+              <MetricsLogoWrapper>
                 <img src={EthLogo} alt="eth" />
-              </LogoWrapper>
+              </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>ETH</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Ethereum is a decentralized open-source blockchain system that features its own cryptocurrency, Ether.
                   ETH works as a platform for numerous other cryptocurrencies, as well as for the execution of
                   decentralized smart contracts.
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+          <RegistrationCard as={Link} to={'/solana'}>
+            <RegistrationBg url={SolBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={SolLogo} alt="Solana" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>Solana</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Solana由前高通、英特尔以及Dropbox工程师于2017年末创立，是一个单层区块链，采用委托权益证明协议，其专注点是在不牺牲去中心化或安全性的前提下提供可扩展性。Solana扩展方案的核心是一个名为“历史证明（PoH）”的去中心化时钟，该时钟旨在解决缺乏单个...
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          <RegistrationCard as={Link} to={'/avalanche'}>
+            <RegistrationBg url={AvaxBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={AvaxLogo} alt="Avax" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>AVAX</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Avalanche (AVAX) is a blockchain platform built for smart contracts, dApps, and subnets (customized
+                  blockchains). The network focuses on fast transactions, low fees, and energy efficiency. Avalanche
+                  crypto, called AVAX, is the native token.
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          <RegistrationCard as={Link} to={'/doge'}>
+            <RegistrationBg url={DogeBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={DogeLogo} alt="doge" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>DOGE</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Dogecoin (DOGE) is a an altcoin launched in December 2013, possibly as a joke. But cryptocurrency
+                  investors consider Dogecoin’s blockchain, derived from Litecoin, as reliable, which is one of the many
+                  reasons for the cryptocurrency’s rise to prominence.
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          <RegistrationCard as={Link} to={'/litecoin'}>
+            <RegistrationBg url={LtcBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={LtcLogo} alt="Litecoin" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>LTC</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Litecoin (LTC) is a cryptocurrency created in 2011 by former Google engineer Charlie Lee. It was one
+                  of the first “altcoins” — or alternatives to bitcoin. Though it’s built on bitcoin’s original source
+                  code and shares certain features with BTC, Litecoin was designed to improve upon bitcoin, especially
+                  in terms of transaction speed.
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          <RegistrationCard as={Link} to={'/dot'}>
+            <RegistrationBg url={DotBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={DotLogo} alt="dot" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>DOT</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Polkadot unites and secures a growing ecosystem of specialized blockchains called parachains. Apps and
+                  services on Polkadot can securely communicate across chains, forming the basis for a truly
+                  interoperable decentralized web.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
