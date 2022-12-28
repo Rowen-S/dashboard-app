@@ -21,6 +21,13 @@ const UniswapInfo = lazy(() => import('./Registration/Uniswap/Detail'))
 
 const Ethereum = lazy(() => import('./BlockChain/Ethereum'))
 const Solana = lazy(() => import('./BlockChain/Solana'))
+
+const Polygon = lazy(() => import('./BlockChain/Polygon'))
+// const Bnb = lazy(() => import('./BlockChain/Bnb'))
+const Ada = lazy(() => import('./BlockChain/Ada'))
+const Algo = lazy(() => import('./BlockChain/Algo'))
+
+const Atom = lazy(() => import('./BlockChain/Atom'))
 const Doge = lazy(() => import('./BlockChain/Doge'))
 const Litecoin = lazy(() => import('./BlockChain/Ltc'))
 const Dot = lazy(() => import('./BlockChain/Dot'))
@@ -149,6 +156,51 @@ function App() {
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
                     <Solana />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="polygon"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Polygon />
+                  </Suspense>
+                }
+              />
+
+              {/* <Route
+                path="bnb"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Bnb />
+                  </Suspense>
+                }
+              /> */}
+
+              <Route
+                path="ada"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Ada />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="algo"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Algo />
+                  </Suspense>
+                }
+              />
+
+              <Route
+                path="atom"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <Atom />
                   </Suspense>
                 }
               />

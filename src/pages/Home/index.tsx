@@ -20,6 +20,21 @@ import EthLogo from 'assets/images/eth.png'
 import SolBg from 'assets/images/sol-bg.png'
 import SolLogo from 'assets/images/sol.png'
 
+import MaticBg from 'assets/images/matic-bg.png'
+import MaticLogo from 'assets/images/matic.png'
+
+import BnbBg from 'assets/images/bnb-bg.png'
+import BnbLogo from 'assets/images/bnb.png'
+
+import AdaBg from 'assets/images/ada-bg.png'
+import AdaLogo from 'assets/images/ada.png'
+
+import AlgoBg from 'assets/images/algo-bg.png'
+import AlgoLogo from 'assets/images/algo.png'
+
+import AtomBg from 'assets/images/atom-bg.png'
+import AtomLogo from 'assets/images/atom.png'
+
 import AvaxBg from 'assets/images/avax-bg.png'
 import AvaxLogo from 'assets/images/avax.png'
 
@@ -317,6 +332,94 @@ export default function Home() {
                 <TYPE.largeHeader>Solana</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Solana由前高通、英特尔以及Dropbox工程师于2017年末创立，是一个单层区块链，采用委托权益证明协议，其专注点是在不牺牲去中心化或安全性的前提下提供可扩展性。Solana扩展方案的核心是一个名为“历史证明（PoH）”的去中心化时钟，该时钟旨在解决缺乏单个...
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          {/* MATIC */}
+          <RegistrationCard as={Link} to={'/polygon'}>
+            <RegistrationBg url={MaticBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={MaticLogo} alt="Matic" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>MATIC</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Matic
+                  Network是带有侧链的第2层伸缩解决方案，用于链外计算，同时使用等离子框架和去中心化的权益证明（PoS）验证器网络确保资产安全。它旨在提供可扩展的即时区块链交易。
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          {/* BNB */}
+          <RegistrationCard as={Link} to={'/bnb'}>
+            <RegistrationBg url={BnbBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={BnbLogo} alt="BNB" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>BNB</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Binance Coin (BNB) is the utility token for Binance, one of the largest cryptocurrency exchanges by
+                  volume. Traders can use the token to pay fees on the platform, and developers can use it to power
+                  applications, like smart contracts, on the Binance Smart Chain (BSC).
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          {/* ADA */}
+          <RegistrationCard as={Link} to={'/ada'}>
+            <RegistrationBg url={AdaBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={AdaLogo} alt="ADA" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>ADA</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Cardano is a decentralized public blockchain and cryptocurrency project that is the first to evolve
+                  out of a scientific philosophy, and research-first driven approach, according to Crypto.com. ADA is
+                  the native token of Cardano.
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          {/* ALGO */}
+          <RegistrationCard as={Link} to={'/algo'}>
+            <RegistrationBg url={AlgoBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={AlgoLogo} alt="ALGO" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>ALGO</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Algorand is unleashing scalability, fusing TradFi x DeFi, and accelerating global sustainability.
+                </TYPE.body>
+              </AutoColumn>
+            </RegistrationInfo>
+          </RegistrationCard>
+
+          {/* ATOM */}
+          <RegistrationCard as={Link} to={'/atom'}>
+            <RegistrationBg url={AtomBg} />
+            <RegistrationInfo>
+              <MetricsLogoWrapper>
+                <img src={AtomLogo} alt="Atom" />
+              </MetricsLogoWrapper>
+              <AutoColumn gap="12px">
+                <TYPE.largeHeader>Atom</TYPE.largeHeader>
+                <TYPE.body color={'text3'}>
+                  Cosmos is an ecosystem of networks and tools for creating interoperable blockchains. Its main chain
+                  Cosmos Hub acts as a central ledger for compatible blockchains called Zones. Each Zone is highly
+                  customizable, allowing developers to design their own cryptocurrency, with custom block validation
+                  settings, and other features.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>

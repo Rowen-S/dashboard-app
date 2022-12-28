@@ -1,3 +1,5 @@
+import { useGetQuotesQuery } from 'services/cmc-pro'
+
 import { AutoColumn } from 'components/Column'
 import Row, { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
@@ -9,9 +11,9 @@ import { ExternalLink, TYPE } from 'theme'
 import Twitter from 'assets/svg/twitter.svg'
 import Discord from 'assets/svg/discord.svg'
 import Raddit from 'assets/svg/raddit.svg'
+import Github from 'assets/svg/github.svg'
+
 import DogeLogo from 'assets/images/doge.png'
-import { useEffect, useState } from 'react'
-import { get } from 'utils/request'
 
 const Logo = styled.img`
   flex: none;
@@ -70,29 +72,7 @@ const ProjectSocial = styled.div`
 `
 
 export default function Doge() {
-  const [quotes, setQuotes] = useState<{
-    circulating_supply: number
-    quote: { USD: { price: number; market_cap: number } }
-  }>()
-  useEffect(() => {
-    let active = true
-
-    load()
-    return () => {
-      active = false
-    }
-    async function load() {
-      setQuotes(undefined) // this is optional
-      if (!active) {
-        return
-      }
-      const data = await get('https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbol=DOGE', {
-        headers: { 'X-CMC_PRO_API_KEY': '94e1537f-81cf-46a5-9406-6586cfb33471' },
-      })
-      console.log(data)
-      setQuotes(data.data.DOGE[0])
-    }
-  }, [])
+  const { data: quotes } = useGetQuotesQuery('DOGE')
 
   return (
     <AppBody>
@@ -121,7 +101,7 @@ export default function Doge() {
                     <SocialLogo src={Raddit} alt="raddit" />
                   </ExternalLink>
                   <ExternalLink href={'//github.com/dogecoin'}>
-                    <SocialLogo src={Raddit} alt="github" />
+                    <SocialLogo src={Github} alt="github" />
                   </ExternalLink>
                 </ProjectSocial>
               </AutoColumn>
@@ -141,9 +121,9 @@ export default function Doge() {
             <BlockBasicWrapper>
               <DuneCard>
                 <AutoColumn gap="16px">
-                  <TYPE.subHeader fontWeight="600">DOGE Price</TYPE.subHeader>
+                  <TYPE.subHeader fontWeight="600">DOT Price</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.quote?.USD.price?.toLocaleString() || 0}
+                    {quotes?.data?.DOGE[0]?.quote?.USD.price?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -151,7 +131,7 @@ export default function Doge() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Market Cap</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.quote?.USD.market_cap?.toLocaleString() || 0}
+                    {quotes?.data?.DOGE[0]?.quote?.USD.market_cap?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -159,7 +139,7 @@ export default function Doge() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Circulating Supply</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.circulating_supply?.toLocaleString() || 0}
+                    {quotes?.data?.DOGE[0]?.circulating_supply?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
