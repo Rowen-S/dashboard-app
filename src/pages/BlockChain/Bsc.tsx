@@ -148,7 +148,7 @@ export default function Bsc() {
             </BlockBasicWrapper>
 
             <IfrarmeItem
-              src="https://dune.com/embeds/1810832/2980183/6671d974-9e7b-4c10-99cc-71714af953a7"
+              src="https://dune.com/embeds/1814961/2986855/be588718-7d2a-4669-a8be-1486978f3fc2"
               width="100%"
               height="350px"
               frameBorder={0}
