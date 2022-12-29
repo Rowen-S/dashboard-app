@@ -331,7 +331,9 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Solana</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Solana由前高通、英特尔以及Dropbox工程师于2017年末创立，是一个单层区块链，采用委托权益证明协议，其专注点是在不牺牲去中心化或安全性的前提下提供可扩展性。Solana扩展方案的核心是一个名为“历史证明（PoH）”的去中心化时钟，该时钟旨在解决缺乏单个...
+                  Solana is a highly functional open source project that banks on blockchain technology’s permissionless
+                  nature to provide decentralized finance (DeFi) solutions. Solana was founded by Anatoly Yakovenko,
+                  Greg Fitzgerald, Raj Gokal, etc. and launched in 2020.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
@@ -347,8 +349,8 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>MATIC</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Matic
-                  Network是带有侧链的第2层伸缩解决方案，用于链外计算，同时使用等离子框架和去中心化的权益证明（PoS）验证器网络确保资产安全。它旨在提供可扩展的即时区块链交易。
+                  Polygon is a platform design to support infrastructure development and help Ethereum scale. Polygon
+                  was founded by Jaynti Kanani, Sandeep Nailwal & Anurag Arjun and launched in 2017.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
@@ -364,9 +366,8 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>BNB</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Binance Coin (BNB) is the utility token for Binance, one of the largest cryptocurrency exchanges by
-                  volume. Traders can use the token to pay fees on the platform, and developers can use it to power
-                  applications, like smart contracts, on the Binance Smart Chain (BSC).
+                  Binance Chain, which was renamed BNB Beacon Chain in 2022, was launched by Binance in April 2019. Its
+                  primary focus is to facilitate fast, decentralized (or non-custodial) trading.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
@@ -382,9 +383,9 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>ADA</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Cardano is a decentralized public blockchain and cryptocurrency project that is the first to evolve
-                  out of a scientific philosophy, and research-first driven approach, according to Crypto.com. ADA is
-                  the native token of Cardano.
+                  Cardano is a proof-of-stake blockchain platform that says its goal is to allow “changemakers,
+                  innovators and visionaries” to bring about positive global change. Cardano was founded by Charles
+                  Hoskinson & Jeremy Wood and launched in 2017.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
@@ -400,7 +401,8 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>ALGO</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Algorand is unleashing scalability, fusing TradFi x DeFi, and accelerating global sustainability.
+                  Algorand is a self-sustaining, decentralized, blockchain-based network that supports a wide range of
+                  applications. Algorand was founded by Silvio Micali and launched in 2018.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
@@ -416,10 +418,8 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Atom</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Cosmos is an ecosystem of networks and tools for creating interoperable blockchains. Its main chain
-                  Cosmos Hub acts as a central ledger for compatible blockchains called Zones. Each Zone is highly
-                  customizable, allowing developers to design their own cryptocurrency, with custom block validation
-                  settings, and other features.
+                  Cosmos (ATOM) is a cryptocurrency that powers an ecosystem of blockchains designed to scale and
+                  interoperate with each other. Cosmos was founded by Ethan Buchman & Jae Kwon and launched in 2019.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
@@ -434,9 +434,9 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>AVAX</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Avalanche (AVAX) is a blockchain platform built for smart contracts, dApps, and subnets (customized
-                  blockchains). The network focuses on fast transactions, low fees, and energy efficiency. Avalanche
-                  crypto, called AVAX, is the native token.
+                  Avalanche is a layer one blockchain that functions as a platform for decentralized applications and
+                  custom blockchain networks. It is one of Ethereum’s rivals, aiming to unseat Ethereum as the most
+                  popular blockchain for smart contracts. Avalanche was founded by Emin Gün Sirer and launched in 2019.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
@@ -451,9 +451,8 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>DOGE</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Dogecoin (DOGE) is a an altcoin launched in December 2013, possibly as a joke. But cryptocurrency
-                  investors consider Dogecoin’s blockchain, derived from Litecoin, as reliable, which is one of the many
-                  reasons for the cryptocurrency’s rise to prominence.
+                  {` Dogecoin (DOGE) is based on the popular "doge" Internet meme and features a Shiba Inu on its logo.
+                  Dogecoin was founded by Billy Markus & Jackson Palmer and launched in 2013.`}
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
@@ -468,10 +467,9 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>LTC</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Litecoin (LTC) is a cryptocurrency created in 2011 by former Google engineer Charlie Lee. It was one
-                  of the first “altcoins” — or alternatives to bitcoin. Though it’s built on bitcoin’s original source
-                  code and shares certain features with BTC, Litecoin was designed to improve upon bitcoin, especially
-                  in terms of transaction speed.
+                  Litecoin (LTC) is a cryptocurrency that was designed to provide fast, secure and low-cost payments by
+                  leveraging the unique properties of blockchain technology. Litecoin was founded by Charlie Lee and
+                  launched in 2010.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
@@ -486,9 +484,10 @@ export default function Home() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>DOT</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
-                  Polkadot unites and secures a growing ecosystem of specialized blockchains called parachains. Apps and
-                  services on Polkadot can securely communicate across chains, forming the basis for a truly
-                  interoperable decentralized web.
+                  Polkadot is an open-source sharded multichain protocol that connects and secures a network of
+                  specialized blockchains, facilitating cross-chain transfer of any data or asset types, not just
+                  tokens, thereby allowing blockchains to be interoperable with each other. Polkadot was founded by
+                  Gavin Wood and launched in 2020.
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>

@@ -115,7 +115,7 @@ export default function Polygon() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
                 <TYPE.body>
-                  <ExternalLink href={'//polygon.technology/'}>https://polygon.technology/</ExternalLink>
+                  <ExternalLink href={'//polygonscan.com/'}>https://polygonscan.com/</ExternalLink>
                 </TYPE.body>
               </AutoColumn>
             </RowBetween>
@@ -127,7 +127,7 @@ export default function Polygon() {
             <BlockBasicWrapper>
               <DuneCard>
                 <AutoColumn gap="16px">
-                  <TYPE.subHeader fontWeight="600">Polygon Price</TYPE.subHeader>
+                  <TYPE.subHeader fontWeight="600">Matic Price</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
                     {quotes?.data?.MATIC[0]?.quote?.USD.price?.toLocaleString() || 0}
                   </TYPE.largeHeader>
