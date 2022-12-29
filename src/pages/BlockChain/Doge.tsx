@@ -145,7 +145,7 @@ export default function Doge() {
               </DuneCard>
             </BlockBasicWrapper>
             <IfrarmeItem
-              src={'https://tokenterminal.com/terminal/projects/polygon/embed/key_metrics'}
+              src={'https://tokenterminal.com/terminal/projects/dogecoin/embed/key_metrics'}
               width="100%"
               height="1350px"
               frameBorder={0}

@@ -186,12 +186,6 @@ export default function Avalanche() {
                   frameBorder={0}
                 />
               </BlockBasicWrapper>
-              <IfrarmeItem
-                src="https://dune.com/embeds/1814985/2986888/5d7072c4-dc58-4c23-95f0-deffc0282175"
-                width="100%"
-                height="350px"
-                frameBorder={0}
-              />
             </>
             {/* Transaction */}
             <>
