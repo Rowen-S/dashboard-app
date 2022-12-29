@@ -11,7 +11,7 @@ import Discord from 'assets/svg/discord.svg'
 import Raddit from 'assets/svg/raddit.svg'
 import Github from 'assets/svg/github.svg'
 
-import AtomLogo from 'assets/images/atom.png'
+import CoinLogo from 'assets/images/dot.png'
 import { useGetQuotesQuery } from 'services/cmc-pro'
 
 const Logo = styled.img`
@@ -66,43 +66,45 @@ const SocialLogo = styled.img`
 
 const ProjectSocial = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 15px;
 `
 
-export default function Algo() {
-  const { data: quotes } = useGetQuotesQuery('ALGO')
+export default function Polkadot() {
+  const { data: quotes } = useGetQuotesQuery('DOT')
 
   return (
     <AppBody>
       <AutoColumn gap="65px">
         <Row>
-          <Logo src={AtomLogo} />
+          <Logo src={CoinLogo} />
           <ProjectDetailWrapper gap="25px">
             <ProjectIntroduce
               dangerouslySetInnerHTML={{
                 __html: `
-                Algorand is a self-sustaining, decentralized, blockchain-based network that supports a wide range of applications. These systems are secure, scalable and efficient, all critical properties for effective applications in the real world. Algorand will support computations that require reliable performance guarantees to create new forms of trust.
+                Polkadot is an open-source sharded multichain protocol that connects and secures a network of specialized blockchains, facilitating cross-chain transfer of any data or asset types, not just tokens, thereby allowing blockchains to be interoperable with each other. Polkadot was designed to provide a foundation for a decentralized internet of blockchains, also known as Web3.
 
-                Algorand was founded by Silvio Micali and launched in 2018.
+                The Polkadot protocol can connect public and private chains, permissionless networks, oracles and future technologies, allowing these independent blockchains to trustlessly share information and transactions through the Polkadot Relay Chain (explained further down).
 
-                <a href='//www.algorand.com/' target="_blank">Website</a>`,
+                Polkadot was founded by Gavin Wood and launched in 2020.
+
+                <a href='//polkadot.network/' target="_blank">Website</a>`,
               }}
             />
             <RowBetween width={'90%'}>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
                 <ProjectSocial>
-                  <ExternalLink href={'//twitter.com/Algorand/'}>
+                  <ExternalLink href={'//twitter.com/Polkadot/'}>
                     <SocialLogo src={Twitter} alt="twitter" />
                   </ExternalLink>
-                  <ExternalLink href={'//discord.com/84AActu3at/'}>
+                  <ExternalLink href={'//discord.com/invite/uKY3HkX/'}>
                     <SocialLogo src={Discord} alt="discord" />
                   </ExternalLink>
-                  <ExternalLink href={'//www.reddit.com/r/AlgorandOfficial/'}>
+                  <ExternalLink href={'//www.reddit.com/r/polkadot/'}>
                     <SocialLogo src={Raddit} alt="raddit" />
                   </ExternalLink>
-                  <ExternalLink href={'//github.com/algorand'}>
+                  <ExternalLink href={'//github.com/paritytech'}>
                     <SocialLogo src={Github} alt="github" />
                   </ExternalLink>
                 </ProjectSocial>
@@ -111,7 +113,9 @@ export default function Algo() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
                 <TYPE.body>
-                  <ExternalLink href={'//algoexplorer.io/'}>https://algoexplorer.io/</ExternalLink>
+                  <ExternalLink href={'//explorer.polkascan.io/polkadot/'}>
+                    https://explorer.polkascan.io/polkadot
+                  </ExternalLink>
                 </TYPE.body>
               </AutoColumn>
             </RowBetween>
@@ -124,9 +128,9 @@ export default function Algo() {
             <BlockBasicWrapper>
               <DuneCard>
                 <AutoColumn gap="16px">
-                  <TYPE.subHeader fontWeight="600">ALGO Price</TYPE.subHeader>
+                  <TYPE.subHeader fontWeight="600">DOT Price</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.ALGO[0]?.quote?.USD.price?.toLocaleString() || 0}
+                    {quotes?.data?.DOT[0]?.quote?.USD.price?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -134,7 +138,7 @@ export default function Algo() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Market Cap</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.ALGO[0]?.quote?.USD.market_cap?.toLocaleString() || 0}
+                    {quotes?.data?.DOT[0]?.quote?.USD.market_cap?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -142,19 +146,19 @@ export default function Algo() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Circulating Supply</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.ALGO[0]?.circulating_supply?.toLocaleString() || 0}
+                    {quotes?.data?.DOT[0]?.circulating_supply?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
             </BlockBasicWrapper>
             <IfrarmeItem
-              src={'https://tokenterminal.com/terminal/projects/algorand/embed/key_metrics'}
+              src={'https://tokenterminal.com/terminal/projects/polkadot/embed/key_metrics'}
               width="100%"
               height="1350px"
               frameBorder={0}
             />
             <IfrarmeItem
-              src={'https://tokenterminal.com/terminal/projects/algorand/embed/revenue_share'}
+              src={'https://tokenterminal.com/terminal/projects/polkadot/embed/revenue_share'}
               width="100%"
               height="1350px"
               frameBorder={0}

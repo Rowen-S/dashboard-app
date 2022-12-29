@@ -24,13 +24,13 @@ const Solana = lazy(() => import('./BlockChain/Solana'))
 
 const Polygon = lazy(() => import('./BlockChain/Polygon'))
 const Bsc = lazy(() => import('./BlockChain/Bsc'))
-const Ada = lazy(() => import('./BlockChain/Ada'))
-const Algo = lazy(() => import('./BlockChain/Algo'))
+const Cardano = lazy(() => import('./BlockChain/Cardano'))
+const Algorand = lazy(() => import('./BlockChain/Algorand'))
 
-const Atom = lazy(() => import('./BlockChain/Atom'))
+const Cosmos = lazy(() => import('./BlockChain/Cosmos'))
 const Doge = lazy(() => import('./BlockChain/Doge'))
-const Litecoin = lazy(() => import('./BlockChain/Ltc'))
-const Dot = lazy(() => import('./BlockChain/Dot'))
+const Litecoin = lazy(() => import('./BlockChain/Litecoin'))
+const Polkadot = lazy(() => import('./BlockChain/Polkadot'))
 
 const Avalanche = lazy(() => import('./BlockChain/Avalanche'))
 
@@ -179,28 +179,28 @@ function App() {
               />
 
               <Route
-                path="ada"
+                path="cardano"
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
-                    <Ada />
+                    <Cardano />
                   </Suspense>
                 }
               />
 
               <Route
-                path="algo"
+                path="algorand"
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
-                    <Algo />
+                    <Algorand />
                   </Suspense>
                 }
               />
 
               <Route
-                path="atom"
+                path="cosmos"
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
-                    <Atom />
+                    <Cosmos />
                   </Suspense>
                 }
               />
@@ -232,10 +232,10 @@ function App() {
                 }
               />
               <Route
-                path="dot"
+                path="polkadot"
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
-                    <Dot />
+                    <Polkadot />
                   </Suspense>
                 }
               />

@@ -70,7 +70,7 @@ const ProjectSocial = styled.div`
   grid-column-gap: 15px;
 `
 
-export default function Atom() {
+export default function Cosmos() {
   const { data: quotes } = useGetQuotesQuery('ATOM')
 
   return (

@@ -339,7 +339,7 @@ export default function Home() {
             </RegistrationInfo>
           </RegistrationCard>
 
-          {/* MATIC */}
+          {/* Polygon */}
           <RegistrationCard as={Link} to={'/polygon'}>
             <RegistrationBg url={MaticBg} />
             <RegistrationInfo>
@@ -347,7 +347,7 @@ export default function Home() {
                 <img src={MaticLogo} alt="Matic" />
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
-                <TYPE.largeHeader>MATIC</TYPE.largeHeader>
+                <TYPE.largeHeader>Polygon</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Polygon is a platform design to support infrastructure development and help Ethereum scale. Polygon
                   was founded by Jaynti Kanani, Sandeep Nailwal & Anurag Arjun and launched in 2017.
@@ -364,7 +364,7 @@ export default function Home() {
                 <img src={BnbLogo} alt="BNB" />
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
-                <TYPE.largeHeader>BNB</TYPE.largeHeader>
+                <TYPE.largeHeader>Binance Smart Chain</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Binance Chain, which was renamed BNB Beacon Chain in 2022, was launched by Binance in April 2019. Its
                   primary focus is to facilitate fast, decentralized (or non-custodial) trading.
@@ -374,14 +374,14 @@ export default function Home() {
           </RegistrationCard>
 
           {/* ADA */}
-          <RegistrationCard as={Link} to={'/ada'}>
+          <RegistrationCard as={Link} to={'/cardano'}>
             <RegistrationBg url={AdaBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
-                <img src={AdaLogo} alt="ADA" />
+                <img src={AdaLogo} alt="Cardano" />
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
-                <TYPE.largeHeader>ADA</TYPE.largeHeader>
+                <TYPE.largeHeader>Cardano</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Cardano is a proof-of-stake blockchain platform that says its goal is to allow “changemakers,
                   innovators and visionaries” to bring about positive global change. Cardano was founded by Charles
@@ -391,15 +391,14 @@ export default function Home() {
             </RegistrationInfo>
           </RegistrationCard>
 
-          {/* ALGO */}
-          <RegistrationCard as={Link} to={'/algo'}>
+          <RegistrationCard as={Link} to={'/algorand'}>
             <RegistrationBg url={AlgoBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
                 <img src={AlgoLogo} alt="ALGO" />
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
-                <TYPE.largeHeader>ALGO</TYPE.largeHeader>
+                <TYPE.largeHeader>Algorand</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Algorand is a self-sustaining, decentralized, blockchain-based network that supports a wide range of
                   applications. Algorand was founded by Silvio Micali and launched in 2018.
@@ -408,15 +407,14 @@ export default function Home() {
             </RegistrationInfo>
           </RegistrationCard>
 
-          {/* ATOM */}
-          <RegistrationCard as={Link} to={'/atom'}>
+          <RegistrationCard as={Link} to={'/cosmos'}>
             <RegistrationBg url={AtomBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
                 <img src={AtomLogo} alt="Atom" />
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
-                <TYPE.largeHeader>Atom</TYPE.largeHeader>
+                <TYPE.largeHeader>Cosmos</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Cosmos (ATOM) is a cryptocurrency that powers an ecosystem of blockchains designed to scale and
                   interoperate with each other. Cosmos was founded by Ethan Buchman & Jae Kwon and launched in 2019.
@@ -432,7 +430,7 @@ export default function Home() {
                 <img src={AvaxLogo} alt="Avax" />
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
-                <TYPE.largeHeader>AVAX</TYPE.largeHeader>
+                <TYPE.largeHeader>Avalanche</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Avalanche is a layer one blockchain that functions as a platform for decentralized applications and
                   custom blockchain networks. It is one of Ethereum’s rivals, aiming to unseat Ethereum as the most
@@ -449,7 +447,7 @@ export default function Home() {
                 <img src={DogeLogo} alt="doge" />
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
-                <TYPE.largeHeader>DOGE</TYPE.largeHeader>
+                <TYPE.largeHeader>Dogecoin</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   {` Dogecoin (DOGE) is based on the popular "doge" Internet meme and features a Shiba Inu on its logo.
                   Dogecoin was founded by Billy Markus & Jackson Palmer and launched in 2013.`}
@@ -465,7 +463,7 @@ export default function Home() {
                 <img src={LtcLogo} alt="Litecoin" />
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
-                <TYPE.largeHeader>LTC</TYPE.largeHeader>
+                <TYPE.largeHeader>Litecoin</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Litecoin (LTC) is a cryptocurrency that was designed to provide fast, secure and low-cost payments by
                   leveraging the unique properties of blockchain technology. Litecoin was founded by Charlie Lee and
@@ -475,14 +473,14 @@ export default function Home() {
             </RegistrationInfo>
           </RegistrationCard>
 
-          <RegistrationCard as={Link} to={'/dot'}>
+          <RegistrationCard as={Link} to={'/polkadot'}>
             <RegistrationBg url={DotBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
-                <img src={DotLogo} alt="dot" />
+                <img src={DotLogo} alt="Polkadot" />
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
-                <TYPE.largeHeader>DOT</TYPE.largeHeader>
+                <TYPE.largeHeader>Polkadot</TYPE.largeHeader>
                 <TYPE.body color={'text3'}>
                   Polkadot is an open-source sharded multichain protocol that connects and secures a network of
                   specialized blockchains, facilitating cross-chain transfer of any data or asset types, not just
