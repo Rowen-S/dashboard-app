@@ -355,7 +355,7 @@ export default function Home() {
           </RegistrationCard>
 
           {/* BNB */}
-          <RegistrationCard as={Link} to={'/bnb'}>
+          <RegistrationCard as={Link} to={'/bsc'}>
             <RegistrationBg url={BnbBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>

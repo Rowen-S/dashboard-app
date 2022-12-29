@@ -2,17 +2,16 @@ import { AutoColumn } from 'components/Column'
 import Row, { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
 
-import { useGetQuotesQuery } from 'services/cmc-pro'
-
 import AppBody from 'pages/AppBody'
 import { ExternalLink, TYPE } from 'theme'
-import Card from 'components/Card'
 
 import Twitter from 'assets/svg/twitter.svg'
 import Discord from 'assets/svg/discord.svg'
 import Github from 'assets/svg/github.svg'
 import Raddit from 'assets/svg/raddit.svg'
-import CoinLogo from 'assets/images/avax.png'
+import CoinLogo from 'assets/images/bnb.png'
+import Card from 'components/Card'
+import { useGetQuotesQuery } from 'services/cmc-pro'
 
 const Logo = styled.img`
   flex: none;
@@ -56,6 +55,7 @@ const DuneCard = styled(Card)`
 const IfrarmeItem = styled.iframe`
   background-color: ${({ theme }) => theme.bg7};
 `
+
 const SocialLogo = styled.img`
   width: 28px;
   height: 28px;
@@ -66,12 +66,12 @@ const SocialLogo = styled.img`
 
 const ProjectSocial = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 15px;
 `
 
-export default function Avalanche() {
-  const { data: quotes } = useGetQuotesQuery('AVAX')
+export default function Bsc() {
+  const { data: quotes } = useGetQuotesQuery('BNB')
 
   return (
     <AppBody>
@@ -82,28 +82,28 @@ export default function Avalanche() {
             <ProjectIntroduce
               dangerouslySetInnerHTML={{
                 __html: `
-                Avalanche is a layer one blockchain that functions as a platform for decentralized applications and custom blockchain networks. It is one of Ethereum’s rivals, aiming to unseat Ethereum as the most popular blockchain for smart contracts. It aims to do so by having a higher transaction output of up to 6,500 transactions per second while not compromising scalability.
+                Launched in July 2017, Binance is the biggest cryptocurrency exchange globally based on daily trading volume. Binance aims to bring cryptocurrency exchanges to the forefront of financial activity globally.
 
-                Avalanche was founded by Emin Gün Sirer and launched in 2019.
+                Aside from being the largest cryptocurrency exchange globally, Binance has launched a whole ecosystem of functionalities for its users. The Binance network includes the Binance Chain, Binance Smart Chain, Binance Academy, Trust Wallet and Research projects, which all employ the powers of blockchain technology to bring new-age finance to the world. BNB is an integral part of the successful functioning of many of the Binance sub-projects.
 
-                <a href='//www.avax.network/' target="_blank">Website</a>`,
+                <a href='//bnbchain.org/en/' target="_blank">Website</a>`,
               }}
             />
             <RowBetween width={'90%'}>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
                 <ProjectSocial>
-                  <ExternalLink href={'//twitter.com/avalancheavax'}>
+                  <ExternalLink href={'//twitter.com/BNBChain'}>
                     <SocialLogo src={Twitter} alt="twitter" />
                   </ExternalLink>
-                  <ExternalLink href={'//discord.com/invite/RwXY7P6'}>
+                  <ExternalLink href={'//discord.com/invite/QRTQvfhADQ'}>
                     <SocialLogo src={Discord} alt="discord" />
                   </ExternalLink>
-                  <ExternalLink href={'//www.reddit.com/r/Avax'}>
+                  <ExternalLink href={'//www.reddit.com/r/bsc/'}>
                     <SocialLogo src={Raddit} alt="raddit" />
                   </ExternalLink>
-                  <ExternalLink href={'//github.com/ava-labs'}>
-                    <SocialLogo src={Github} alt="github" />
+                  <ExternalLink href={'//github.com/bnb-chain'}>
+                    <SocialLogo src={Github} alt="gitHub" />
                   </ExternalLink>
                 </ProjectSocial>
               </AutoColumn>
@@ -111,7 +111,7 @@ export default function Avalanche() {
               <AutoColumn gap="12px">
                 <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
                 <TYPE.body>
-                  <ExternalLink href={'//snowtrace.io/'}>https://snowtrace.io/</ExternalLink>
+                  <ExternalLink href={'//bscscan.com/'}>https://bscscan.com/</ExternalLink>
                 </TYPE.body>
               </AutoColumn>
             </RowBetween>
@@ -123,9 +123,9 @@ export default function Avalanche() {
             <BlockBasicWrapper>
               <DuneCard>
                 <AutoColumn gap="16px">
-                  <TYPE.subHeader fontWeight="600">AVAX Price</TYPE.subHeader>
+                  <TYPE.subHeader fontWeight="600">BNB Price</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.AVAX[0]?.quote?.USD.price?.toLocaleString() || 0}
+                    {quotes?.data?.BNB[0]?.quote?.USD.price?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -133,7 +133,7 @@ export default function Avalanche() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Market Cap</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.AVAX[0]?.quote?.USD.market_cap?.toLocaleString() || 0}
+                    {quotes?.data?.BNB[0]?.quote?.USD.market_cap?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -141,14 +141,14 @@ export default function Avalanche() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Circulating Supply</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.AVAX[0]?.circulating_supply?.toLocaleString() || 0}
+                    {quotes?.data?.BNB[0]?.circulating_supply?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
             </BlockBasicWrapper>
 
             <IfrarmeItem
-              src="https://dune.com/embeds/1815598/2987879/5b21d94b-ae9a-4a92-9f8c-6eb1c22741dd"
+              src="https://dune.com/embeds/1810832/2980183/6671d974-9e7b-4c10-99cc-71714af953a7"
               width="100%"
               height="350px"
               frameBorder={0}
@@ -157,32 +157,25 @@ export default function Avalanche() {
             {/* Users */}
             <>
               <TYPE.largeHeader>Users</TYPE.largeHeader>
-              <BlockBasicWrapper repeatNum={2}>
+              <BlockBasicWrapper>
                 <IfrarmeItem
-                  src="https://dune.com/embeds/1815602/2987886/fb3744c4-a539-4673-82d8-8e1a4af3b22e"
+                  src="https://dune.com/embeds/1814966/2986862/ef795701-eac4-4092-aef1-4a3d7f4af922"
                   width="100%"
                   height="230px"
                   frameBorder={0}
                 />
 
                 <IfrarmeItem
-                  src="https://dune.com/embeds/1815602/2987887/098d5404-b6a2-4abb-bac9-f9cec3b756d4"
+                  src="https://dune.com/embeds/1814971/2986871/8bb90f81-a2f1-4051-8fcb-18d643831058"
                   width="100%"
                   height="230px"
                   frameBorder={0}
                 />
 
                 <IfrarmeItem
-                  src="https://dune.com/embeds/1815619/2987911/515f5d98-80e3-411a-ad7a-157218c994f9"
+                  src="https://dune.com/embeds/1814975/2986876/22bf4e94-bc06-428d-a6ff-1487e8fba1cd"
                   width="100%"
-                  height="350px"
-                  frameBorder={0}
-                />
-
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1815626/2987923/80e1d6cd-787d-440e-9b20-01c7f3867e16"
-                  width="100%"
-                  height="350px"
+                  height="230px"
                   frameBorder={0}
                 />
               </BlockBasicWrapper>
@@ -196,48 +189,61 @@ export default function Avalanche() {
             {/* Transaction */}
             <>
               <TYPE.largeHeader>Transaction</TYPE.largeHeader>
+              <BlockBasicWrapper>
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1815138/2987203/e6be20f7-d043-4aec-9746-47ce9aad4607"
+                  width="100%"
+                  height="230px"
+                  frameBorder={0}
+                />
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1815138/2987205/b3b0f78c-ede6-4c34-8886-125359c3f6ba"
+                  width="100%"
+                  height="230px"
+                  frameBorder={0}
+                />
 
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1815138/2987205/b3b0f78c-ede6-4c34-8886-125359c3f6ba"
+                  width="100%"
+                  height="230px"
+                  frameBorder={0}
+                />
+              </BlockBasicWrapper>
               <IfrarmeItem
-                src="https://dune.com/embeds/1815638/2987946/9dcc0c45-1238-4181-b6d3-30c7e1fa09a1"
-                width="100%"
-                height="350px"
-                frameBorder={0}
-              />
-
-              <IfrarmeItem
-                src="https://dune.com/embeds/1815643/2987958/ad26743f-7085-4705-8b41-fd129eb9c4bf"
+                src="https://dune.com/embeds/1815138/2987210/8d086b48-be3e-4762-b6b2-3933d52b519c"
                 width="100%"
                 height="350px"
                 frameBorder={0}
               />
             </>
 
-            {/* Bridge */}
+            {/* Projects */}
             <>
-              <TYPE.largeHeader>Bridge</TYPE.largeHeader>
+              <TYPE.largeHeader>Projects</TYPE.largeHeader>
 
               <BlockBasicWrapper repeatNum={2}>
                 <IfrarmeItem
-                  src="https://dune.com/embeds/1815668/2987996/a95238ff-cd51-4bce-a606-7e69a4503723"
-                  width="100%"
-                  height="230px"
-                  frameBorder={0}
-                />
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1815674/2988005/f8f4322e-ee98-4855-a02f-b40b1b963256"
-                  width="100%"
-                  height="230px"
-                  frameBorder={0}
-                />
-
-                <IfrarmeItem
-                  src="https://dune.com/embeds/1815693/2988035/d97da1f6-aacf-4df2-996d-8d2c97717558"
+                  src="https://dune.com/embeds/1815164/2987262/8f806255-5262-4a6a-854b-094bdb4d127c"
                   width="100%"
                   height="350px"
                   frameBorder={0}
                 />
                 <IfrarmeItem
-                  src="https://dune.com/embeds/1815695/2988040/67b224f5-faec-4200-8969-64ec91a4635f"
+                  src="https://dune.com/embeds/1815164/2987264/d1b95529-140e-4688-88ee-9467ac90dbb3"
+                  width="100%"
+                  height="350px"
+                  frameBorder={0}
+                />
+
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1815170/2987270/225e2fe2-15e5-4543-a0a3-60653229e196"
+                  width="100%"
+                  height="350px"
+                  frameBorder={0}
+                />
+                <IfrarmeItem
+                  src="https://dune.com/embeds/1815172/2987275/15440ada-fb2f-40fe-a0cf-606ac2c9c7a8"
                   width="100%"
                   height="350px"
                   frameBorder={0}
@@ -245,7 +251,7 @@ export default function Avalanche() {
               </BlockBasicWrapper>
 
               <IfrarmeItem
-                src="https://tokenterminal.com/terminal/projects/avalanche/embed/key_metrics"
+                src="https://tokenterminal.com/terminal/projects/binance-smart-chain/embed/key_metrics"
                 width="100%"
                 height="1350px"
                 frameBorder={0}

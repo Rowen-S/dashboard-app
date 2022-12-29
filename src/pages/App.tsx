@@ -23,7 +23,7 @@ const Ethereum = lazy(() => import('./BlockChain/Ethereum'))
 const Solana = lazy(() => import('./BlockChain/Solana'))
 
 const Polygon = lazy(() => import('./BlockChain/Polygon'))
-// const Bnb = lazy(() => import('./BlockChain/Bnb'))
+const Bsc = lazy(() => import('./BlockChain/Bsc'))
 const Ada = lazy(() => import('./BlockChain/Ada'))
 const Algo = lazy(() => import('./BlockChain/Algo'))
 
@@ -169,14 +169,14 @@ function App() {
                 }
               />
 
-              {/* <Route
-                path="bnb"
+              <Route
+                path="bsc"
                 element={
                   <Suspense fallback={<LazyLoadSpinner />}>
-                    <Bnb />
+                    <Bsc />
                   </Suspense>
                 }
-              /> */}
+              />
 
               <Route
                 path="ada"
