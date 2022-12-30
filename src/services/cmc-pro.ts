@@ -15,7 +15,7 @@ interface CmcProResponse {
 // Define a service using a base URL and expected endpoints
 export const cmcProApi = createApi({
   reducerPath: 'cmcProApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://pro-api.coinmarketcap.com' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://45.77.178.248:3000' }),
   endpoints: (builder) => ({
     getQuotes: builder.query<CmcProResponse, string>({
       query: (symbol) => ({
