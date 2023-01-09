@@ -69,6 +69,8 @@
   },
   "dependencies": {
     "@metamask/jazzicon": "^2.0.0",
+    "@popperjs/core": "^2.11.6",
+    "@reach/portal": "^0.10.3",
     "@reduxjs/toolkit": "^1.8.5",
     "@rtk-query/graphql-request-base-query": "^2.2.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -90,6 +92,7 @@
     "react-ga": "^3.3.1",
     "react-ga4": "^1.4.1",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-popper": "^2.2.3",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.2",
     "redux-localstorage-simple": "^2.5.1",

@@ -2,7 +2,7 @@ import { AutoColumn } from 'components/Column'
 import Row, { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
 
-import { useGetQuotesQuery } from 'services/cmc-pro'
+import { useGetQuotesQuery } from 'services/cmcPro'
 
 import AppBody from 'pages/AppBody'
 import { ExternalLink, TYPE } from 'theme'

@@ -1,4 +1,4 @@
-import { useGetQuotesQuery } from 'services/cmc-pro'
+import { useGetQuotesQuery } from 'services/cmcPro'
 
 import { AutoColumn } from 'components/Column'
 import Row, { RowBetween } from 'components/Row'

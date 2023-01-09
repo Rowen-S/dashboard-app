@@ -11,7 +11,7 @@ import Github from 'assets/svg/github.svg'
 import Raddit from 'assets/svg/raddit.svg'
 import CoinLogo from 'assets/images/bnb.png'
 import Card from 'components/Card'
-import { useGetQuotesQuery } from 'services/cmc-pro'
+import { useGetQuotesQuery } from 'services/cmcPro'
 
 const Logo = styled.img`
   flex: none;

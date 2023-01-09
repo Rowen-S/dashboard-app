@@ -15,12 +15,11 @@ interface CmcProResponse {
 // Define a service using a base URL and expected endpoints
 export const cmcProApi = createApi({
   reducerPath: 'cmcProApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://45.77.178.248:3000' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://cmc-api.web3service.io/' }),
   endpoints: (builder) => ({
     getQuotes: builder.query<CmcProResponse, string>({
       query: (symbol) => ({
         url: `/v2/cryptocurrency/quotes/latest?symbol=${symbol}`,
-        headers: { 'X-CMC_PRO_API_KEY': '94e1537f-81cf-46a5-9406-6586cfb33471' },
       }),
     }),
   }),

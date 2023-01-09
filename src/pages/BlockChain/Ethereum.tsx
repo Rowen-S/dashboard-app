@@ -5,7 +5,7 @@ import { useGetEthereumStatsQuery } from 'services/ethereum'
 import Card from 'components/Card'
 
 import AppBody from 'pages/AppBody'
-import { ExternalLink, Line, TYPE } from 'theme'
+import { ExternalLink, TYPE } from 'theme'
 
 import Twitter from 'assets/svg/twitter.svg'
 import Discord from 'assets/svg/discord.svg'

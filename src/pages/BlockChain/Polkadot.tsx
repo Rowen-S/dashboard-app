@@ -12,7 +12,7 @@ import Raddit from 'assets/svg/raddit.svg'
 import Github from 'assets/svg/github.svg'
 
 import CoinLogo from 'assets/images/dot.png'
-import { useGetQuotesQuery } from 'services/cmc-pro'
+import { useGetQuotesQuery } from 'services/cmcPro'
 
 const Logo = styled.img`
   flex: none;
