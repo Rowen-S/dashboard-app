@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import { useGetHotWordsQuery, useGetSuggestionQuery } from 'services/dataYes'
 import { useModalIsOpen, useToggleModal } from 'state/application/hooks'
 import { ApplicationModal } from 'state/application/reducer'
 import { SearchInput } from 'components/Input/styled'
@@ -9,10 +10,9 @@ import { MenuFlyout } from 'components/Menu'
 import { AutoColumn } from 'components/Column'
 import { FixedSizeList } from 'react-window'
 import { LoadingRows } from 'components/Loader/styled'
-import { ExternalLink, TYPE } from 'theme'
-import { Link } from 'react-router-dom'
-import LidoLogo from 'components/Logo'
-import { useGetHotWordsQuery, useGetSuggestionQuery } from 'services/dataYes'
+import { TYPE } from 'theme'
+
+import Twitter from 'assets/images/twitter.png'
 
 const SearchBarWraper = styled(AutoColumn)`
   position: relative;
@@ -38,17 +38,17 @@ const SearchResWrapper = styled(AutoColumn)`
   padding: 0.6rem;
 `
 
-const ResultLink = styled(Link)`
-  text-decoration: none;
-  padding: 0.5rem 5px;
-  display: flex;
-  border-bottom: 1px solid ${({ theme }) => theme.text5};
-  :hover {
-    background-color: ${({ theme }) => theme.bg1};
-  }
-`
-
-const ResultExternalLink = styled(ExternalLink)`
+// const ResultLink = styled(Link)`
+//   text-decoration: none;
+//   padding: 0.5rem 5px;
+//   display: flex;
+//   border-bottom: 1px solid ${({ theme }) => theme.text5};
+//   :hover {
+//     background-color: ${({ theme }) => theme.bg1};
+//   }
+// `
+// ExternalLink
+const ResultExternalLink = styled.div`
   text-decoration: none;
   padding: 0.5rem 5px;
   display: flex;
@@ -69,6 +69,7 @@ const HotTagLink = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 14px;
   font-weight: bold;
   color: ${({ theme }) => theme.text1};
   padding: 7px 12px;
@@ -78,6 +79,16 @@ const HotTagLink = styled.div`
     cursor: pointer;
     background: ${({ theme }) => theme.bg8};
   }
+`
+
+const EmptyProposals = styled.div`
+  border: 1px solid ${({ theme }) => theme.text4};
+  padding: 16px 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 function SearchResult({ searchKey }: { searchKey: string }) {
@@ -102,24 +113,37 @@ function SearchResult({ searchKey }: { searchKey: string }) {
     )
   }
 
-  if (suggestion?.data && isSuccess) {
+  if ((!suggestion?.data.length && isSuccess) || isError) {
+    content = (
+      <EmptyProposals>
+        <TYPE.body style={{ marginBottom: '8px' }}>No result found.</TYPE.body>
+        <TYPE.subHeader>
+          <i>Results will appear here.</i>
+        </TYPE.subHeader>
+      </EmptyProposals>
+    )
+  }
+
+  if (suggestion?.data.length && isSuccess) {
     content = (
       <SearchResWrapper>
-        <ResultLink to="/lido">
+        {/* <ResultLink to="/lido">
           <LidoLogo />
           <TYPE.body fontWeight={500} marginLeft={12}>
             Lido
           </TYPE.body>
-        </ResultLink>
+        </ResultLink> */}
         {suggestion?.data?.map((data) =>
-          data.list.map((list, i) => (
-            <ResultExternalLink href="" key={list.name + '' + i}>
-              <img width={24} height={24} src={list.icon} alt={list.name} />
-              <TYPE.body fontWeight={500} marginLeft={12}>
-                {list.value}
-              </TYPE.body>
-            </ResultExternalLink>
-          ))
+          data.type == 'account'
+            ? data.list.map((list, i) => (
+                <ResultExternalLink key={list.name + '' + i}>
+                  <img width={24} height={24} src={list.icon ?? Twitter} alt={list.name} />
+                  <TYPE.body fontWeight={500} marginLeft={12}>
+                    {list.value}
+                  </TYPE.body>
+                </ResultExternalLink>
+              ))
+            : null
         )}
         {/* <ResultExternalLink href="">
           <svg fill="#1d9bf0" viewBox="0 0 24 24" width={24} aria-hidden="true">
@@ -151,7 +175,7 @@ function SearchResult({ searchKey }: { searchKey: string }) {
             Here&apos;s @LidoFinance on the topic of solo node...
           </TYPE.body>
         </ResultExternalLink> */}
-        <ExternalLink href="//">More Tweet</ExternalLink>
+        {/* <ExternalLink href="//">More Tweet</ExternalLink> */}
       </SearchResWrapper>
     )
   }
@@ -179,7 +203,7 @@ export default function SearchBar() {
   }, [])
 
   const { data: words } = useGetHotWordsQuery({})
-  console.log('HotWordsQuery:', words?.data)
+  // console.log('HotWordsQuery:', words?.data)
 
   return (
     <SearchBarWraper ref={node as any} gap="16px">
