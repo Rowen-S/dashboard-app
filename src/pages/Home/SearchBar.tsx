@@ -11,12 +11,13 @@ import Row from 'components/Row'
 import { AutoColumn } from 'components/Column'
 import { FixedSizeList } from 'react-window'
 import { LoadingRows } from 'components/Loader/styled'
-import { TYPE } from 'theme'
+import { ExternalLink, TYPE } from 'theme'
 
 import { ReactComponent as TagIcon } from 'assets/svg/tag.svg'
 import { ReactComponent as CertifiedIcon } from 'assets/svg/certified.svg'
 import NoPicture from 'assets/svg/no_picture.svg'
 import { ReactComponent as SearchIcon } from 'assets/svg/search.svg'
+import { ExplorerDataType, getExplorerLink } from 'utils/getExplorerLink'
 
 const SearchBarWraper = styled(AutoColumn)`
   position: relative;
@@ -42,21 +43,13 @@ const SearchResWrapper = styled(AutoColumn)`
   padding: 0.6rem;
 `
 
-// const ResultLink = styled(Link)`
-//   text-decoration: none;
-//   padding: 0.5rem 5px;
-//   display: flex;
-//   border-bottom: 1px solid ${({ theme }) => theme.text5};
-//   :hover {
-//     background-color: ${({ theme }) => theme.bg1};
-//   }
-// `
-// ExternalLink
-const ResultExternalLink = styled.div`
+const ResultExternalLink = styled(ExternalLink)`
+  color: unset;
   text-decoration: none;
   padding: 0.5rem 5px;
   display: flex;
   align-items: center;
+  text-decoration: none;
   :hover {
     background-color: ${({ theme }) => theme.bg1};
     text-decoration: none;
@@ -148,48 +141,47 @@ function SearchResult({ searchKey }: { searchKey: string }) {
   if (suggestion?.data.length && isSuccess) {
     content = (
       <SearchResWrapper>
-        {suggestion?.data?.map((data) => (
-          <>
-            {data.type == 'tag'
-              ? data.list.map((list, i) => (
-                  <ResultExternalLink key={list.name + '' + i}>
-                    <IconWrapper>
-                      <TagIcon width={12} height={12} />
-                    </IconWrapper>
-                    <AccountBody>
-                      <TYPE.body fontWeight={500}>{list.value}</TYPE.body>
-                    </AccountBody>
-                  </ResultExternalLink>
-                ))
-              : null}
-            {data.type == 'query'
-              ? data.list.map((list, i) => (
-                  <ResultExternalLink key={list.name + '' + i}>
-                    <IconWrapper>
-                      <SearchIcon width={14} />
-                    </IconWrapper>
-                    <AccountBody>
-                      <TYPE.body fontWeight={500}>{list.value}</TYPE.body>
-                    </AccountBody>
-                  </ResultExternalLink>
-                ))
-              : null}
-            {data.type == 'account'
-              ? data.list.map((list, i) => (
-                  <ResultExternalLink key={list.name + '' + i}>
-                    <AccountIcon src={list.icon ?? NoPicture} alt={list.name} />
-                    <AccountBody>
-                      <AccountTitle>
-                        <TYPE.subHeader fontWeight={500}>{list.value}</TYPE.subHeader>
-                        {list.isCertificated ? <CertifiedIcon width={12} height={12} title="is certificated" /> : null}
-                      </AccountTitle>
-                      <TYPE.subHeader color={'text3'}>{list.name}</TYPE.subHeader>
-                    </AccountBody>
-                  </ResultExternalLink>
-                ))
-              : null}
-          </>
-        ))}
+        {suggestion?.data?.map((data) =>
+          data.type == 'tag'
+            ? data.list.map((list, i) => (
+                <ResultExternalLink href={getExplorerLink(list.value, ExplorerDataType.TAG)} key={list.name + '' + i}>
+                  <IconWrapper>
+                    <TagIcon width={12} height={12} />
+                  </IconWrapper>
+                  <AccountBody>
+                    <TYPE.body fontWeight={500}>{list.value}</TYPE.body>
+                  </AccountBody>
+                </ResultExternalLink>
+              ))
+            : data.type == 'query'
+            ? data.list.map((list, i) => (
+                <ResultExternalLink href={getExplorerLink(list.value, ExplorerDataType.QUERY)} key={list.name + '' + i}>
+                  <IconWrapper>
+                    <SearchIcon width={14} />
+                  </IconWrapper>
+                  <AccountBody>
+                    <TYPE.body fontWeight={500}>{list.value}</TYPE.body>
+                  </AccountBody>
+                </ResultExternalLink>
+              ))
+            : data.type == 'account'
+            ? data.list.map((list, i) => (
+                <ResultExternalLink
+                  href={getExplorerLink(list.value, ExplorerDataType.ACCOUNT)}
+                  key={list.name + '' + i}
+                >
+                  <AccountIcon src={list.icon ?? NoPicture} alt={list.name} />
+                  <AccountBody>
+                    <AccountTitle>
+                      <TYPE.subHeader fontWeight={500}>{list.value}</TYPE.subHeader>
+                      {list.isCertificated ? <CertifiedIcon width={12} height={12} title="is certificated" /> : null}
+                    </AccountTitle>
+                    <TYPE.subHeader color={'text3'}>{list.name}</TYPE.subHeader>
+                  </AccountBody>
+                </ResultExternalLink>
+              ))
+            : null
+        )}
       </SearchResWrapper>
     )
   }
