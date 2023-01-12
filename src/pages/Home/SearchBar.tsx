@@ -233,7 +233,17 @@ export default function SearchBar() {
           Trending
         </TYPE.subHeader>
         {words?.data?.map((words) => (
-          <HotTagLink key={words.id}>
+          <HotTagLink
+            onClick={() => {
+              handleInput({
+                target: { value: words.name },
+              })
+              if (!open) {
+                toggle()
+              }
+            }}
+            key={words.id}
+          >
             {words.name}
             {/* <MouseoverTooltip text={words.name}>{words.name}</MouseoverTooltip> */}
           </HotTagLink>
