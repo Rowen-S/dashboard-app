@@ -7,12 +7,16 @@ import { RefObject, useCallback, useRef, useState } from 'react'
 import useDebounce from 'hooks/useDebounce'
 import { useOnClickOutside } from 'hooks/useOnClickOutside'
 import { MenuFlyout } from 'components/Menu'
+import Row from 'components/Row'
 import { AutoColumn } from 'components/Column'
 import { FixedSizeList } from 'react-window'
 import { LoadingRows } from 'components/Loader/styled'
 import { TYPE } from 'theme'
 
-import Twitter from 'assets/images/twitter.png'
+import { ReactComponent as TagIcon } from 'assets/svg/tag.svg'
+import { ReactComponent as CertifiedIcon } from 'assets/svg/certified.svg'
+import NoPicture from 'assets/svg/no_picture.svg'
+import { ReactComponent as SearchIcon } from 'assets/svg/search.svg'
 
 const SearchBarWraper = styled(AutoColumn)`
   position: relative;
@@ -91,17 +95,34 @@ const EmptyProposals = styled.div`
   align-items: center;
 `
 
+const AccountIcon = styled.img`
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+`
+
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+`
+const AccountBody = styled(AutoColumn)`
+  margin-left: 12px;
+`
+const AccountTitle = styled(Row)`
+  :first-child > svg {
+    margin-left: 4px;
+  }
+`
+
 function SearchResult({ searchKey }: { searchKey: string }) {
   const { data: suggestion, isLoading, isFetching, isError, isSuccess } = useGetSuggestionQuery({ key: searchKey })
-  console.log('SuggestionQuery:', suggestion?.data)
-  console.log('isLoading:', isLoading)
-  console.log('isFetching:', isFetching)
-  console.log('isError:', isError)
-  console.log('isSuccess:', isSuccess)
 
   let content
 
-  if (isFetching) {
+  if (isLoading || isFetching) {
     content = (
       <LoadingRows>
         <div />
@@ -127,55 +148,48 @@ function SearchResult({ searchKey }: { searchKey: string }) {
   if (suggestion?.data.length && isSuccess) {
     content = (
       <SearchResWrapper>
-        {/* <ResultLink to="/lido">
-          <LidoLogo />
-          <TYPE.body fontWeight={500} marginLeft={12}>
-            Lido
-          </TYPE.body>
-        </ResultLink> */}
-        {suggestion?.data?.map((data) =>
-          data.type == 'account'
-            ? data.list.map((list, i) => (
-                <ResultExternalLink key={list.name + '' + i}>
-                  <img width={24} height={24} src={list.icon ?? Twitter} alt={list.name} />
-                  <TYPE.body fontWeight={500} marginLeft={12}>
-                    {list.value}
-                  </TYPE.body>
-                </ResultExternalLink>
-              ))
-            : null
-        )}
-        {/* <ResultExternalLink href="">
-          <svg fill="#1d9bf0" viewBox="0 0 24 24" width={24} aria-hidden="true">
-            <g>
-              <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
-            </g>
-          </svg>
-          <TYPE.body fontWeight={500} marginLeft={12}>
-            the validator exiting order design for Lido post withdrawals...
-          </TYPE.body>
-        </ResultExternalLink>
-        <ResultExternalLink href="">
-          <svg fill="#1d9bf0" viewBox="0 0 24 24" width={24} aria-hidden="true">
-            <g>
-              <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
-            </g>
-          </svg>
-          <TYPE.body fontWeight={500} marginLeft={12}>
-            {`8) #Lido DAO rallied +6.8% last 1w as Lido Finance...`}
-          </TYPE.body>
-        </ResultExternalLink>
-        <ResultExternalLink href="">
-          <svg fill="#1d9bf0" viewBox="0 0 24 24" width={24} aria-hidden="true">
-            <g>
-              <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
-            </g>
-          </svg>
-          <TYPE.body fontWeight={500} marginLeft={12}>
-            Here&apos;s @LidoFinance on the topic of solo node...
-          </TYPE.body>
-        </ResultExternalLink> */}
-        {/* <ExternalLink href="//">More Tweet</ExternalLink> */}
+        {suggestion?.data?.map((data) => (
+          <>
+            {data.type == 'tag'
+              ? data.list.map((list, i) => (
+                  <ResultExternalLink key={list.name + '' + i}>
+                    <IconWrapper>
+                      <TagIcon width={12} height={12} />
+                    </IconWrapper>
+                    <AccountBody>
+                      <TYPE.body fontWeight={500}>{list.value}</TYPE.body>
+                    </AccountBody>
+                  </ResultExternalLink>
+                ))
+              : null}
+            {data.type == 'query'
+              ? data.list.map((list, i) => (
+                  <ResultExternalLink key={list.name + '' + i}>
+                    <IconWrapper>
+                      <SearchIcon width={14} />
+                    </IconWrapper>
+                    <AccountBody>
+                      <TYPE.body fontWeight={500}>{list.value}</TYPE.body>
+                    </AccountBody>
+                  </ResultExternalLink>
+                ))
+              : null}
+            {data.type == 'account'
+              ? data.list.map((list, i) => (
+                  <ResultExternalLink key={list.name + '' + i}>
+                    <AccountIcon src={list.icon ?? NoPicture} alt={list.name} />
+                    <AccountBody>
+                      <AccountTitle>
+                        <TYPE.subHeader fontWeight={500}>{list.value}</TYPE.subHeader>
+                        {list.isCertificated ? <CertifiedIcon width={12} height={12} title="is certificated" /> : null}
+                      </AccountTitle>
+                      <TYPE.subHeader color={'text3'}>{list.name}</TYPE.subHeader>
+                    </AccountBody>
+                  </ResultExternalLink>
+                ))
+              : null}
+          </>
+        ))}
       </SearchResWrapper>
     )
   }
