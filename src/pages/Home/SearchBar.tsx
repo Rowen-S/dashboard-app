@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import { useGetHotWordsQuery, useGetSuggestionQuery } from 'services/dataYes'
+import { useGetSuggestionQuery } from 'services/dataYes'
 import { useModalIsOpen, useToggleModal } from 'state/application/hooks'
 import { ApplicationModal } from 'state/application/reducer'
 import { SearchInput } from 'components/Input/styled'
@@ -56,27 +56,27 @@ const ResultExternalLink = styled(ExternalLink)`
   }
 `
 
-const HotWordsWrapper = styled.div`
-  display: grid;
-  align-items: center;
-  grid-template-columns: repeat(5, auto);
-  grid-column-gap: 12px;
-`
-const HotTagLink = styled.div`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 14px;
-  font-weight: bold;
-  color: ${({ theme }) => theme.text1};
-  padding: 7px 12px;
-  border-radius: 8px;
-  background: ${({ theme }) => theme.bg1};
-  :hover {
-    cursor: pointer;
-    background: ${({ theme }) => theme.bg8};
-  }
-`
+// const HotWordsWrapper = styled.div`
+//   display: grid;
+//   align-items: center;
+//   grid-template-columns: repeat(5, auto);
+//   grid-column-gap: 12px;
+// `
+// const HotTagLink = styled(ResultExternalLink)`
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   font-size: 14px;
+//   font-weight: bold;
+//   color: ${({ theme }) => theme.text1};
+//   padding: 7px 12px;
+//   border-radius: 8px;
+//   background: ${({ theme }) => theme.bg1};
+//   :hover {
+//     cursor: pointer;
+//     background: ${({ theme }) => theme.bg8};
+//   }
+// `
 
 const EmptyProposals = styled.div`
   border: 1px solid ${({ theme }) => theme.text4};
@@ -208,7 +208,7 @@ export default function SearchBar() {
     fixedList.current?.scrollTo(0)
   }, [])
 
-  const { data: words } = useGetHotWordsQuery({})
+  // const { data: words } = useGetHotWordsQuery({})
   // console.log('HotWordsQuery:', words?.data)
 
   return (
@@ -228,27 +228,16 @@ export default function SearchBar() {
           return
         }}
       />
-      <HotWordsWrapper>
+      {/* <HotWordsWrapper>
         <TYPE.subHeader fontWeight={'bold'} color={'text3'}>
           Trending
         </TYPE.subHeader>
         {words?.data?.map((words) => (
-          <HotTagLink
-            onClick={() => {
-              handleInput({
-                target: { value: words.name },
-              })
-              if (!open) {
-                toggle()
-              }
-            }}
-            key={words.id}
-          >
+          <HotTagLink href={getExplorerLink(words, ExplorerDataType.TAG)} key={words.id}>
             {words.name}
-            {/* <MouseoverTooltip text={words.name}>{words.name}</MouseoverTooltip> */}
           </HotTagLink>
         ))}
-      </HotWordsWrapper>
+      </HotWordsWrapper> */}
       {open && (
         <SearchFlyout>
           {debouncedQuery ? (

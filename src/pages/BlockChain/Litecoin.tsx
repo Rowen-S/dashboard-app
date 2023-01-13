@@ -120,9 +120,9 @@ export default function Litecoin() {
             <BlockBasicWrapper>
               <DuneCard>
                 <AutoColumn gap="16px">
-                  <TYPE.subHeader fontWeight="600">DOT Price</TYPE.subHeader>
+                  <TYPE.subHeader fontWeight="600">LTC Price</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.LTC[0]?.quote?.USD.price?.toLocaleString() || 0}
+                    ${quotes?.data?.LTC[0]?.quote?.USD.price?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -130,7 +130,7 @@ export default function Litecoin() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Market Cap</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.LTC[0]?.quote?.USD.market_cap?.toLocaleString() || 0}
+                    ${quotes?.data?.LTC[0]?.quote?.USD.market_cap?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -138,7 +138,7 @@ export default function Litecoin() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Circulating Supply</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.LTC[0]?.circulating_supply?.toLocaleString() || 0}
+                    {quotes?.data?.LTC[0]?.circulating_supply?.toLocaleString() || 0} LTC
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>

@@ -125,7 +125,7 @@ export default function Solana() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">SOL Price</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.SOL[0]?.quote?.USD.price?.toLocaleString() || 0}
+                    ${quotes?.data?.SOL[0]?.quote?.USD.price?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -133,7 +133,7 @@ export default function Solana() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Market Cap</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.SOL[0]?.quote?.USD.market_cap?.toLocaleString() || 0}
+                    ${quotes?.data?.SOL[0]?.quote?.USD.market_cap?.toLocaleString() || 0}
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
@@ -141,7 +141,7 @@ export default function Solana() {
                 <AutoColumn gap="16px">
                   <TYPE.subHeader fontWeight="600">Circulating Supply</TYPE.subHeader>
                   <TYPE.largeHeader paddingY={'50px'} textAlign="center" color={'#1e1870'}>
-                    {quotes?.data?.SOL[0]?.circulating_supply?.toLocaleString() || 0}
+                    {quotes?.data?.SOL[0]?.circulating_supply?.toLocaleString() || 0} SOL
                   </TYPE.largeHeader>
                 </AutoColumn>
               </DuneCard>
