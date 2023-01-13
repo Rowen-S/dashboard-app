@@ -15,7 +15,8 @@ import SearchBar from './SearchBar'
 import LidoLogo from 'components/Logo'
 
 import EthBg from 'assets/images/eth-bg.png'
-import EthLogo from 'assets/images/eth.png'
+// import EthLogo from 'assets/images/eth.png'
+import EthLogo from 'assets/images/eth-icon.png'
 
 import SolBg from 'assets/images/sol-bg.png'
 import SolLogo from 'assets/images/sol.png'

@@ -10,7 +10,7 @@ import { ExternalLink, TYPE } from 'theme'
 import Twitter from 'assets/svg/twitter.svg'
 import Discord from 'assets/svg/discord.svg'
 import Raddit from 'assets/svg/raddit.svg'
-import ETHLogo from 'assets/images/eth-logo.png'
+import ETHIcon from 'assets/images/eth-icon.png'
 
 const Logo = styled.img`
   flex: none;
@@ -80,7 +80,7 @@ export default function Ethereum() {
     <AppBody>
       <AutoColumn gap="65px">
         <Row>
-          <Logo src={ETHLogo} />
+          <Logo src={ETHIcon} />
           <ProjectDetailWrapper gap="25px">
             <ProjectIntroduce
               dangerouslySetInnerHTML={{
