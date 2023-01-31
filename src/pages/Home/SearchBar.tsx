@@ -127,7 +127,21 @@ function SearchResult({ searchKey }: { searchKey: string }) {
     )
   }
 
-  if ((!suggestion?.data.length && isSuccess) || isError) {
+  if (!suggestion?.code) {
+    content = (
+      <EmptyProposals>
+        <TYPE.body style={{ marginBottom: '8px' }}>Error.</TYPE.body>
+        <TYPE.subHeader>
+          <i
+            dangerouslySetInnerHTML={{
+              __html: suggestion?.message ?? '',
+            }}
+          />
+        </TYPE.subHeader>
+      </EmptyProposals>
+    )
+  }
+  if ((suggestion?.data && !suggestion?.data.length && isSuccess) || isError) {
     content = (
       <EmptyProposals>
         <TYPE.body style={{ marginBottom: '8px' }}>No result found.</TYPE.body>
@@ -138,7 +152,7 @@ function SearchResult({ searchKey }: { searchKey: string }) {
     )
   }
 
-  if (suggestion?.data.length && isSuccess) {
+  if (suggestion?.code && suggestion?.data.length && isSuccess) {
     content = (
       <SearchResWrapper>
         {suggestion?.data?.map((data) =>
