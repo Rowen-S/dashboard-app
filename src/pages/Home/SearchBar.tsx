@@ -130,9 +130,12 @@ function SearchResult({ searchKey }: { searchKey: string }) {
   if (!suggestion?.code) {
     content = (
       <EmptyProposals>
-        <TYPE.body style={{ marginBottom: '8px' }}>Error.</TYPE.body>
-        <TYPE.subHeader>
+        <TYPE.body style={{ marginBottom: '8px' }} color="red3">
+          Error.
+        </TYPE.body>
+        <TYPE.subHeader color={'red2'}>
           <i
+            color="red3"
             dangerouslySetInnerHTML={{
               __html: suggestion?.message ?? '',
             }}
