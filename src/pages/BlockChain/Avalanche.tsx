@@ -218,7 +218,7 @@ export default function Avalanche() {
                   frameBorder={0}
                 />
                 <IfrarmeItem
-                  src="https://dune.com/embeds/1815674/2988005/f8f4322e-ee98-4855-a02f-b40b1b963256"
+                  src="https://dune.com/embeds/251980/471817/37cfa9b9-0413-4792-bd1a-fde34c9f23f2"
                   width="100%"
                   height="230px"
                   frameBorder={0}
