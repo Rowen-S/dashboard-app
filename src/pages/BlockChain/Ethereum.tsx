@@ -1,40 +1,13 @@
 import { AutoColumn } from 'components/Column'
-import Row, { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
 import { useGetEthereumStatsQuery } from 'services/ethereum'
 import Card from 'components/Card'
 
 import AppBody from 'pages/AppBody'
-import { ExternalLink, TYPE } from 'theme'
+import { TYPE } from 'theme'
 
-import Twitter from 'assets/svg/twitter.svg'
-import Discord from 'assets/svg/discord.svg'
-import Raddit from 'assets/svg/raddit.svg'
-import ETHIcon from 'assets/images/eth-icon.png'
-
-const Logo = styled.img`
-  flex: none;
-  width: 180px;
-  height: 180px;
-
-  padding: 24px;
-  border-radius: 6px;
-  background: #f8f8f8;
-  display: flex;
-  align-self: flex-start;
-`
-const ProjectDetailWrapper = styled(AutoColumn)`
-  margin-left: 55px;
-`
-const ProjectIntroduce = styled.div`
-  & > a {
-    color: ${({ theme }) => theme.primary1};
-    text-decoration: none;
-    :hover {
-      text-decoration: underline;
-    }
-  }
-`
+import CoinLogo from 'assets/images/eth-icon.png'
+import IntroduceToken from 'components/Introduce'
 
 const BlockChainWrapper = styled(AutoColumn)``
 const BlockBasicWrapper = styled.div`
@@ -59,63 +32,29 @@ const DuneCard = styled(Card)`
 const IfrarmeItem = styled.iframe`
   background-color: ${({ theme }) => theme.bg7};
 `
-const SocialLogo = styled.img`
-  width: 28px;
-  height: 28px;
-  :hover {
-    opacity: 80%;
-  }
-`
-
-const ProjectSocial = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 15px;
-`
 
 export default function Ethereum() {
   const { data: totalSupply } = useGetEthereumStatsQuery('ethsupply')
   const { data: nodeCount } = useGetEthereumStatsQuery('nodecount')
+
+  const tokenInfo = {
+    logo: CoinLogo,
+    desc: `Ethereum is a decentralized open-source blockchain system that features its own cryptocurrency, Ether. ETH works as a platform for numerous other cryptocurrencies, as well as for the execution of decentralized smart contracts. <br/>
+    Ethereum was first described in a 2013 whitepaper by Vitalik Buterin. Buterin, along with other co-founders, secured funding for the project in an online public crowd sale in the summer of 2014. <br/>
+    Ethereum’s own purported goal is to become a global platform for decentralized applications, allowing users from all over the world to write and run software that is resistant to censorship, downtime and fraud. <a href='//ethereum.org/' target="_blank">Website</a>
+    `,
+    social: {
+      twitterUri: '//twitter.com/ethereum',
+      discordUri: '//discord.com/invite/CetY6Y4',
+      radditUri: '//www.reddit.com/r/ethereum',
+    },
+    explorerUri: 'https://ethereum.io/',
+  }
+
   return (
     <AppBody>
       <AutoColumn gap="65px">
-        <Row>
-          <Logo src={ETHIcon} />
-          <ProjectDetailWrapper gap="25px">
-            <ProjectIntroduce
-              dangerouslySetInnerHTML={{
-                __html: `
-                Ethereum is a decentralized open-source blockchain system that features its own cryptocurrency, Ether. ETH works as a platform for numerous other cryptocurrencies, as well as for the execution of decentralized smart contracts. <br/>
-Ethereum was first described in a 2013 whitepaper by Vitalik Buterin. Buterin, along with other co-founders, secured funding for the project in an online public crowd sale in the summer of 2014. <br/>
-Ethereum’s own purported goal is to become a global platform for decentralized applications, allowing users from all over the world to write and run software that is resistant to censorship, downtime and fraud. <a href='//ethereum.org/' target="_blank">Website</a>`,
-              }}
-            />
-            <RowBetween width={'90%'}>
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
-                <ProjectSocial>
-                  <ExternalLink href={'//twitter.com/ethereum'}>
-                    <SocialLogo src={Twitter} alt="twitter" />
-                  </ExternalLink>
-                  <ExternalLink href={'//discord.com/invite/CetY6Y4'}>
-                    <SocialLogo src={Discord} alt="discord" />
-                  </ExternalLink>
-                  <ExternalLink href={'//www.reddit.com/r/ethereum'}>
-                    <SocialLogo src={Raddit} alt="raddit" />
-                  </ExternalLink>
-                </ProjectSocial>
-              </AutoColumn>
-
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
-                <TYPE.body>
-                  <ExternalLink href={'//ethereum.io/'}>https://ethereum.io/</ExternalLink>
-                </TYPE.body>
-              </AutoColumn>
-            </RowBetween>
-            {/* <TYPE.body style={{ wordBreak: 'break-all' }}></TYPE.body> */}
-          </ProjectDetailWrapper>
-        </Row>
+        <IntroduceToken {...tokenInfo} />
         <BlockChainWrapper gap="24px">
           <AutoColumn gap="24px">
             {/* <TYPE.largeHeader>Basic</TYPE.largeHeader>

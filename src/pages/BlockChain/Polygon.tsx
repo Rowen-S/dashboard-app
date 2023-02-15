@@ -1,43 +1,13 @@
 import { useGetQuotesQuery } from 'services/cmcPro'
-
 import { AutoColumn } from 'components/Column'
-import Row, { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
 import Card from 'components/Card'
 
 import AppBody from 'pages/AppBody'
-import { ExternalLink, TYPE } from 'theme'
+import { TYPE } from 'theme'
 
-import Twitter from 'assets/svg/twitter.svg'
-import Discord from 'assets/svg/discord.svg'
-import Raddit from 'assets/svg/raddit.svg'
-import Github from 'assets/svg/github.svg'
-
-import MaticLogo from 'assets/images/matic.png'
-
-const Logo = styled.img`
-  flex: none;
-  width: 180px;
-  height: 180px;
-
-  padding: 24px;
-  border-radius: 6px;
-  background: #f8f8f8;
-  display: flex;
-  align-self: flex-start;
-`
-const ProjectDetailWrapper = styled(AutoColumn)`
-  margin-left: 55px;
-`
-const ProjectIntroduce = styled.div`
-  & > a {
-    color: ${({ theme }) => theme.primary1};
-    text-decoration: none;
-    :hover {
-      text-decoration: underline;
-    }
-  }
-`
+import CoinLogo from 'assets/images/matic.png'
+import IntroduceToken from 'components/Introduce'
 
 const BlockChainWrapper = styled(AutoColumn)``
 const BlockBasicWrapper = styled.div`
@@ -63,65 +33,26 @@ const IfrarmeItem = styled.iframe`
   background-color: ${({ theme }) => theme.bg7};
 `
 
-const SocialLogo = styled.img`
-  width: 28px;
-  height: 28px;
-  :hover {
-    opacity: 80%;
-  }
-`
-
-const ProjectSocial = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 15px;
-`
-
 export default function Polygon() {
   const { data: quotes } = useGetQuotesQuery('MATIC')
 
+  const tokenInfo = {
+    logo: CoinLogo,
+    desc: `Polygon is a platform design to support infrastructure development and help Ethereum scale. Its core component is a modular, flexible framework (Polygon SDK) that allows developers to build and connect Layer-2 infrastructures like Plasma, Optimistic Rollups, zkRollups, and Validium and standalone sidechains like the project's flagship product, Matic POS (Proof-of-Stake). Polygon rebranded from Matic Network in February 2021 and pivoted towards supporting multiple Layer-2 infrastructure. It will continue to support the Matic POS sidechain and Plasma-based payment system, which currently hosts over 90 applications.
+    <a href='//polygon.technology/' target="_blank">Website</a>`,
+    social: {
+      twitterUri: '//twitter.com/0xPolygon',
+      discordUri: '//discord.com/invite/0xPolygon',
+      radditUri: '//www.reddit.com/r/0xPolygon',
+      githubUri: '//github.com/maticnetwork',
+    },
+    explorerUri: 'https://polygonscan.com',
+  }
   return (
     <AppBody>
       <AutoColumn gap="65px">
-        <Row>
-          <Logo src={MaticLogo} />
-          <ProjectDetailWrapper gap="25px">
-            <ProjectIntroduce
-              dangerouslySetInnerHTML={{
-                __html: `
-                Polygon is a platform design to support infrastructure development and help Ethereum scale. Its core component is a modular, flexible framework (Polygon SDK) that allows developers to build and connect Layer-2 infrastructures like Plasma, Optimistic Rollups, zkRollups, and Validium and standalone sidechains like the project's flagship product, Matic POS (Proof-of-Stake). Polygon rebranded from Matic Network in February 2021 and pivoted towards supporting multiple Layer-2 infrastructure. It will continue to support the Matic POS sidechain and Plasma-based payment system, which currently hosts over 90 applications.
-                <a href='//polygon.technology/' target="_blank">Website</a>`,
-              }}
-            />
-            <RowBetween width={'90%'}>
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
-                <ProjectSocial>
-                  <ExternalLink href={'//twitter.com/0xPolygon'}>
-                    <SocialLogo src={Twitter} alt="twitter" />
-                  </ExternalLink>
-                  <ExternalLink href={'//discord.com/invite/0xPolygon'}>
-                    <SocialLogo src={Discord} alt="discord" />
-                  </ExternalLink>
-                  <ExternalLink href={'//www.reddit.com/r/0xPolygon'}>
-                    <SocialLogo src={Raddit} alt="raddit" />
-                  </ExternalLink>
-                  <ExternalLink href={'//github.com/maticnetwork'}>
-                    <SocialLogo src={Github} alt="github" />
-                  </ExternalLink>
-                </ProjectSocial>
-              </AutoColumn>
+        <IntroduceToken {...tokenInfo} />
 
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
-                <TYPE.body>
-                  <ExternalLink href={'//polygonscan.com/'}>https://polygonscan.com/</ExternalLink>
-                </TYPE.body>
-              </AutoColumn>
-            </RowBetween>
-            {/* <TYPE.body style={{ wordBreak: 'break-all' }}></TYPE.body> */}
-          </ProjectDetailWrapper>
-        </Row>
         <BlockChainWrapper gap="24px">
           <AutoColumn gap="24px">
             <BlockBasicWrapper>

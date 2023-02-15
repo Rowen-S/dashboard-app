@@ -50,6 +50,7 @@ const BodyWrapper = styled.div`
   align-items: center;
   flex: 1;
   z-index: 1;
+  background-color: ${({ theme }) => theme.bg1};
 
   /* ${({ theme }) => theme.mediaWidth.upToSmall`
   padding: 6rem 16px 16px 16px;

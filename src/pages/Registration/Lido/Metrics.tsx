@@ -1,3 +1,4 @@
+import { LightCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import styled from 'styled-components/macro'
 import { Line, TYPE } from 'theme'
@@ -25,11 +26,14 @@ export default function Metrics() {
   ]
   return (
     <MetricsWrapper gap="40px">
-      <TopWrapper>
-        {iframeList.map((ifr) => (
-          <IfrarmeItem key={ifr} src={ifr} width="100%" height="230px" frameBorder={0} />
-        ))}
-      </TopWrapper>
+      <LightCard padding={'24px'}>
+        <TopWrapper>
+          {iframeList.map((ifr) => (
+            <IfrarmeItem key={ifr} src={ifr} width="100%" height="230px" frameBorder={0} />
+          ))}
+        </TopWrapper>
+      </LightCard>
+
       <AutoColumn gap="16px">
         <TYPE.largeHeader>Revenue</TYPE.largeHeader>
         <Line />

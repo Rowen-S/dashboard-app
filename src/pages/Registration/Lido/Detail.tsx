@@ -13,6 +13,7 @@ import Twitter from 'assets/svg/twitter.svg'
 import Discord from 'assets/svg/discord.svg'
 import Raddit from 'assets/svg/raddit.svg'
 import AppBody from 'pages/AppBody'
+import { LightCard } from 'components/Card'
 
 const Logo = styled.img`
   flex: none;
@@ -68,54 +69,64 @@ export default function LidoDetail() {
     },
     {
       label: 'Proposals',
-      content: <Proposals />,
+      content: (
+        <LightCard padding={'24px'}>
+          <Proposals />
+        </LightCard>
+      ),
     },
     {
       label: 'Public opinion',
-      content: <PublicOpinion />,
+      content: (
+        <LightCard padding={'24px'}>
+          <PublicOpinion />
+        </LightCard>
+      ),
     },
   ]
 
   return (
     <AppBody>
       <AutoColumn gap="65px">
-        <Row>
-          <Logo src={LidoSvg} />
-          <ProjectDetailWrapper gap="25px">
-            <ProjectIntroduce
-              dangerouslySetInnerHTML={{
-                __html: `Lido is a liquid staking solution for Ethereum and other proof of stake chains. This allows users to stake
+        <LightCard padding={'28px 24px'}>
+          <Row>
+            <Logo src={LidoSvg} />
+            <ProjectDetailWrapper gap="25px">
+              <ProjectIntroduce
+                dangerouslySetInnerHTML={{
+                  __html: `Lido is a liquid staking solution for Ethereum and other proof of stake chains. This allows users to stake
             their tokens without having to lock assets or maintain staking infrastructure. Users who stake via Lido
             receive daily rewards in the form of staking derivative tokens which are pegged 1:1 to the underlying staked
             assets. <a href='//lido.fi/' target="_blank">Website</a>`,
-              }}
-            />
-            <RowBetween width={'90%'}>
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
-                <ProjectSocial>
-                  <ExternalLink href={'//twitter.com/lidofinance'}>
-                    <SocialLogo src={Twitter} alt="twitter" />
-                  </ExternalLink>
-                  <ExternalLink href={'//discord.com/invite/lido'}>
-                    <SocialLogo src={Discord} alt="discord" />
-                  </ExternalLink>
-                  <ExternalLink href={'//www.reddit.com/r/LidoFinance'}>
-                    <SocialLogo src={Raddit} alt="raddit" />
-                  </ExternalLink>
-                </ProjectSocial>
-              </AutoColumn>
+                }}
+              />
+              <RowBetween width={'90%'}>
+                <AutoColumn gap="12px">
+                  <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
+                  <ProjectSocial>
+                    <ExternalLink href={'//twitter.com/lidofinance'}>
+                      <SocialLogo src={Twitter} alt="twitter" />
+                    </ExternalLink>
+                    <ExternalLink href={'//discord.com/invite/lido'}>
+                      <SocialLogo src={Discord} alt="discord" />
+                    </ExternalLink>
+                    <ExternalLink href={'//www.reddit.com/r/LidoFinance'}>
+                      <SocialLogo src={Raddit} alt="raddit" />
+                    </ExternalLink>
+                  </ProjectSocial>
+                </AutoColumn>
 
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Contracts</TYPE.largeHeader>
-                <TYPE.body>
-                  <CopyContractAddress address={'0x5a98fcbea516cf06857215779fd812ca3bef1b32'} />
-                </TYPE.body>
-              </AutoColumn>
-            </RowBetween>
-            <TYPE.body style={{ wordBreak: 'break-all' }}></TYPE.body>
-          </ProjectDetailWrapper>
-        </Row>
+                <AutoColumn gap="12px">
+                  <TYPE.largeHeader fontSize={18}>Contracts</TYPE.largeHeader>
+                  <TYPE.body>
+                    <CopyContractAddress address={'0x5a98fcbea516cf06857215779fd812ca3bef1b32'} />
+                  </TYPE.body>
+                </AutoColumn>
+              </RowBetween>
+              <TYPE.body style={{ wordBreak: 'break-all' }}></TYPE.body>
+            </ProjectDetailWrapper>
+          </Row>
+        </LightCard>
 
         <DataTabs data={tabData} />
       </AutoColumn>

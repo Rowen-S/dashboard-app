@@ -28,6 +28,9 @@ export interface Colors {
   // backgrounds / tag
   bg8: Color
 
+  // backgrounds / Global
+  bgGlobal: Color
+
   modalBG: Color
   advancedBG: Color
 

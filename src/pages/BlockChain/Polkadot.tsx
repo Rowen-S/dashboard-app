@@ -1,42 +1,13 @@
 import { AutoColumn } from 'components/Column'
-import Row, { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
 import Card from 'components/Card'
 
 import AppBody from 'pages/AppBody'
-import { ExternalLink, TYPE } from 'theme'
-
-import Twitter from 'assets/svg/twitter.svg'
-import Discord from 'assets/svg/discord.svg'
-import Raddit from 'assets/svg/raddit.svg'
-import Github from 'assets/svg/github.svg'
+import { TYPE } from 'theme'
 
 import CoinLogo from 'assets/images/dot.png'
 import { useGetQuotesQuery } from 'services/cmcPro'
-
-const Logo = styled.img`
-  flex: none;
-  width: 180px;
-  height: 180px;
-
-  padding: 24px;
-  border-radius: 6px;
-  background: #f8f8f8;
-  display: flex;
-  align-self: flex-start;
-`
-const ProjectDetailWrapper = styled(AutoColumn)`
-  margin-left: 55px;
-`
-const ProjectIntroduce = styled.div`
-  & > a {
-    color: ${({ theme }) => theme.primary1};
-    text-decoration: none;
-    :hover {
-      text-decoration: underline;
-    }
-  }
-`
+import IntroduceToken from 'components/Introduce'
 
 const BlockChainWrapper = styled(AutoColumn)``
 const BlockBasicWrapper = styled.div`
@@ -56,73 +27,28 @@ const IfrarmeItem = styled.iframe`
   background-color: ${({ theme }) => theme.bg7};
 `
 
-const SocialLogo = styled.img`
-  width: 28px;
-  height: 28px;
-  :hover {
-    opacity: 80%;
-  }
-`
-
-const ProjectSocial = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 15px;
-`
-
 export default function Polkadot() {
   const { data: quotes } = useGetQuotesQuery('DOT')
+
+  const tokenInfo = {
+    logo: CoinLogo,
+    desc: `Polkadot is an open-source sharded multichain protocol that connects and secures a network of specialized blockchains, facilitating cross-chain transfer of any data or asset types, not just tokens, thereby allowing blockchains to be interoperable with each other. Polkadot was designed to provide a foundation for a decentralized internet of blockchains, also known as Web3.
+    The Polkadot protocol can connect public and private chains, permissionless networks, oracles and future technologies, allowing these independent blockchains to trustlessly share information and transactions through the Polkadot Relay Chain (explained further down).
+    Polkadot was founded by Gavin Wood and launched in 2020.
+    <a href='//polkadot.network/' target="_blank">Website</a>`,
+    social: {
+      twitterUri: '//twitter.com/Polkadot',
+      discordUri: '//discord.com/invite/uKY3HkX',
+      radditUri: '//www.reddit.com/r/polkadot',
+      githubUri: '//github.com/paritytech',
+    },
+    explorerUri: 'https://explorer.polkascan.io/polkadot',
+  }
 
   return (
     <AppBody>
       <AutoColumn gap="65px">
-        <Row>
-          <Logo src={CoinLogo} />
-          <ProjectDetailWrapper gap="25px">
-            <ProjectIntroduce
-              dangerouslySetInnerHTML={{
-                __html: `
-                Polkadot is an open-source sharded multichain protocol that connects and secures a network of specialized blockchains, facilitating cross-chain transfer of any data or asset types, not just tokens, thereby allowing blockchains to be interoperable with each other. Polkadot was designed to provide a foundation for a decentralized internet of blockchains, also known as Web3.
-
-                The Polkadot protocol can connect public and private chains, permissionless networks, oracles and future technologies, allowing these independent blockchains to trustlessly share information and transactions through the Polkadot Relay Chain (explained further down).
-
-                Polkadot was founded by Gavin Wood and launched in 2020.
-
-                <a href='//polkadot.network/' target="_blank">Website</a>`,
-              }}
-            />
-            <RowBetween width={'90%'}>
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
-                <ProjectSocial>
-                  <ExternalLink href={'//twitter.com/Polkadot/'}>
-                    <SocialLogo src={Twitter} alt="twitter" />
-                  </ExternalLink>
-                  <ExternalLink href={'//discord.com/invite/uKY3HkX/'}>
-                    <SocialLogo src={Discord} alt="discord" />
-                  </ExternalLink>
-                  <ExternalLink href={'//www.reddit.com/r/polkadot/'}>
-                    <SocialLogo src={Raddit} alt="raddit" />
-                  </ExternalLink>
-                  <ExternalLink href={'//github.com/paritytech'}>
-                    <SocialLogo src={Github} alt="github" />
-                  </ExternalLink>
-                </ProjectSocial>
-              </AutoColumn>
-
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
-                <TYPE.body>
-                  <ExternalLink href={'//explorer.polkascan.io/polkadot/'}>
-                    https://explorer.polkascan.io/polkadot
-                  </ExternalLink>
-                </TYPE.body>
-              </AutoColumn>
-            </RowBetween>
-            {/* <TYPE.body style={{ wordBreak: 'break-all' }}></TYPE.body> */}
-          </ProjectDetailWrapper>
-        </Row>
-
+        <IntroduceToken {...tokenInfo} />
         <BlockChainWrapper gap="24px">
           <AutoColumn gap="24px">
             <BlockBasicWrapper>

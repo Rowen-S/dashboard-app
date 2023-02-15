@@ -4,14 +4,15 @@ import { Box } from 'rebass/styled-components'
 const Card = styled(Box)<{ width?: string; padding?: string; border?: string; $borderRadius?: string }>`
   width: ${({ width }) => width ?? '100%'};
   padding: ${({ padding }) => padding ?? '1rem'};
-  border-radius: ${({ $borderRadius }) => $borderRadius ?? '6px'};
+  border-radius: ${({ $borderRadius }) => $borderRadius ?? '16px'};
   border: ${({ border }) => border};
 `
 export default Card
 
 export const LightCard = styled(Card)`
-  border: 1px solid ${({ theme }) => theme.bg2};
-  background-color: ${({ theme }) => theme.bg1};
+  /* border: 1px solid ${({ theme }) => theme.bg2}; */
+  /* background-color: ${({ theme }) => theme.bg1}; */
+  background-color: ${({ theme }) => theme.bg0};
 `
 
 export const LightGreyCard = styled(Card)`

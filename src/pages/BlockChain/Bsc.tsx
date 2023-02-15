@@ -1,41 +1,13 @@
 import { AutoColumn } from 'components/Column'
-import Row, { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
 
 import AppBody from 'pages/AppBody'
-import { ExternalLink, TYPE } from 'theme'
+import { TYPE } from 'theme'
 
-import Twitter from 'assets/svg/twitter.svg'
-import Discord from 'assets/svg/discord.svg'
-import Github from 'assets/svg/github.svg'
-import Raddit from 'assets/svg/raddit.svg'
 import CoinLogo from 'assets/images/bnb.png'
 import Card from 'components/Card'
 import { useGetQuotesQuery } from 'services/cmcPro'
-
-const Logo = styled.img`
-  flex: none;
-  width: 180px;
-  height: 180px;
-
-  padding: 24px;
-  border-radius: 6px;
-  background: #f8f8f8;
-  display: flex;
-  align-self: flex-start;
-`
-const ProjectDetailWrapper = styled(AutoColumn)`
-  margin-left: 55px;
-`
-const ProjectIntroduce = styled.div`
-  & > a {
-    color: ${({ theme }) => theme.primary1};
-    text-decoration: none;
-    :hover {
-      text-decoration: underline;
-    }
-  }
-`
+import IntroduceToken from 'components/Introduce'
 
 const BlockChainWrapper = styled(AutoColumn)``
 
@@ -56,68 +28,25 @@ const IfrarmeItem = styled.iframe`
   background-color: ${({ theme }) => theme.bg7};
 `
 
-const SocialLogo = styled.img`
-  width: 28px;
-  height: 28px;
-  :hover {
-    opacity: 80%;
-  }
-`
-
-const ProjectSocial = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 15px;
-`
-
 export default function Bsc() {
   const { data: quotes } = useGetQuotesQuery('BNB')
-
+  const tokenInfo = {
+    logo: CoinLogo,
+    desc: `Launched in July 2017, Binance is the biggest cryptocurrency exchange globally based on daily trading volume. Binance aims to bring cryptocurrency exchanges to the forefront of financial activity globally.
+  Aside from being the largest cryptocurrency exchange globally, Binance has launched a whole ecosystem of functionalities for its users. The Binance network includes the Binance Chain, Binance Smart Chain, Binance Academy, Trust Wallet and Research projects, which all employ the powers of blockchain technology to bring new-age finance to the world. BNB is an integral part of the successful functioning of many of the Binance sub-projects.
+  <a href='//bnbchain.org/en/' target="_blank">Website</a>`,
+    social: {
+      twitterUri: '//twitter.com/BNBChain/',
+      discordUri: '//discord.com/invite/QRTQvfhADQ',
+      radditUri: '//www.reddit.com/r/bsc/',
+      githubUri: '//github.com/bnb-chain',
+    },
+    explorerUri: 'https://bscscan.com/',
+  }
   return (
     <AppBody>
       <AutoColumn gap="65px">
-        <Row>
-          <Logo src={CoinLogo} />
-          <ProjectDetailWrapper gap="25px">
-            <ProjectIntroduce
-              dangerouslySetInnerHTML={{
-                __html: `
-                Launched in July 2017, Binance is the biggest cryptocurrency exchange globally based on daily trading volume. Binance aims to bring cryptocurrency exchanges to the forefront of financial activity globally.
-
-                Aside from being the largest cryptocurrency exchange globally, Binance has launched a whole ecosystem of functionalities for its users. The Binance network includes the Binance Chain, Binance Smart Chain, Binance Academy, Trust Wallet and Research projects, which all employ the powers of blockchain technology to bring new-age finance to the world. BNB is an integral part of the successful functioning of many of the Binance sub-projects.
-
-                <a href='//bnbchain.org/en/' target="_blank">Website</a>`,
-              }}
-            />
-            <RowBetween width={'90%'}>
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
-                <ProjectSocial>
-                  <ExternalLink href={'//twitter.com/BNBChain'}>
-                    <SocialLogo src={Twitter} alt="twitter" />
-                  </ExternalLink>
-                  <ExternalLink href={'//discord.com/invite/QRTQvfhADQ'}>
-                    <SocialLogo src={Discord} alt="discord" />
-                  </ExternalLink>
-                  <ExternalLink href={'//www.reddit.com/r/bsc/'}>
-                    <SocialLogo src={Raddit} alt="raddit" />
-                  </ExternalLink>
-                  <ExternalLink href={'//github.com/bnb-chain'}>
-                    <SocialLogo src={Github} alt="gitHub" />
-                  </ExternalLink>
-                </ProjectSocial>
-              </AutoColumn>
-
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
-                <TYPE.body>
-                  <ExternalLink href={'//bscscan.com/'}>https://bscscan.com/</ExternalLink>
-                </TYPE.body>
-              </AutoColumn>
-            </RowBetween>
-            {/* <TYPE.body style={{ wordBreak: 'break-all' }}></TYPE.body> */}
-          </ProjectDetailWrapper>
-        </Row>
+        <IntroduceToken {...tokenInfo} />
         <BlockChainWrapper gap="24px">
           <AutoColumn gap="24px">
             <BlockBasicWrapper>

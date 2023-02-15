@@ -1,41 +1,13 @@
 import { AutoColumn } from 'components/Column'
-import Row, { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
 
 import AppBody from 'pages/AppBody'
-import { ExternalLink, TYPE } from 'theme'
+import { TYPE } from 'theme'
 
-import Twitter from 'assets/svg/twitter.svg'
-import Discord from 'assets/svg/discord.svg'
-import Github from 'assets/svg/github.svg'
-import Raddit from 'assets/svg/raddit.svg'
-import SolLogo from 'assets/images/sol.png'
+import CoinLogo from 'assets/images/sol.png'
 import Card from 'components/Card'
 import { useGetQuotesQuery } from 'services/cmcPro'
-
-const Logo = styled.img`
-  flex: none;
-  width: 180px;
-  height: 180px;
-
-  padding: 24px;
-  border-radius: 6px;
-  background: #f8f8f8;
-  display: flex;
-  align-self: flex-start;
-`
-const ProjectDetailWrapper = styled(AutoColumn)`
-  margin-left: 55px;
-`
-const ProjectIntroduce = styled.div`
-  & > a {
-    color: ${({ theme }) => theme.primary1};
-    text-decoration: none;
-    :hover {
-      text-decoration: underline;
-    }
-  }
-`
+import IntroduceToken from 'components/Introduce'
 
 const BlockChainWrapper = styled(AutoColumn)``
 
@@ -56,68 +28,27 @@ const IfrarmeItem = styled.iframe`
   background-color: ${({ theme }) => theme.bg7};
 `
 
-const SocialLogo = styled.img`
-  width: 28px;
-  height: 28px;
-  :hover {
-    opacity: 80%;
-  }
-`
-
-const ProjectSocial = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 15px;
-`
-
 export default function Solana() {
   const { data: quotes } = useGetQuotesQuery('SOL')
 
+  const tokenInfo = {
+    logo: CoinLogo,
+    desc: `Solana is a highly functional open source project that banks on blockchain technology’s permissionless nature to provide decentralized finance (DeFi) solutions. While the idea and initial work on the project began in 2017, Solana was officially launched in March 2020 by the Solana Foundation with headquarters in Geneva, Switzerland.
+    The Solana protocol is designed to facilitate decentralized app (DApp) creation. It aims to improve scalability by introducing a proof-of-history (PoH) consensus combined with the underlying proof-of-stake (PoS) consensus of the blockchain.                
+    <a href='//solana.com/' target="_blank">Website</a>`,
+    social: {
+      twitterUri: '//twitter.com/solana',
+      discordUri: '//discord.com/invite/pquxPsq',
+      radditUri: '//www.reddit.com/r/solana',
+      githubUri: '//github.com/solana-labs',
+    },
+    explorerUri: 'https://solscan.io',
+  }
   return (
     <AppBody>
       <AutoColumn gap="65px">
-        <Row>
-          <Logo src={SolLogo} />
-          <ProjectDetailWrapper gap="25px">
-            <ProjectIntroduce
-              dangerouslySetInnerHTML={{
-                __html: `
-                Solana is a highly functional open source project that banks on blockchain technology’s permissionless nature to provide decentralized finance (DeFi) solutions. While the idea and initial work on the project began in 2017, Solana was officially launched in March 2020 by the Solana Foundation with headquarters in Geneva, Switzerland.
+        <IntroduceToken {...tokenInfo} />
 
-                The Solana protocol is designed to facilitate decentralized app (DApp) creation. It aims to improve scalability by introducing a proof-of-history (PoH) consensus combined with the underlying proof-of-stake (PoS) consensus of the blockchain.
-                
-                <a href='//solana.com/' target="_blank">Website</a>`,
-              }}
-            />
-            <RowBetween width={'90%'}>
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
-                <ProjectSocial>
-                  <ExternalLink href={'//twitter.com/solana'}>
-                    <SocialLogo src={Twitter} alt="twitter" />
-                  </ExternalLink>
-                  <ExternalLink href={'//discord.com/invite/pquxPsq'}>
-                    <SocialLogo src={Discord} alt="discord" />
-                  </ExternalLink>
-                  <ExternalLink href={'//www.reddit.com/r/solana/'}>
-                    <SocialLogo src={Raddit} alt="raddit" />
-                  </ExternalLink>
-                  <ExternalLink href={'//github.com/solana-labs'}>
-                    <SocialLogo src={Github} alt="gitHub" />
-                  </ExternalLink>
-                </ProjectSocial>
-              </AutoColumn>
-
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
-                <TYPE.body>
-                  <ExternalLink href={'//solscan.io/'}>https://solscan.io/</ExternalLink>
-                </TYPE.body>
-              </AutoColumn>
-            </RowBetween>
-            {/* <TYPE.body style={{ wordBreak: 'break-all' }}></TYPE.body> */}
-          </ProjectDetailWrapper>
-        </Row>
         <BlockChainWrapper gap="24px">
           <AutoColumn gap="24px">
             <BlockBasicWrapper>

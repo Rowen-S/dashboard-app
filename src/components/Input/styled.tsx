@@ -24,6 +24,7 @@ export const SearchInput = styled.input`
 
   ::placeholder {
     color: ${({ theme }) => theme.text3};
+    font-size: 14px;
   }
   transition: border 100ms;
   :focus {

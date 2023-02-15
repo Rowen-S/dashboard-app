@@ -21,14 +21,14 @@ import { ExplorerDataType, getExplorerLink } from 'utils/getExplorerLink'
 
 const SearchBarWraper = styled(AutoColumn)`
   position: relative;
-  width: 55%;
+  width: 100%;
   justify-self: center;
-  position: relative;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     width: 100%;
   `}
 `
 const HomeSearch = styled(SearchInput)`
+  background-color: ${({ theme }) => theme.bg1};
   border-radius: 30px;
   padding: 14px 24px;
   padding-left: 40px;

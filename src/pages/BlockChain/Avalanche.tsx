@@ -1,42 +1,14 @@
 import { AutoColumn } from 'components/Column'
-import Row, { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
+import IntroduceToken from 'components/Introduce'
 
 import { useGetQuotesQuery } from 'services/cmcPro'
-
-import AppBody from 'pages/AppBody'
-import { ExternalLink, TYPE } from 'theme'
+import { TYPE } from 'theme'
 import Card from 'components/Card'
 
-import Twitter from 'assets/svg/twitter.svg'
-import Discord from 'assets/svg/discord.svg'
-import Github from 'assets/svg/github.svg'
-import Raddit from 'assets/svg/raddit.svg'
+import AppBody from 'pages/AppBody'
+
 import CoinLogo from 'assets/images/avax.png'
-
-const Logo = styled.img`
-  flex: none;
-  width: 180px;
-  height: 180px;
-
-  padding: 24px;
-  border-radius: 6px;
-  background: #f8f8f8;
-  display: flex;
-  align-self: flex-start;
-`
-const ProjectDetailWrapper = styled(AutoColumn)`
-  margin-left: 55px;
-`
-const ProjectIntroduce = styled.div`
-  & > a {
-    color: ${({ theme }) => theme.primary1};
-    text-decoration: none;
-    :hover {
-      text-decoration: underline;
-    }
-  }
-`
 
 const BlockChainWrapper = styled(AutoColumn)``
 
@@ -56,68 +28,28 @@ const DuneCard = styled(Card)`
 const IfrarmeItem = styled.iframe`
   background-color: ${({ theme }) => theme.bg7};
 `
-const SocialLogo = styled.img`
-  width: 28px;
-  height: 28px;
-  :hover {
-    opacity: 80%;
-  }
-`
-
-const ProjectSocial = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 15px;
-`
 
 export default function Avalanche() {
   const { data: quotes } = useGetQuotesQuery('AVAX')
 
+  const tokenInfo = {
+    logo: CoinLogo,
+    desc: `Avalanche is a layer one blockchain that functions as a platform for decentralized applications and custom blockchain networks. It is one of Ethereum’s rivals, aiming to unseat Ethereum as the most popular blockchain for smart contracts. It aims to do so by having a higher transaction output of up to 6,500 transactions per second while not compromising scalability.
+    Avalanche was founded by Emin Gün Sirer and launched in 2019.
+    <a href='//www.avax.network/' target="_blank">Website</a>`,
+    social: {
+      twitterUri: '//twitter.com/avalancheavax/',
+      discordUri: '//discord.com/invite/RwXY7P6',
+      radditUri: '//www.reddit.com/r/Avax/',
+      githubUri: '//github.com/ava-labs',
+    },
+    explorerUri: 'https://snowtrace.io/',
+  }
+
   return (
     <AppBody>
       <AutoColumn gap="65px">
-        <Row>
-          <Logo src={CoinLogo} />
-          <ProjectDetailWrapper gap="25px">
-            <ProjectIntroduce
-              dangerouslySetInnerHTML={{
-                __html: `
-                Avalanche is a layer one blockchain that functions as a platform for decentralized applications and custom blockchain networks. It is one of Ethereum’s rivals, aiming to unseat Ethereum as the most popular blockchain for smart contracts. It aims to do so by having a higher transaction output of up to 6,500 transactions per second while not compromising scalability.
-
-                Avalanche was founded by Emin Gün Sirer and launched in 2019.
-
-                <a href='//www.avax.network/' target="_blank">Website</a>`,
-              }}
-            />
-            <RowBetween width={'90%'}>
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
-                <ProjectSocial>
-                  <ExternalLink href={'//twitter.com/avalancheavax'}>
-                    <SocialLogo src={Twitter} alt="twitter" />
-                  </ExternalLink>
-                  <ExternalLink href={'//discord.com/invite/RwXY7P6'}>
-                    <SocialLogo src={Discord} alt="discord" />
-                  </ExternalLink>
-                  <ExternalLink href={'//www.reddit.com/r/Avax'}>
-                    <SocialLogo src={Raddit} alt="raddit" />
-                  </ExternalLink>
-                  <ExternalLink href={'//github.com/ava-labs'}>
-                    <SocialLogo src={Github} alt="github" />
-                  </ExternalLink>
-                </ProjectSocial>
-              </AutoColumn>
-
-              <AutoColumn gap="12px">
-                <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
-                <TYPE.body>
-                  <ExternalLink href={'//snowtrace.io/'}>https://snowtrace.io/</ExternalLink>
-                </TYPE.body>
-              </AutoColumn>
-            </RowBetween>
-            {/* <TYPE.body style={{ wordBreak: 'break-all' }}></TYPE.body> */}
-          </ProjectDetailWrapper>
-        </Row>
+        <IntroduceToken {...tokenInfo} />
         <BlockChainWrapper gap="24px">
           <AutoColumn gap="24px">
             <BlockBasicWrapper>
