@@ -62,7 +62,7 @@ function colors(darkMode: boolean): Colors {
     // backgrounds / tag
     bg8: darkMode ? '#E9F1F5' : '#E9F1F5',
 
-    bgGlobal: darkMode ? '#FCFCFC' : '#FCFCFC',
+    // bgGlobal: darkMode ? '#FCFCFC' : '#FCFCFC',
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',

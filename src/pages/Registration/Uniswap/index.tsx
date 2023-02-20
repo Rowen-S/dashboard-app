@@ -1,16 +1,16 @@
 import { AutoColumn } from 'components/Column'
-import Row from 'components/Row'
+// import Row from 'components/Row'
 import styled from 'styled-components/macro'
-import { ExternalLink, Line, TYPE } from 'theme'
+import { Line, TYPE } from 'theme'
 
 import { ButtonOutlined } from 'components/Button'
 import { useNavigate } from 'react-router-dom'
-import { Linkedin } from 'react-feather'
-import { OutlineCard } from 'components/Card'
+// import { Linkedin } from 'react-feather'
+// import { OutlineCard } from 'components/Card'
 import AppBody from 'pages/AppBody'
 
 import { ReactComponent as UniswapLogoPink } from 'assets/svg/uniswap_logo_pink.svg'
-import AvatarExample from 'components/Avatar'
+// import AvatarExample from 'components/Avatar'
 import { shortenAddress } from 'utils'
 
 const BaseWrapper = styled.div`
@@ -60,31 +60,31 @@ const Iframe = styled.iframe`
   `}
 `
 
-const TeamWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 24px;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    grid-template-columns: repeat(2, 1fr);
-  `}
-`
-const TeamItem = styled(AutoColumn)`
-  text-align: center;
-`
+// const TeamWrapper = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(5, 1fr);
+//   grid-gap: 24px;
+//   ${({ theme }) => theme.mediaWidth.upToSmall`
+//     grid-template-columns: repeat(2, 1fr);
+//   `}
+// `
+// const TeamItem = styled(AutoColumn)`
+//   text-align: center;
+// `
 
-const TeamLink = styled(ExternalLink)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  margin: 0px auto;
-  width: 16px;
-  height: 16px;
-  background-color: ${({ theme }) => theme.bg5};
-  & > svg {
-    stroke: ${({ theme }) => theme.bg0};
-  }
-`
+// const TeamLink = styled(ExternalLink)`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: fit-content;
+//   margin: 0px auto;
+//   width: 16px;
+//   height: 16px;
+//   background-color: ${({ theme }) => theme.bg5};
+//   & > svg {
+//     stroke: ${({ theme }) => theme.bg0};
+//   }
+// `
 
 const AboutWrapper = styled(AutoColumn)`
   width: 78%;
@@ -106,7 +106,7 @@ const AboutHTMLWrapper = styled.div`
 export default function Uniswap() {
   const navigate = useNavigate()
 
-  const teamList = [
+  /**  const teamList = [
     {
       name: 'Brad Garlinghouse',
       position: 'CEO',
@@ -132,7 +132,7 @@ export default function Uniswap() {
       position: 'COO',
       linkedIn: '',
     },
-  ]
+  ] */
   return (
     <AppBody>
       <AutoColumn gap="24px">
@@ -203,7 +203,7 @@ export default function Uniswap() {
               }}
             />
 
-            <TYPE.mediumHeader marginTop={'24px'}>Team</TYPE.mediumHeader>
+            {/* <TYPE.mediumHeader marginTop={'24px'}>Team</TYPE.mediumHeader>
             <TeamWrapper>
               {teamList.map((t, i) => (
                 <OutlineCard padding={'24px 16px'} key={t.name + i}>
@@ -221,7 +221,7 @@ export default function Uniswap() {
                   </TeamItem>
                 </OutlineCard>
               ))}
-            </TeamWrapper>
+            </TeamWrapper> */}
           </AboutWrapper>
         </AutoColumn>
       </AutoColumn>

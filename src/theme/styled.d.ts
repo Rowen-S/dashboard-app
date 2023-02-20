@@ -29,7 +29,7 @@ export interface Colors {
   bg8: Color
 
   // backgrounds / Global
-  bgGlobal: Color
+  // bgGlobal: Color
 
   modalBG: Color
   advancedBG: Color

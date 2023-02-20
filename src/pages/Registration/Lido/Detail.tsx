@@ -55,17 +55,23 @@ export default function LidoDetail() {
     {
       label: 'Profile',
       content: (
-        <iframe
-          src="https://docs.lido.fi/?pk_vid=c25f281e9f7d8f6d166391341018be44"
-          width="100%"
-          height="800"
-          frameBorder={0}
-        />
+        <LightCard padding={'24px'}>
+          <iframe
+            src="https://docs.lido.fi/?pk_vid=c25f281e9f7d8f6d166391341018be44"
+            width="100%"
+            height="800"
+            frameBorder={0}
+          />
+        </LightCard>
       ),
     },
     {
       label: 'Metrics',
-      content: <Metrics />,
+      content: (
+        <LightCard padding={'24px'}>
+          <Metrics />
+        </LightCard>
+      ),
     },
     {
       label: 'Proposals',

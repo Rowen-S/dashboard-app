@@ -1,7 +1,7 @@
 import { RowBetween } from 'components/Row'
 import styled from 'styled-components/macro'
 import { AutoColumn } from 'components/Column'
-import { ExternalLink, TYPE } from 'theme'
+import { CopyContractAddress, ExternalLink, TYPE } from 'theme'
 
 import Twitter from 'assets/svg/twitter.svg'
 import Discord from 'assets/svg/discord.svg'
@@ -62,9 +62,10 @@ export interface InfoType {
     githubUri?: string
   }
   explorerUri?: string
+  contractUri?: string
 }
 
-// const tokenInfo = {
+// const info = {
 //   logo: CoinLogo,
 //   desc: ``,
 //   social: {
@@ -76,37 +77,37 @@ export interface InfoType {
 //   explorerUri: '',
 // }
 
-export default function IntroduceToken(tokenInfo: InfoType) {
+export default function IntroduceToken(info: InfoType) {
   return (
     <IntroduceWrapper padding={'24px'}>
-      <Logo src={tokenInfo.logo} />
+      <Logo src={info.logo} />
       <ProjectDetailWrapper gap="25px">
         <ProjectIntroduce
           dangerouslySetInnerHTML={{
-            __html: tokenInfo.desc,
+            __html: info.desc,
           }}
         />
         <RowBetween width={'90%'}>
           <AutoColumn gap="12px">
             <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
             <ProjectSocial>
-              {tokenInfo.social.twitterUri && (
-                <ExternalLink href={tokenInfo.social.twitterUri}>
+              {info.social.twitterUri && (
+                <ExternalLink href={info.social.twitterUri}>
                   <SocialLogo src={Twitter} alt="twitter" />
                 </ExternalLink>
               )}
-              {tokenInfo.social.discordUri && (
-                <ExternalLink href={tokenInfo.social.discordUri}>
+              {info.social.discordUri && (
+                <ExternalLink href={info.social.discordUri}>
                   <SocialLogo src={Discord} alt="twitter" />
                 </ExternalLink>
               )}
-              {tokenInfo.social.radditUri && (
-                <ExternalLink href={tokenInfo.social.radditUri}>
+              {info.social.radditUri && (
+                <ExternalLink href={info.social.radditUri}>
                   <SocialLogo src={Raddit} alt="twitter" />
                 </ExternalLink>
               )}
-              {tokenInfo.social.githubUri && (
-                <ExternalLink href={tokenInfo.social.githubUri}>
+              {info.social.githubUri && (
+                <ExternalLink href={info.social.githubUri}>
                   <SocialLogo src={Github} alt="twitter" />
                 </ExternalLink>
               )}
@@ -115,9 +116,61 @@ export default function IntroduceToken(tokenInfo: InfoType) {
 
           <AutoColumn gap="12px">
             <TYPE.largeHeader fontSize={18}>Explorer</TYPE.largeHeader>
-            {tokenInfo.explorerUri ? (
+            {info.explorerUri ? (
               <TYPE.body>
-                <ExternalLink href={tokenInfo.explorerUri}>{tokenInfo.explorerUri}</ExternalLink>
+                <ExternalLink href={info.explorerUri}>{info.explorerUri}</ExternalLink>
+              </TYPE.body>
+            ) : (
+              '-'
+            )}
+          </AutoColumn>
+        </RowBetween>
+      </ProjectDetailWrapper>
+    </IntroduceWrapper>
+  )
+}
+
+export function IntroduceChain(info: InfoType) {
+  return (
+    <IntroduceWrapper padding={'24px'}>
+      <Logo src={info.logo} />
+      <ProjectDetailWrapper gap="25px">
+        <ProjectIntroduce
+          dangerouslySetInnerHTML={{
+            __html: info.desc,
+          }}
+        />
+        <RowBetween width={'90%'}>
+          <AutoColumn gap="12px">
+            <TYPE.largeHeader fontSize={18}>Community</TYPE.largeHeader>
+            <ProjectSocial>
+              {info.social.twitterUri && (
+                <ExternalLink href={info.social.twitterUri}>
+                  <SocialLogo src={Twitter} alt="twitter" />
+                </ExternalLink>
+              )}
+              {info.social.discordUri && (
+                <ExternalLink href={info.social.discordUri}>
+                  <SocialLogo src={Discord} alt="twitter" />
+                </ExternalLink>
+              )}
+              {info.social.radditUri && (
+                <ExternalLink href={info.social.radditUri}>
+                  <SocialLogo src={Raddit} alt="twitter" />
+                </ExternalLink>
+              )}
+              {info.social.githubUri && (
+                <ExternalLink href={info.social.githubUri}>
+                  <SocialLogo src={Github} alt="twitter" />
+                </ExternalLink>
+              )}
+            </ProjectSocial>
+          </AutoColumn>
+          <AutoColumn gap="12px">
+            <TYPE.largeHeader fontSize={18}>Contracts</TYPE.largeHeader>
+            {info.contractUri ? (
+              <TYPE.body>
+                <CopyContractAddress address={info.contractUri} />
               </TYPE.body>
             ) : (
               '-'
