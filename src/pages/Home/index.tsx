@@ -1,4 +1,6 @@
 import { darken } from 'polished'
+import { ReactNode } from 'react'
+import useTheme from 'hooks/useTheme'
 import { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
 import { Link, useNavigate } from 'react-router-dom'
@@ -7,10 +9,11 @@ import { TYPE } from 'theme'
 import Row from 'components/Row'
 import { ButtonOutlined } from 'components/Button'
 import LidoLogo from 'components/Logo'
-import SearchBar from './SearchBar'
+// import SearchBar from './SearchBar'
 
 import LidoBg from 'assets/images/lido-bg.jpeg'
-import Bg from 'assets/images/bg.png'
+
+import HomeBg from 'assets/images/home-bg.png'
 
 import { ReactComponent as UniswapLogoPink } from 'assets/svg/uniswap_logo_pink.svg'
 import UniswapLogo from 'assets/svg/uniswap_logo.svg'
@@ -57,7 +60,6 @@ const HomeWrapper = styled(AutoColumn)`
 const BannerWrapper = styled(ColumnCenter)<{ src?: string }>`
   position: relative;
   /* height: calc(100vh - 120px); */
-  height: 480px;
   background: url(${({ src }) => src});
   background-size: cover;
   background-repeat: no-repeat;
@@ -65,8 +67,9 @@ const BannerWrapper = styled(ColumnCenter)<{ src?: string }>`
 `
 
 const HeroContentWrapper = styled(AutoColumn)`
-  min-width: 600px;
+  /* min-width: 600px; */
   justify-items: center;
+  padding: 120px 0 24px 0;
 `
 
 // const VideoWrapper = styled.div`
@@ -107,7 +110,6 @@ const RegistrationWrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 54px;
   grid-row-gap: 41px;
-  margin-top: 25px;
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
       grid-template-columns: repeat(1, 1fr);
@@ -116,17 +118,18 @@ const RegistrationWrapper = styled.div`
 `
 
 const RegistrationCard = styled(LightCard)`
+  position: relative;
   padding: unset;
-  border-radius: 12px;
-  border: 1px solid ${({ theme }) => theme.text5};
+  border-radius: 26px;
+  border: 1px solid ${({ theme }) => theme.black};
+  /* border-top: 1px solid ${({ theme }) => theme.text5}; */
   text-decoration: none;
   color: unset;
-
   /* image */
-  overflow: hidden;
+  /* overflow: hidden; */
 
   :hover {
-    border: 1px solid ${({ theme }) => theme.bg4};
+    /* border: 1px solid ${({ theme }) => theme.bg4}; */
   }
 `
 
@@ -192,17 +195,44 @@ const ButtonOttions = styled.div`
   `}
 `
 
+const HornImageAbs = styled.img<{
+  left?: string
+  right?: string
+  top?: string
+  bottom?: string
+  zIndex?: number
+  rotate?: string
+}>`
+  position: absolute;
+  left: ${({ left }) => left ?? 'unset'};
+  right: ${({ right }) => right ?? 'unset'};
+  top: ${({ top }) => top ?? 'unset'};
+  bottom: ${({ bottom }) => bottom ?? 'unset'};
+  z-index: ${({ zIndex }) => zIndex ?? 'unset'};
+  transform: rotate(${({ rotate }) => rotate ?? '0deg'});
+`
+
 export default function Home() {
   const navigate = useNavigate()
 
   return (
     <HomeWrapper gap="56px">
-      <BannerWrapper src={Bg}>
-        <HeroContentWrapper gap="100px">
-          <TYPE.largeHeader fontSize={32} color={'white'}>
-            Web3 Discovery Dashboard
-          </TYPE.largeHeader>
-          <SearchBar />
+      <BannerWrapper>
+        <HeroContentWrapper gap="64px">
+          <img src={HomeBg} alt="Web3 Discovery Dashboard" />
+          <AutoColumn gap="16px">
+            <Row>
+              <TYPE.largeHeader fontSize={[32, 56]} color={'primary1'}>
+                Web3
+              </TYPE.largeHeader>
+              &nbsp; &nbsp;
+              <TYPE.largeHeader fontSize={[32, 56]}> Discovery Dashboard</TYPE.largeHeader>
+            </Row>
+            <TYPE.largeHeader fontSize={[32]} color={'text3'} textAlign="center">
+              Projects &nbsp; &nbsp; Twitter &nbsp; &nbsp; Data &nbsp; &nbsp; Idea &nbsp; &nbsp;
+            </TYPE.largeHeader>
+          </AutoColumn>
+          {/* <SearchBar /> */}
         </HeroContentWrapper>
 
         {/* <VideoWrapper>
@@ -223,11 +253,12 @@ export default function Home() {
         </VideoWrapper> */}
       </BannerWrapper>
 
-      <HomeContent gap="33px">
-        <TYPE.label fontSize={20}>Registration List</TYPE.label>
-
+      <HomeContent gap="32px">
+        <TYPE.label fontSize={32} textAlign="center">
+          Registration
+        </TYPE.label>
         <RegistrationWrapper>
-          <RegistrationCard as={Link} to={'/lido'}>
+          <BoxerCard to={'/lido'}>
             <RegistrationBg url={LidoBg} />
             <RegistrationInfo>
               <LogoWrapper>
@@ -271,10 +302,10 @@ export default function Home() {
                 </ButtonOttions>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
           {/* uniswap */}
-          <RegistrationCard as={Link} to={'/uniswap'}>
+          <BoxerCard to={'/uniswap'}>
             <RegistrationBg url={'https://uniswap.org/images/horse-card.png'} />
 
             <RegistrationInfo>
@@ -312,12 +343,14 @@ export default function Home() {
                 </ButtonOttions>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
         </RegistrationWrapper>
 
-        <TYPE.label fontSize={20}>Blockchain Metrics</TYPE.label>
+        <TYPE.label fontSize={32} marginTop={32} textAlign="center">
+          Blockchain Metrics
+        </TYPE.label>
         <RegistrationWrapper>
-          <RegistrationCard as={Link} to={'/ethereum'}>
+          <BoxerCard to={'/ethereum'}>
             <RegistrationBg url={EthBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -332,8 +365,8 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
-          <RegistrationCard as={Link} to={'/solana'}>
+          </BoxerCard>
+          <BoxerCard to={'/solana'}>
             <RegistrationBg url={SolBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -348,10 +381,10 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
           {/* Polygon */}
-          <RegistrationCard as={Link} to={'/polygon'}>
+          <BoxerCard to={'/polygon'}>
             <RegistrationBg url={MaticBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -365,10 +398,10 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
           {/* BNB */}
-          <RegistrationCard as={Link} to={'/bsc'}>
+          <BoxerCard to={'/bsc'}>
             <RegistrationBg url={BnbBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -382,10 +415,10 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
           {/* ADA */}
-          <RegistrationCard as={Link} to={'/cardano'}>
+          <BoxerCard to={'/cardano'}>
             <RegistrationBg url={AdaBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -400,9 +433,9 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
-          <RegistrationCard as={Link} to={'/algorand'}>
+          <BoxerCard to={'/algorand'}>
             <RegistrationBg url={AlgoBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -416,9 +449,9 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
-          <RegistrationCard as={Link} to={'/cosmos'}>
+          <BoxerCard to={'/cosmos'}>
             <RegistrationBg url={AtomBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -432,9 +465,9 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
-          <RegistrationCard as={Link} to={'/avalanche'}>
+          <BoxerCard to={'/avalanche'}>
             <RegistrationBg url={AvaxBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -449,9 +482,9 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
-          <RegistrationCard as={Link} to={'/doge'}>
+          <BoxerCard to={'/doge'}>
             <RegistrationBg url={DogeBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -465,9 +498,9 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
-          <RegistrationCard as={Link} to={'/litecoin'}>
+          <BoxerCard to={'/litecoin'}>
             <RegistrationBg url={LtcBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -482,9 +515,9 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
 
-          <RegistrationCard as={Link} to={'/polkadot'}>
+          <BoxerCard to={'/polkadot'}>
             <RegistrationBg url={DotBg} />
             <RegistrationInfo>
               <MetricsLogoWrapper>
@@ -500,9 +533,47 @@ export default function Home() {
                 </TYPE.body>
               </AutoColumn>
             </RegistrationInfo>
-          </RegistrationCard>
+          </BoxerCard>
         </RegistrationWrapper>
       </HomeContent>
     </HomeWrapper>
   )
+}
+
+function BoxerCard({ children, to }: { children: ReactNode; to: string }) {
+  return (
+    <RegistrationCard as={Link} to={to}>
+      <HornImageAbs src={'data:image/svg+xml;base64,' + BoxerImg()} top="-1.5px" left="-1px" />
+      <HornImageAbs src={'data:image/svg+xml;base64,' + BoxerImg()} top="-1.5px" right="-1px" rotate="90deg" />
+      <HornImageAbs src={'data:image/svg+xml;base64,' + BoxerImg()} bottom="-1px" left="-1px" rotate="-90deg" />
+      <HornImageAbs src={'data:image/svg+xml;base64,' + BoxerImg()} bottom="-1px" right="-1px" rotate="180deg" />
+      {children}
+    </RegistrationCard>
+  )
+}
+
+function BoxerImg(): string {
+  const theme = useTheme()
+  const image = `
+    <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.41 25.41">
+      <defs>
+          <style>
+              .cls-1 {
+                  fill: ${theme.bg0} ;
+              }
+
+              .cls-2 {
+                  fill: ${theme.black};
+              }
+          </style>
+      </defs>
+      <g>
+          <g>
+              <path class="cls-1" d="M0,24,24,0H0Z" />
+              <polygon class="cls-2" points="0 24 24 0 25.41 0 24.71 0.71 0.71 24.71 0 25.41 0 24" />
+          </g>
+      </g>
+    </svg>
+  `
+  return btoa(unescape(encodeURIComponent(image)))
 }
