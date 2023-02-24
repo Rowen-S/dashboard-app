@@ -169,13 +169,15 @@ const MetricsLogoWrapper = styled.div`
 `
 
 const RegistrationBg = styled.div<{ url: string }>`
-  background: ${({ url }) => (url ? `url(${url}) no-repeat 100% 100%` : 'unset')};
-  min-height: 160px;
+  background: ${({ url }) => (url ? `url(${url}) no-repeat ` : 'unset')};
+  min-height: 333px;
   background-size: cover;
+  background-position: center center;
+  /* background-repeat: no-repeat; */
 `
 
 const RegistrationInfo = styled.div`
-  padding: 35px;
+  padding: 24px 24px 35px;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 27px;

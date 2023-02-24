@@ -51,3 +51,14 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 [![](https://vercel.com/button)](https://vercel.com/new/clone?s=https://github.com/Rowen-S/dashboard-app)
 
 Reference article: ["Automatic Deployment of Personal Websites Using Vercel"] (https://blog.esunr.xyz/2022/07/0cce6064286a.html)
+
+## Configuration
+
+| 阶段 | 服务 |
+| :-----| ----: |
+| 代码管理 | gitlib |
+| CI/CD | gitlib-CI/CD |
+| 云服务器 | aws-HK |
+| 域名和证书 | aws-route53 | 
+| CND | aws-cloudfront |
+| 安全 | aws-waf |
