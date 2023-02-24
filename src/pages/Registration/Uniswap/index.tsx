@@ -52,7 +52,6 @@ const ButtonWrapper = styled.div`
 // `
 
 const Iframe = styled.iframe`
-  padding: 0px 20px;
   border: 1px solid ${({ theme }) => theme.bg2};
 
   ${({ theme }) => theme.mediaWidth.upToSmall`

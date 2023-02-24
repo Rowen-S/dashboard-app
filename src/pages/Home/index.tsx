@@ -170,6 +170,8 @@ const MetricsLogoWrapper = styled.div`
 
 const RegistrationBg = styled.div<{ url: string }>`
   background: ${({ url }) => (url ? `url(${url}) no-repeat ` : 'unset')};
+  border-bottom: 1px solid ${({ theme }) => theme.black};
+
   min-height: 333px;
   background-size: cover;
   background-position: center center;
