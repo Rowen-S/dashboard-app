@@ -54,11 +54,13 @@ Reference article: ["Automatic Deployment of Personal Websites Using Vercel"] (h
 
 ## Configuration
 
-| 阶段 | 服务 |
-| :-----| ----: |
-| 代码管理 | gitlib |
-| CI/CD | gitlib-CI/CD |
-| 云服务器 | aws-HK |
-| 域名和证书 | aws-route53 | 
+现阶段只上前端
+
+| 阶段 | 服务 | 备注 |
+| :-----| ----: | ----: |  
+| 代码管理 | gitlib |  | 
+| CI/CD | gitlib-CI/CD | 需要gitlab 权限 |
+| 云服务器 | aws-HK | 基础款 |
+| 域名和证书 | aws-route53 | 已有需配置 |
 | CND | aws-cloudfront |
 | 安全 | aws-waf |
