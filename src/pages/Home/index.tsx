@@ -244,7 +244,7 @@ export default function Home() {
               <TYPE.largeHeader fontSize={[32, 56]}> Discovery Dashboard</TYPE.largeHeader>
             </Row>
             <TYPE.largeHeader fontSize={[32]} color={'text3'} textAlign="center">
-              Projects &nbsp; &nbsp; Twitter &nbsp; &nbsp; Data &nbsp; &nbsp; Idea &nbsp; &nbsp;
+              Projects &nbsp; &nbsp; BlockChain &nbsp; &nbsp; Data &nbsp; &nbsp; Idea &nbsp; &nbsp;
             </TYPE.largeHeader>
           </AutoColumn>
           {/* <SearchBar /> */}
