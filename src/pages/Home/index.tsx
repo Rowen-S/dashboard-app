@@ -210,6 +210,18 @@ const ButtonOttions = styled.div`
   `}
 `
 
+const ItemDescription = styled(TYPE.body)`
+  color: ${({ theme }) => theme.text3};
+  min-height: 100px;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+`
+
 const HornImageAbs = styled.img<{
   left?: string
   right?: string
@@ -376,11 +388,11 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>ETH</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Ethereum is a decentralized open-source blockchain system that features its own cryptocurrency, Ether.
                   ETH works as a platform for numerous other cryptocurrencies, as well as for the execution of
                   decentralized smart contracts.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -394,11 +406,11 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Solana</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Solana is a highly functional open source project that banks on blockchain technology’s permissionless
                   nature to provide decentralized finance (DeFi) solutions. Solana was founded by Anatoly Yakovenko,
                   Greg Fitzgerald, Raj Gokal, etc. and launched in 2020.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -414,10 +426,10 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Polygon</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Polygon is a platform design to support infrastructure development and help Ethereum scale. Polygon
                   was founded by Jaynti Kanani, Sandeep Nailwal & Anurag Arjun and launched in 2017.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -433,10 +445,10 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Binance Smart Chain</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Binance Chain, which was renamed BNB Beacon Chain in 2022, was launched by Binance in April 2019. Its
                   primary focus is to facilitate fast, decentralized (or non-custodial) trading.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -453,11 +465,11 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Cardano</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Cardano is a proof-of-stake blockchain platform that says its goal is to allow “changemakers,
                   innovators and visionaries” to bring about positive global change. Cardano was founded by Charles
                   Hoskinson & Jeremy Wood and launched in 2017.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -472,10 +484,10 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Algorand</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Algorand is a self-sustaining, decentralized, blockchain-based network that supports a wide range of
                   applications. Algorand was founded by Silvio Micali and launched in 2018.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -490,10 +502,10 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Cosmos</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Cosmos (ATOM) is a cryptocurrency that powers an ecosystem of blockchains designed to scale and
                   interoperate with each other. Cosmos was founded by Ethan Buchman & Jae Kwon and launched in 2019.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -508,11 +520,11 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Avalanche</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Avalanche is a layer one blockchain that functions as a platform for decentralized applications and
                   custom blockchain networks. It is one of Ethereum’s rivals, aiming to unseat Ethereum as the most
                   popular blockchain for smart contracts. Avalanche was founded by Emin Gün Sirer and launched in 2019.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -527,10 +539,10 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Dogecoin</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   {` Dogecoin (DOGE) is based on the popular "doge" Internet meme and features a Shiba Inu on its logo.
                   Dogecoin was founded by Billy Markus & Jackson Palmer and launched in 2013.`}
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -545,11 +557,11 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Litecoin</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Litecoin (LTC) is a cryptocurrency that was designed to provide fast, secure and low-cost payments by
                   leveraging the unique properties of blockchain technology. Litecoin was founded by Charlie Lee and
                   launched in 2010.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
@@ -564,12 +576,12 @@ export default function Home() {
               </MetricsLogoWrapper>
               <AutoColumn gap="12px">
                 <TYPE.largeHeader>Polkadot</TYPE.largeHeader>
-                <TYPE.body color={'text3'}>
+                <ItemDescription>
                   Polkadot is an open-source sharded multichain protocol that connects and secures a network of
                   specialized blockchains, facilitating cross-chain transfer of any data or asset types, not just
                   tokens, thereby allowing blockchains to be interoperable with each other. Polkadot was founded by
                   Gavin Wood and launched in 2020.
-                </TYPE.body>
+                </ItemDescription>
               </AutoColumn>
             </RegistrationInfo>
           </BoxerCard>
