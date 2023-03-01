@@ -1,5 +1,5 @@
 import useScrollPosition from '@react-hook/window-scroll'
-import { Moon, Sun } from 'react-feather'
+import Menu from 'components/Menu'
 import { useDarkModeManager } from 'state/user/hooks'
 import styled, { useTheme } from 'styled-components/macro'
 // import SearchBar from './SearchBar'
@@ -70,35 +70,6 @@ const HeaderElementWrap = styled.div`
   align-items: center;
 `
 
-const StyledMenuButton = styled.button`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border: none;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  height: 35px;
-  background-color: ${({ theme }) => theme.bg2};
-  margin-left: 8px;
-  padding: 0.15rem 0.5rem;
-  border-radius: 0.5rem;
-
-  :hover,
-  :focus {
-    cursor: pointer;
-    outline: none;
-    background-color: ${({ theme }) => theme.bg4};
-  }
-
-  svg {
-    margin-top: 2px;
-  }
-  > * {
-    stroke: ${({ theme }) => theme.text1};
-  }
-`
-
 const Title = styled.a`
   display: flex;
   align-items: center;
@@ -123,7 +94,7 @@ const DashBoardIcon = styled.div`
 `
 
 export default function Header() {
-  const [darkMode, toggleDarkMode] = useDarkModeManager()
+  const [darkMode] = useDarkModeManager()
 
   const scrollY = useScrollPosition()
 
@@ -138,12 +109,9 @@ export default function Header() {
           </DashBoardIcon>
         </Title>
         <div />
-        {/* <SearchBar /> */}
         <HeaderControls>
           <HeaderElementWrap>
-            <StyledMenuButton onClick={() => toggleDarkMode()}>
-              {darkMode ? <Moon size={20} /> : <Sun size={20} />}
-            </StyledMenuButton>
+            <Menu />
           </HeaderElementWrap>
         </HeaderControls>
       </HeaderNav>

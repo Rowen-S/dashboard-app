@@ -7,7 +7,9 @@ import Loader from 'components/Loader'
 // import { useAnalyticsReporter } from '../components/analytics'
 
 import Header from 'components/Header'
+
 import { SpinnerSVG } from 'theme/components'
+
 import { RedirectPathToHomeOnly } from './Home/redirects'
 
 const Home = lazy(() => import('./Home'))
@@ -32,6 +34,8 @@ const Litecoin = lazy(() => import('./BlockChain/Litecoin'))
 const Polkadot = lazy(() => import('./BlockChain/Polkadot'))
 
 const Avalanche = lazy(() => import('./BlockChain/Avalanche'))
+
+const TermsOfUser = lazy(() => import('./TermsOfUser'))
 
 const AppWrapper = styled.div`
   display: flex;
@@ -108,6 +112,15 @@ function App() {
           <Suspense fallback={<Loader />}>
             <Routes>
               <Route path="home" element={<Home />} />
+
+              <Route
+                path="terms-of-user"
+                element={
+                  <Suspense fallback={<LazyLoadSpinner />}>
+                    <TermsOfUser />
+                  </Suspense>
+                }
+              />
               <Route
                 path="lido"
                 element={
@@ -116,6 +129,7 @@ function App() {
                   </Suspense>
                 }
               />
+
               <Route
                 path="lido/info"
                 element={

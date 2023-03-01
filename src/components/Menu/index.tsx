@@ -1,13 +1,13 @@
-import { FunctionComponent, PropsWithChildren, ReactNode, useRef } from 'react'
-
+import { FunctionComponent, PropsWithChildren, ReactNode, useEffect, useRef, useState } from 'react'
+import { Moon, Sun, Book } from 'react-feather'
 import { Link } from 'react-router-dom'
+import { useDarkModeManager } from 'state/user/hooks'
 import styled, { css } from 'styled-components/macro'
 
 import { ReactComponent as MenuIcon } from '../../assets/svg/menu.svg'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import { useModalIsOpen, useToggleModal } from '../../state/application/hooks'
 import { ApplicationModal } from '../../state/application/reducer'
-import { ExternalLink } from '../../theme'
 
 export enum FlyoutAlignment {
   LEFT = 'LEFT',
@@ -17,6 +17,32 @@ export enum FlyoutAlignment {
 const StyledMenuIcon = styled(MenuIcon)`
   path {
     stroke: ${({ theme }) => theme.text1};
+  }
+`
+
+const StyledMenuButton = styled.button`
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  height: 38px;
+  background-color: ${({ theme }) => theme.bg0};
+  border: 1px solid ${({ theme }) => theme.bg0};
+
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+
+  :hover,
+  :focus {
+    cursor: pointer;
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.bg3};
+  }
+
+  svg {
+    margin-top: 2px;
   }
 `
 
@@ -61,13 +87,46 @@ export const MenuFlyout = styled.span<{ flyoutAlignment?: FlyoutAlignment }>`
   `};
 `
 
-const MenuItem = styled(ExternalLink)`
+const InternalMenuItem = styled(Link)`
+  flex: 1;
+  padding: 0.5rem 0.5rem;
+  color: ${({ theme }) => theme.text2};
+  font-size: 1rem;
+  font-weight: 500;
+  :hover {
+    color: ${({ theme }) => theme.text1};
+    cursor: pointer;
+    text-decoration: none;
+  }
+`
+
+const InternalLinkMenuItem = styled(InternalMenuItem)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  justify-content: space-between;
+  text-decoration: none;
+  :hover {
+    color: ${({ theme }) => theme.text1};
+    cursor: pointer;
+    text-decoration: none;
+  }
+`
+
+const ToggleMenuItem = styled.button`
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
   display: flex;
   flex: 1;
   flex-direction: row;
   align-items: center;
   padding: 0.5rem 0.5rem;
   justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 500;
   color: ${({ theme }) => theme.text2};
   :hover {
     color: ${({ theme }) => theme.text1};
@@ -76,67 +135,52 @@ const MenuItem = styled(ExternalLink)`
   }
 `
 
-const InternalMenuItem = styled(Link)`
-  flex: 1;
-  padding: 0.5rem 0.5rem;
-  color: ${({ theme }) => theme.text2};
-  :hover {
-    color: ${({ theme }) => theme.text1};
-    cursor: pointer;
-    text-decoration: none;
-  }
-  > svg {
-    margin-right: 8px;
-  }
-`
-
-interface NewMenuProps {
-  flyoutAlignment?: FlyoutAlignment
-  ToggleUI?: FunctionComponent<PropsWithChildren<unknown>>
-  menuItems: {
-    content: any
-    link: string
-    external: boolean
-  }[]
-}
-
-const NewMenuFlyout = styled(MenuFlyout)`
-  top: 3rem !important;
-`
-const NewMenuItem = styled(InternalMenuItem)`
-  width: max-content;
-  text-decoration: none;
-`
-
-const ExternalMenuItem = styled(MenuItem)`
-  width: max-content;
-  text-decoration: none;
-`
-
-export const NewMenu = ({ flyoutAlignment = FlyoutAlignment.RIGHT, ToggleUI, menuItems, ...rest }: NewMenuProps) => {
+export default function Menu() {
   const node = useRef<HTMLDivElement>()
-  const open = useModalIsOpen(ApplicationModal.PROPOSALS_STATUS)
-  const toggle = useToggleModal(ApplicationModal.PROPOSALS_STATUS)
+  const open = useModalIsOpen(ApplicationModal.MENU)
+  const toggle = useToggleModal(ApplicationModal.MENU)
   useOnClickOutside(node, open ? toggle : undefined)
-  const ToggleElement = ToggleUI || StyledMenuIcon
+  const [menu, setMenu] = useState<'main' | 'lang'>('main')
+
+  const [darkMode, toggleDarkMode] = useDarkModeManager()
+
+  useEffect(() => {
+    setMenu('main')
+  }, [open])
+
   return (
-    <StyledMenu ref={node as any} {...rest}>
-      <ToggleElement onClick={toggle} />
-      {open && (
-        <NewMenuFlyout flyoutAlignment={flyoutAlignment}>
-          {menuItems.map(({ content, link, external }, i) =>
-            external ? (
-              <ExternalMenuItem href={link} key={i}>
-                {content}
-              </ExternalMenuItem>
-            ) : (
-              <NewMenuItem to={link} key={i}>
-                {content}
-              </NewMenuItem>
-            )
-          )}
-        </NewMenuFlyout>
-      )}
+    <StyledMenu ref={node as any}>
+      <StyledMenuButton onClick={toggle}>
+        <StyledMenuIcon />
+      </StyledMenuButton>
+
+      {open &&
+        (() => {
+          switch (menu) {
+            case 'lang':
+            // return <LanguageMenu close={() => setMenu('main')} />
+            case 'main':
+            default:
+              return (
+                <MenuFlyout>
+                  <ToggleMenuItem onClick={() => toggleDarkMode()}>
+                    <div>{darkMode ? <>Light Theme</> : <>Dark Theme</>}</div>
+                    {darkMode ? <Moon opacity={0.6} size={16} /> : <Sun opacity={0.6} size={16} />}
+                  </ToggleMenuItem>
+                  <InternalLinkMenuItem to="/terms-of-user">
+                    <div>Terms Of Use</div>
+                    <Book opacity={0.6} size={16} />
+                  </InternalLinkMenuItem>
+                  {/* <ToggleMenuItem onClick={() => setMenu('lang')}>
+                    <div>
+                      <Trans>Language</Trans>
+                    </div>
+                    <Globe opacity={0.6} size={16} />
+                  </ToggleMenuItem>*/}
+                </MenuFlyout>
+              )
+          }
+        })()}
     </StyledMenu>
   )
 }
@@ -161,7 +205,7 @@ export const SelectMenu = ({
   return (
     <StyledMenu ref={node as any} {...rest}>
       <ToggleElement onClick={toggle} />
-      {open && <NewMenuFlyout flyoutAlignment={flyoutAlignment}>{menuItems}</NewMenuFlyout>}
+      {open && <MenuFlyout flyoutAlignment={flyoutAlignment}>{menuItems}</MenuFlyout>}
     </StyledMenu>
   )
 }
