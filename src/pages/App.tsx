@@ -1,12 +1,10 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { lazy, Suspense, useEffect } from 'react'
-
 import styled from 'styled-components/macro'
-
 import ErrorBoundary from 'components/ErrorBoundary'
 import Loader from 'components/Loader'
 
-import { useAnalyticsReporter } from '../components/analytics'
+// import { useAnalyticsReporter } from '../components/analytics'
 
 import Home from './Home'
 import { RedirectPathToHomeOnly } from './Home/redirects'
@@ -93,7 +91,7 @@ const LazyLoadSpinner = () => (
 function App() {
   const { pathname } = useLocation()
 
-  useAnalyticsReporter()
+  // useAnalyticsReporter()
 
   useEffect(() => {
     window.scrollTo(0, 0)
