@@ -6,10 +6,11 @@ import Loader from 'components/Loader'
 
 // import { useAnalyticsReporter } from '../components/analytics'
 
-import Home from './Home'
-import { RedirectPathToHomeOnly } from './Home/redirects'
 import Header from 'components/Header'
 import { SpinnerSVG } from 'theme/components'
+import { RedirectPathToHomeOnly } from './Home/redirects'
+
+const Home = lazy(() => import('./Home'))
 
 const Lido = lazy(() => import('./Registration/Lido'))
 const LidoInfo = lazy(() => import('./Registration/Lido/Detail'))
