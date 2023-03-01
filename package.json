@@ -11,9 +11,6 @@
     "collectCoverageFrom": [
       "src/components/**/*.ts*",
       "src/hooks/**/*.ts*",
-      "src/lib/hooks/**/*.ts*",
-      "src/lib/state/**/*.ts*",
-      "src/lib/utils/**/*.ts*",
       "src/pages/**/*.ts*",
       "src/state/**/*.ts*",
       "src/utils/**/*.ts*"
