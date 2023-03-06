@@ -2,6 +2,7 @@ import { LightCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import styled from 'styled-components/macro'
 import { Line, TYPE } from 'theme'
+import { IfrarmeItem } from 'pages/BlockChain/styleds'
 
 const MetricsWrapper = styled(AutoColumn)`
   width: 100%;
@@ -12,9 +13,7 @@ const TopWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 24px;
 `
-const IfrarmeItem = styled.iframe`
-  background-color: ${({ theme }) => theme.bg7};
-`
+
 export default function Metrics() {
   const iframeList = [
     'https://dune.com/embeds/95745/191718/4b15be54-d01c-4fff-a486-b92201de6167',
@@ -29,7 +28,14 @@ export default function Metrics() {
       <LightCard padding={'24px'}>
         <TopWrapper>
           {iframeList.map((ifr) => (
-            <IfrarmeItem key={ifr} src={ifr} width="100%" height="230px" frameBorder={0} />
+            <IfrarmeItem
+              sandbox="allow-same-origin allow-scripts"
+              key={ifr}
+              src={ifr}
+              width="100%"
+              height="230px"
+              frameBorder={0}
+            />
           ))}
         </TopWrapper>
       </LightCard>
@@ -38,6 +44,7 @@ export default function Metrics() {
         <TYPE.largeHeader>Revenue</TYPE.largeHeader>
         <Line />
         <iframe
+          sandbox="allow-same-origin allow-scripts"
           src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/revenue_share'}
           width="100%"
           height="1350px"
@@ -48,6 +55,7 @@ export default function Metrics() {
         <TYPE.largeHeader>Metrics</TYPE.largeHeader>
         <Line />
         <iframe
+          sandbox="allow-same-origin allow-scripts"
           src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/key_metrics'}
           width="100%"
           height="1350px"

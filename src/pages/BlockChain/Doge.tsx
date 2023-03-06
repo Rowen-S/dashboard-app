@@ -3,6 +3,7 @@ import styled from 'styled-components/macro'
 import { AutoColumn } from 'components/Column'
 import Card from 'components/Card'
 import IntroduceToken from 'components/Introduce'
+import { IfrarmeItem } from './styleds'
 
 import AppBody from 'pages/AppBody'
 import { TYPE } from 'theme'
@@ -21,10 +22,6 @@ const DuneCard = styled(Card)`
   border-radius: unset;
   position: relative;
   padding: 7px;
-`
-
-const IfrarmeItem = styled.iframe`
-  background-color: ${({ theme }) => theme.bg7};
 `
 
 export default function Doge() {

@@ -8,6 +8,7 @@ import CoinLogo from 'assets/images/sol.png'
 import Card from 'components/Card'
 import { useGetQuotesQuery } from 'services/cmcPro'
 import IntroduceToken from 'components/Introduce'
+import { IfrarmeItem } from './styleds'
 
 const BlockChainWrapper = styled(AutoColumn)``
 
@@ -23,11 +24,6 @@ const DuneCard = styled(Card)`
   position: relative;
   padding: 7px;
 `
-
-const IfrarmeItem = styled.iframe`
-  background-color: ${({ theme }) => theme.bg7};
-`
-
 export default function Solana() {
   const { data: quotes } = useGetQuotesQuery('SOL')
 

@@ -8,6 +8,7 @@ import { TYPE } from 'theme'
 
 import CoinLogo from 'assets/images/ltc.png'
 import IntroduceToken from 'components/Introduce'
+import { IfrarmeItem } from './styleds'
 
 const BlockChainWrapper = styled(AutoColumn)``
 const BlockBasicWrapper = styled.div`
@@ -23,9 +24,6 @@ const DuneCard = styled(Card)`
   padding: 7px;
 `
 
-const IfrarmeItem = styled.iframe`
-  background-color: ${({ theme }) => theme.bg7};
-`
 export default function Litecoin() {
   const { data: quotes } = useGetQuotesQuery('LTC')
 

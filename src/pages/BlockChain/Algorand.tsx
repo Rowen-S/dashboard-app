@@ -4,10 +4,9 @@ import styled from 'styled-components/macro'
 import Card from 'components/Card'
 import IntroduceToken from 'components/Introduce'
 import { useGetQuotesQuery } from 'services/cmcPro'
-
 import AppBody from 'pages/AppBody'
-
 import CoinLogo from 'assets/images/algo.png'
+import { IfrarmeItem } from './styleds'
 
 const BlockChainWrapper = styled(AutoColumn)``
 const BlockBasicWrapper = styled.div`
@@ -21,10 +20,6 @@ const DuneCard = styled(Card)`
   border-radius: unset;
   position: relative;
   padding: 7px;
-`
-
-const IfrarmeItem = styled.iframe`
-  background-color: ${({ theme }) => theme.bg7};
 `
 
 export default function Algorand() {

@@ -141,7 +141,7 @@ export default function PublicOpinion() {
               <TYPE.subHeader marginLeft={10}>@{ifr.author}</TYPE.subHeader>
             </Row>
 
-            <iframe src={ifr.url} width="100%" height="250px" frameBorder={0} />
+            <iframe sandbox="" src={ifr.url} width="100%" height="250px" frameBorder={0} />
           </AutoColumn>
         ))}
       </OpinionWrapper>

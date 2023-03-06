@@ -8,6 +8,7 @@ import { TYPE } from 'theme'
 import CoinLogo from 'assets/images/atom.png'
 import { useGetQuotesQuery } from 'services/cmcPro'
 import IntroduceToken from 'components/Introduce'
+import { IfrarmeItem } from './styleds'
 
 const BlockChainWrapper = styled(AutoColumn)``
 const BlockBasicWrapper = styled.div`
@@ -21,10 +22,6 @@ const DuneCard = styled(Card)`
   border-radius: unset;
   position: relative;
   padding: 7px;
-`
-
-const IfrarmeItem = styled.iframe`
-  background-color: ${({ theme }) => theme.bg7};
 `
 
 export default function Cosmos() {

@@ -8,6 +8,7 @@ import { TYPE } from 'theme'
 
 import CoinLogo from 'assets/images/matic.png'
 import IntroduceToken from 'components/Introduce'
+import { IfrarmeItem } from './styleds'
 
 const BlockChainWrapper = styled(AutoColumn)``
 const BlockBasicWrapper = styled.div`
@@ -28,11 +29,6 @@ const DuneCard = styled(Card)`
   position: relative;
   padding: 7px;
 `
-
-const IfrarmeItem = styled.iframe`
-  background-color: ${({ theme }) => theme.bg7};
-`
-
 export default function Polygon() {
   const { data: quotes } = useGetQuotesQuery('MATIC')
 

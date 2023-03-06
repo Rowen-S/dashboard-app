@@ -7,6 +7,7 @@ import { TYPE } from 'theme'
 import Card from 'components/Card'
 
 import AppBody from 'pages/AppBody'
+import { IfrarmeItem } from './styleds'
 
 import CoinLogo from 'assets/images/avax.png'
 
@@ -23,10 +24,6 @@ const DuneCard = styled(Card)`
   border-radius: unset;
   position: relative;
   padding: 7px;
-`
-
-const IfrarmeItem = styled.iframe`
-  background-color: ${({ theme }) => theme.bg7};
 `
 
 export default function Avalanche() {

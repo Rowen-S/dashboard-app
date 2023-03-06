@@ -57,6 +57,7 @@ export default function LidoDetail() {
       content: (
         <LightCard padding={'24px'}>
           <iframe
+            sandbox="allow-same-origin allow-scripts"
             src="https://docs.lido.fi/?pk_vid=c25f281e9f7d8f6d166391341018be44"
             width="100%"
             height="800"

@@ -168,6 +168,7 @@ export default function Uniswap() {
           <TYPE.black>Total revenue 30d</TYPE.black>
         </AutoColumn>
         <Iframe
+          sandbox=""
           src={'https://tokenterminal.com/terminal/projects/uniswap/embed/revenue_share'}
           width="100%"
           height="1350px"
@@ -177,6 +178,7 @@ export default function Uniswap() {
           <TYPE.black>Annualized total revenue</TYPE.black>
         </AutoColumn>
         <Iframe
+          sandbox=""
           src={'https://tokenterminal.com/terminal/projects/uniswap/embed/key_metrics'}
           width="100%"
           height="1350px"

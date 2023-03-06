@@ -16,7 +16,13 @@ export default function UniswapDetail() {
       label: 'Profile',
       content: (
         <LightCard padding={'24px'}>
-          <iframe src="https://docs.uniswap.org/protocol/introduction" width="100%" height="800" frameBorder={0} />
+          <iframe
+            sandbox=""
+            src="https://docs.uniswap.org/protocol/introduction"
+            width="100%"
+            height="800"
+            frameBorder={0}
+          />
         </LightCard>
       ),
     },
