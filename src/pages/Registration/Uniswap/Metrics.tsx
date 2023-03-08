@@ -26,14 +26,21 @@ export default function Metrics() {
     <MetricsWrapper gap="40px">
       <TopWrapper>
         {iframeList.map((ifr) => (
-          <IfrarmeItem sandbox="" key={ifr} src={ifr} width="100%" height="230px" frameBorder={0} />
+          <IfrarmeItem
+            sandbox="allow-same-origin allow-scripts"
+            key={ifr}
+            src={ifr}
+            width="100%"
+            height="230px"
+            frameBorder={0}
+          />
         ))}
       </TopWrapper>
       <AutoColumn gap="16px">
         <TYPE.largeHeader>Revenue</TYPE.largeHeader>
         <Line />
         <iframe
-          sandbox=""
+          sandbox="allow-same-origin allow-scripts"
           src={'https://tokenterminal.com/terminal/projects/uniswap/embed/revenue_share'}
           width="100%"
           height="1350px"
@@ -44,7 +51,7 @@ export default function Metrics() {
         <TYPE.largeHeader>Metrics</TYPE.largeHeader>
         <Line />
         <iframe
-          sandbox=""
+          sandbox="allow-same-origin allow-scripts"
           src={'https://tokenterminal.com/terminal/projects/uniswap/embed/key_metrics'}
           width="100%"
           height="1350px"

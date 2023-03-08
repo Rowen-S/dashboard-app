@@ -72,12 +72,14 @@ export default function Algorand() {
               </DuneCard>
             </BlockBasicWrapper>
             <IfrarmeItem
+              sandbox="allow-same-origin allow-scripts"
               src={'https://tokenterminal.com/terminal/projects/algorand/embed/key_metrics'}
               width="100%"
               height="1350px"
               frameBorder={0}
             />
             <IfrarmeItem
+              sandbox="allow-same-origin allow-scripts"
               src={'https://tokenterminal.com/terminal/projects/algorand/embed/revenue_share'}
               width="100%"
               height="1350px"

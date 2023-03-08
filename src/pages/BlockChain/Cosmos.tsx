@@ -74,12 +74,14 @@ export default function Cosmos() {
               </DuneCard>
             </BlockBasicWrapper>
             <IfrarmeItem
+              sandbox="allow-same-origin allow-scripts"
               src={'https://tokenterminal.com/terminal/projects/cosmos/embed/key_metrics'}
               width="100%"
               height="1350px"
               frameBorder={0}
             />
             <IfrarmeItem
+              sandbox="allow-same-origin allow-scripts"
               src={'https://tokenterminal.com/terminal/projects/cosmos/embed/revenue_share'}
               width="100%"
               height="1350px"
