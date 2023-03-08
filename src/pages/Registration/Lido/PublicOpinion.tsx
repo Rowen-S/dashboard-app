@@ -161,7 +161,7 @@ export default function PublicOpinion() {
               <TYPE.subHeader marginLeft={10}>@{ifr.author}</TYPE.subHeader>
             </Row>
             <iframe
-              sandbox="allow-same-origin allow-scripts"
+              sandbox="allow-same-origin allow-scripts allow-popups"
               src={ifr.url}
               width="100%"
               height="250px"

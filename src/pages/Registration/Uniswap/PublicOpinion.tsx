@@ -142,7 +142,7 @@ export default function PublicOpinion() {
             </Row>
 
             <iframe
-              sandbox="allow-same-origin allow-scripts"
+              sandbox="allow-same-origin allow-scripts allow-popups"
               src={ifr.url}
               width="100%"
               height="250px"
