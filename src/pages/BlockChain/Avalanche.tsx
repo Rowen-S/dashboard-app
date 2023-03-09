@@ -77,7 +77,7 @@ export default function Avalanche() {
             </BlockBasicWrapper>
 
             <IfrarmeItem
-              //sandbox="allow-same-origin allow-scripts allow-popups"
+              sandbox="allow-same-origin allow-scripts allow-popups"
               src="https://dune.com/embeds/1815598/2987879/5b21d94b-ae9a-4a92-9f8c-6eb1c22741dd"
               width="100%"
               height="350px"
@@ -89,7 +89,7 @@ export default function Avalanche() {
               <TYPE.largeHeader>Users</TYPE.largeHeader>
               <BlockBasicWrapper repeatNum={2}>
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815602/2987886/fb3744c4-a539-4673-82d8-8e1a4af3b22e"
                   width="100%"
                   height="230px"
@@ -97,7 +97,7 @@ export default function Avalanche() {
                 />
 
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815602/2987887/098d5404-b6a2-4abb-bac9-f9cec3b756d4"
                   width="100%"
                   height="230px"
@@ -105,7 +105,7 @@ export default function Avalanche() {
                 />
 
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815619/2987911/515f5d98-80e3-411a-ad7a-157218c994f9"
                   width="100%"
                   height="350px"
@@ -113,7 +113,7 @@ export default function Avalanche() {
                 />
 
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815626/2987923/80e1d6cd-787d-440e-9b20-01c7f3867e16"
                   width="100%"
                   height="350px"
@@ -126,7 +126,7 @@ export default function Avalanche() {
               <TYPE.largeHeader>Transaction</TYPE.largeHeader>
 
               <IfrarmeItem
-                //sandbox="allow-same-origin allow-scripts allow-popups"
+                sandbox="allow-same-origin allow-scripts allow-popups"
                 src="https://dune.com/embeds/1815638/2987946/9dcc0c45-1238-4181-b6d3-30c7e1fa09a1"
                 width="100%"
                 height="350px"
@@ -134,7 +134,7 @@ export default function Avalanche() {
               />
 
               <IfrarmeItem
-                //sandbox="allow-same-origin allow-scripts allow-popups"
+                sandbox="allow-same-origin allow-scripts allow-popups"
                 src="https://dune.com/embeds/1815643/2987958/ad26743f-7085-4705-8b41-fd129eb9c4bf"
                 width="100%"
                 height="350px"
@@ -148,14 +148,14 @@ export default function Avalanche() {
 
               <BlockBasicWrapper repeatNum={2}>
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815668/2987996/a95238ff-cd51-4bce-a606-7e69a4503723"
                   width="100%"
                   height="230px"
                   frameBorder={0}
                 />
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/251980/471817/37cfa9b9-0413-4792-bd1a-fde34c9f23f2"
                   width="100%"
                   height="230px"
@@ -163,14 +163,14 @@ export default function Avalanche() {
                 />
 
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815693/2988035/d97da1f6-aacf-4df2-996d-8d2c97717558"
                   width="100%"
                   height="350px"
                   frameBorder={0}
                 />
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815695/2988040/67b224f5-faec-4200-8969-64ec91a4635f"
                   width="100%"
                   height="350px"
@@ -179,7 +179,7 @@ export default function Avalanche() {
               </BlockBasicWrapper>
 
               <IfrarmeItem
-                //sandbox="allow-same-origin allow-scripts allow-popups"
+                sandbox="allow-same-origin allow-scripts allow-popups"
                 src="https://tokenterminal.com/terminal/projects/avalanche/embed/key_metrics"
                 width="100%"
                 height="1350px"

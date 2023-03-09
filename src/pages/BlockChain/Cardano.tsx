@@ -75,14 +75,14 @@ export default function Cardano() {
               </DuneCard>
             </BlockBasicWrapper>
             <IfrarmeItem
-              //sandbox="allow-same-origin allow-scripts allow-popups"
+              sandbox="allow-same-origin allow-scripts allow-popups"
               src={'https://tokenterminal.com/terminal/projects/cardano/embed/key_metrics'}
               width="100%"
               height="1350px"
               frameBorder={0}
             />
             <IfrarmeItem
-              //sandbox="allow-same-origin allow-scripts allow-popups"
+              sandbox="allow-same-origin allow-scripts allow-popups"
               src={'https://tokenterminal.com/terminal/projects/cardano/embed/revenue_share'}
               width="100%"
               height="1350px"

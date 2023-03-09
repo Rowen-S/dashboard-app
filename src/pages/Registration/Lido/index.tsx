@@ -156,7 +156,7 @@ export default function Lido() {
           <TYPE.black>Total revenue 30d</TYPE.black>
         </AutoColumn>
         <Iframe
-          //sandbox="allow-same-origin allow-scripts allow-popups"
+          sandbox="allow-same-origin allow-scripts allow-popups"
           src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/revenue_share'}
           width="100%"
           height="1350px"
@@ -166,7 +166,7 @@ export default function Lido() {
           <TYPE.black>Annualized total revenue</TYPE.black>
         </AutoColumn>
         <Iframe
-          //sandbox="allow-same-origin allow-scripts allow-popups"
+          sandbox="allow-same-origin allow-scripts allow-popups"
           src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/key_metrics'}
           width="100%"
           height="1350px"

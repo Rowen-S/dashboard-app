@@ -74,7 +74,7 @@ export default function Bsc() {
             </BlockBasicWrapper>
 
             <IfrarmeItem
-              //sandbox="allow-same-origin allow-scripts allow-popups"
+              sandbox="allow-same-origin allow-scripts allow-popups"
               src="https://dune.com/embeds/1814961/2986855/be588718-7d2a-4669-a8be-1486978f3fc2"
               width="100%"
               height="350px"
@@ -86,7 +86,7 @@ export default function Bsc() {
               <TYPE.largeHeader>Users</TYPE.largeHeader>
               <BlockBasicWrapper>
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1814966/2986862/ef795701-eac4-4092-aef1-4a3d7f4af922"
                   width="100%"
                   height="230px"
@@ -94,7 +94,7 @@ export default function Bsc() {
                 />
 
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1814971/2986871/8bb90f81-a2f1-4051-8fcb-18d643831058"
                   width="100%"
                   height="230px"
@@ -102,7 +102,7 @@ export default function Bsc() {
                 />
 
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1814975/2986876/22bf4e94-bc06-428d-a6ff-1487e8fba1cd"
                   width="100%"
                   height="230px"
@@ -110,7 +110,7 @@ export default function Bsc() {
                 />
               </BlockBasicWrapper>
               <IfrarmeItem
-                //sandbox="allow-same-origin allow-scripts allow-popups"
+                sandbox="allow-same-origin allow-scripts allow-popups"
                 src="https://dune.com/embeds/1814985/2986888/5d7072c4-dc58-4c23-95f0-deffc0282175"
                 width="100%"
                 height="350px"
@@ -122,14 +122,14 @@ export default function Bsc() {
               <TYPE.largeHeader>Transaction</TYPE.largeHeader>
               <BlockBasicWrapper>
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815138/2987203/e6be20f7-d043-4aec-9746-47ce9aad4607"
                   width="100%"
                   height="230px"
                   frameBorder={0}
                 />
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815138/2987205/b3b0f78c-ede6-4c34-8886-125359c3f6ba"
                   width="100%"
                   height="230px"
@@ -137,7 +137,7 @@ export default function Bsc() {
                 />
 
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815138/2987205/b3b0f78c-ede6-4c34-8886-125359c3f6ba"
                   width="100%"
                   height="230px"
@@ -145,7 +145,7 @@ export default function Bsc() {
                 />
               </BlockBasicWrapper>
               <IfrarmeItem
-                //sandbox="allow-same-origin allow-scripts allow-popups"
+                sandbox="allow-same-origin allow-scripts allow-popups"
                 src="https://dune.com/embeds/1815138/2987210/8d086b48-be3e-4762-b6b2-3933d52b519c"
                 width="100%"
                 height="350px"
@@ -159,14 +159,14 @@ export default function Bsc() {
 
               <BlockBasicWrapper repeatNum={2}>
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815164/2987262/8f806255-5262-4a6a-854b-094bdb4d127c"
                   width="100%"
                   height="350px"
                   frameBorder={0}
                 />
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815164/2987264/d1b95529-140e-4688-88ee-9467ac90dbb3"
                   width="100%"
                   height="350px"
@@ -174,14 +174,14 @@ export default function Bsc() {
                 />
 
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815170/2987270/225e2fe2-15e5-4543-a0a3-60653229e196"
                   width="100%"
                   height="350px"
                   frameBorder={0}
                 />
                 <IfrarmeItem
-                  //sandbox="allow-same-origin allow-scripts allow-popups"
+                  sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815172/2987275/15440ada-fb2f-40fe-a0cf-606ac2c9c7a8"
                   width="100%"
                   height="350px"
@@ -190,7 +190,7 @@ export default function Bsc() {
               </BlockBasicWrapper>
 
               <IfrarmeItem
-                //sandbox="allow-same-origin allow-scripts allow-popups"
+                sandbox="allow-same-origin allow-scripts allow-popups"
                 src="https://tokenterminal.com/terminal/projects/binance-smart-chain/embed/key_metrics"
                 width="100%"
                 height="1350px"
