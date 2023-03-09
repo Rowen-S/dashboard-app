@@ -75,7 +75,7 @@ export default function Solana() {
             </BlockBasicWrapper>
 
             <IfrarmeItem
-              sandbox="allow-same-origin allow-scripts allow-popups"
+              //sandbox="allow-same-origin allow-scripts allow-popups"
               src="https://dune.com/embeds/1815299/2987466/dfed4f21-8dd7-41f9-b56c-c0c648d3a997"
               width="100%"
               height="350px"
@@ -87,7 +87,7 @@ export default function Solana() {
               <TYPE.largeHeader>Users</TYPE.largeHeader>
               <BlockBasicWrapper repeatNum={2}>
                 <IfrarmeItem
-                  sandbox="allow-same-origin allow-scripts allow-popups"
+                  //sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815391/2987577/947111be-fdc0-477c-87cd-8b8f0495964f"
                   width="100%"
                   height="230px"
@@ -95,7 +95,7 @@ export default function Solana() {
                 />
 
                 <IfrarmeItem
-                  sandbox="allow-same-origin allow-scripts allow-popups"
+                  //sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815394/2987581/1ba64a11-3fa0-4606-a1ea-65ec04f3ec8b"
                   width="100%"
                   height="230px"
@@ -103,7 +103,7 @@ export default function Solana() {
                 />
 
                 <IfrarmeItem
-                  sandbox="allow-same-origin allow-scripts allow-popups"
+                  //sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815410/2987601/bd2ffcf4-fb14-4c26-ae9f-da77e30ce7f7"
                   width="100%"
                   height="350px"
@@ -111,7 +111,7 @@ export default function Solana() {
                 />
 
                 <IfrarmeItem
-                  sandbox="allow-same-origin allow-scripts allow-popups"
+                  //sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815420/2987612/0ad0ba67-7333-4385-982d-16169c3816be"
                   width="100%"
                   height="350px"
@@ -124,14 +124,14 @@ export default function Solana() {
               <TYPE.largeHeader>Transaction</TYPE.largeHeader>
               <BlockBasicWrapper repeatNum={2}>
                 <IfrarmeItem
-                  sandbox="allow-same-origin allow-scripts allow-popups"
+                  //sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815493/2987696/c4951f53-264f-4c25-ac98-fe1c2890a93f"
                   width="100%"
                   height="230px"
                   frameBorder={0}
                 />
                 <IfrarmeItem
-                  sandbox="allow-same-origin allow-scripts allow-popups"
+                  //sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815493/2987694/d411340d-5403-4642-a097-1cda5901bfd7"
                   width="100%"
                   height="230px"
@@ -139,7 +139,7 @@ export default function Solana() {
                 />
               </BlockBasicWrapper>
               <IfrarmeItem
-                sandbox="allow-same-origin allow-scripts allow-popups"
+                //sandbox="allow-same-origin allow-scripts allow-popups"
                 src="https://dune.com/embeds/1815512/2987718/41d60b5c-9db6-48db-a156-c2fbf042c895"
                 width="100%"
                 height="350px"
@@ -147,7 +147,7 @@ export default function Solana() {
               />
 
               <IfrarmeItem
-                sandbox="allow-same-origin allow-scripts allow-popups"
+                //sandbox="allow-same-origin allow-scripts allow-popups"
                 src="https://dune.com/embeds/1815523/2987733/6e7d9839-6482-419d-8df4-2cad7f660e08"
                 width="100%"
                 height="350px"
@@ -161,14 +161,14 @@ export default function Solana() {
 
               <BlockBasicWrapper repeatNum={2}>
                 <IfrarmeItem
-                  sandbox="allow-same-origin allow-scripts allow-popups"
+                  //sandbox="allow-same-origin allow-scripts allow-popups"
                   src=" https://dune.com/embeds/1815536/2987761/8267d2b8-32d6-4e96-8480-2dd37223d065"
                   width="100%"
                   height="350px"
                   frameBorder={0}
                 />
                 <IfrarmeItem
-                  sandbox="allow-same-origin allow-scripts allow-popups"
+                  //sandbox="allow-same-origin allow-scripts allow-popups"
                   src="https://dune.com/embeds/1815534/2987749/731693c1-e341-45a7-984f-4cde42eb080b"
                   width="100%"
                   height="350px"
@@ -177,7 +177,7 @@ export default function Solana() {
               </BlockBasicWrapper>
 
               <IfrarmeItem
-                sandbox="allow-same-origin allow-scripts allow-popups"
+                //sandbox="allow-same-origin allow-scripts allow-popups"
                 src="https://tokenterminal.com/terminal/projects/solana/embed/key_metrics"
                 width="100%"
                 height="1350px"
