@@ -23,7 +23,7 @@ dashboard_app_build:
   variables:
     MODULE: 'dashboard-app'
   extends:
-    - .base-rules
+    # - .base-rules
     - .build_image
 
 dev_dashboard_app_deploy:
@@ -34,7 +34,7 @@ dev_dashboard_app_deploy:
     MODULE: 'dashboard-app'
     TARGET: "dex-dev"
   extends:
-    - .base-rules
+    # - .base-rules
     - .deploy_app
   needs:
     - job: dashboard_app_build
