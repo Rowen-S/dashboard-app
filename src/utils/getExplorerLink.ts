@@ -10,20 +10,21 @@ export enum ExplorerDataType {
  * @param type the type of the data
  */
 export function getExplorerLink(data: string, type: ExplorerDataType): string {
-  const prefix = `http://be-ci.respool2.wmcloud-qa.com/search?keywords`
+  // const prefix = `http://be-ci.respool2.wmcloud-qa.com/search?keywords`
+  const prefix = `http://be-ci-qa.datayes-stg.com/search?keywords`
 
   switch (type) {
     case ExplorerDataType.TAG:
       data = data.startsWith('#') ? data : '#' + data
-      return encodeURI(`${prefix}=${data}`)
+      return `${prefix}=${encodeURIComponent(data)}`
 
     case ExplorerDataType.QUERY:
-      return encodeURI(`${prefix}=${data}`)
+      return `${prefix}=${encodeURIComponent(data)}`
 
     case ExplorerDataType.ACCOUNT:
-      return encodeURI(`${prefix}=${data}`)
+      return `${prefix}=${encodeURIComponent(data)}`
 
     default:
-      return encodeURI(`${prefix}=${data}`)
+      return `${prefix}=${encodeURIComponent(data)}`
   }
 }

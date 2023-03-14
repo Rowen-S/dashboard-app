@@ -8,7 +8,7 @@ import styled from 'styled-components/macro'
 import { TYPE } from 'theme'
 import Row from 'components/Row'
 import { ButtonOutlined } from 'components/Button'
-// import SearchBar from './SearchBar'
+import SearchBar from './SearchBar'
 
 import LidoBg from 'assets/images/lido-bg.png'
 import LidoLogo from 'assets/images/logo-lido.png'
@@ -259,7 +259,7 @@ export default function Home() {
               Projects &nbsp; &nbsp; BlockChains &nbsp; &nbsp; Data &nbsp; &nbsp; Idea &nbsp; &nbsp;
             </TYPE.largeHeader>
           </AutoColumn>
-          {/* <SearchBar /> */}
+          <SearchBar />
         </HeroContentWrapper>
 
         {/* <VideoWrapper>

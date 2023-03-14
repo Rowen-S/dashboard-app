@@ -20,6 +20,7 @@ interface SuggestionResponse {
   message: string
 }
 
+// https://be-ci-qa.datayes-stg.com/search
 // Define a service using a base URL and expected endpoints
 export const dataYesApi = createApi({
   reducerPath: 'dataYesApi',
