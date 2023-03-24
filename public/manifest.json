@@ -1,10 +1,10 @@
 {
   "background_color": "#ffffff",
   "display": "standalone",
-  "homepage_url": "https://dashboard-azure-two.vercel.app",
+  "homepage_url": "https://slatehash.io",
   "providedBy": {
-    "name": "React App",
-    "url": "https://dashboard-azure-two.vercel.app"
+    "name": "Vetting Dashboard",
+    "url": "https://slatehash.io"
   },
   "icons": [
     {
@@ -19,10 +19,10 @@
     }
   ],
   "orientation": "portrait",
-  "name": "React App",
-  "description": "Web site created using create-react-app",
+  "name": "Vetting Dashboard",
+  "description": "The Vetting dashboard is a blockchain data disclosure platform that showcases the latest blockchain, web3 project data",
   "iconPath": "./images/256x256_App_Icon_Pink.svg",
-  "short_name": "dashboard",
+  "short_name": "Dashboard",
   "start_url": ".",
   "theme_color": "#000000"
 }
