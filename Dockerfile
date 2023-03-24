@@ -4,11 +4,7 @@ COPY . /app/
 RUN yarn && yarn build
 
 
-FROM harbor.hub.hashkey.com/middleware/nginx:hashkey-1.12.1
+FROM rapidfort/nginx-official:1.22.1-alpine-perl
 COPY --from=build-env /app/build /usr/share/nginx/html/
-
-USER nginx
-
-EXPOSE 80
 
 CMD nginx -g 'daemon off;'
