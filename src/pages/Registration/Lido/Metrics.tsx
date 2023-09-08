@@ -29,7 +29,7 @@ export default function Metrics() {
         <TopWrapper>
           {iframeList.map((ifr) => (
             <IfrarmeItem
-              sandbox="allow-same-origin allow-scripts"
+              sandbox="allow-same-origin allow-scripts allow-popups"
               key={ifr}
               src={ifr}
               width="100%"
@@ -44,7 +44,7 @@ export default function Metrics() {
         <TYPE.largeHeader>Revenue</TYPE.largeHeader>
         <Line />
         <iframe
-          sandbox="allow-same-origin allow-scripts"
+          sandbox="allow-same-origin allow-scripts allow-popups"
           src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/revenue_share'}
           width="100%"
           height="1350px"
@@ -55,7 +55,7 @@ export default function Metrics() {
         <TYPE.largeHeader>Metrics</TYPE.largeHeader>
         <Line />
         <iframe
-          sandbox="allow-same-origin allow-scripts"
+          sandbox="allow-same-origin allow-scripts allow-popups"
           src={'https://tokenterminal.com/terminal/projects/lido-finance/embed/key_metrics'}
           width="100%"
           height="1350px"

@@ -17,7 +17,7 @@ export default function UniswapDetail() {
       content: (
         <LightCard padding={'24px'}>
           <iframe
-            sandbox=""
+            sandbox="allow-same-origin allow-scripts allow-popups"
             src="https://docs.uniswap.org/protocol/introduction"
             width="100%"
             height="800"
